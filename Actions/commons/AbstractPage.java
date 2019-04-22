@@ -163,6 +163,7 @@ public class AbstractPage {
 		return element.isDisplayed();
 	}
 
+	
 	public boolean isControlSelected(WebDriver driver, String locator) {
 		WebElement element = driver.findElement(By.xpath(locator));
 		return element.isSelected();
@@ -350,16 +351,32 @@ public class AbstractPage {
 		return js.executeScript(javaSript);
 	}
 
-	public Object clickToElementByJS(WebDriver driver, String xpathName) {
-		WebElement element = driver.findElement(By.xpath(xpathName));
+	public Object clickToElementByJS(WebDriver driver, String locator) {
+		try{
+			WebElement element = driver.findElement(By.xpath(locator));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		return js.executeScript("arguments[0].click();", element);
+		}catch(Exception e) {
+			e.getMessage();
+			return null;
+		}
 	}
 
 	public Object sendkeyToElementByJS(WebDriver driver, String xpathName, String value) {
 		WebElement element = driver.findElement(By.xpath(xpathName));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		return js.executeScript("arguments[0].setAttribute('value', '" + value + "')", element);
+	}
+	
+	public boolean isImageDislayed(WebDriver driver, String locator, String value) {
+		try{
+			WebElement element = driver.findElement(By.xpath(locator));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		return (boolean) js.executeScript("return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0", element);
+		}catch(Exception e) {
+			e.getMessage();
+			return false;
+		}
 	}
 
 	public Object scrollToBottomPage(WebDriver driver) {
@@ -408,5 +425,6 @@ public class AbstractPage {
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
 	}
+	
 
 }

@@ -11,7 +11,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Account_01_RegisterAndLoginToSystem {
+public class RegisterLogin_Level_1_StepByStep {
 	WebDriver driver;
 	private String email, UserID, password, LoginURL;//
 	@Test
@@ -26,11 +26,15 @@ public class Account_01_RegisterAndLoginToSystem {
 		  UserID=driver.findElement(By.xpath("//td[text()='User ID :']/following-sibling::td")).getText();
 		  password=driver.findElement(By.xpath("//td[text()='Password :']/following-sibling::td")).getText();
 		  
+		  System.out.println("UserID: "+UserID);
+		  System.out.println("Password: "+ password);
+		  
 	  }
 	  @Test
 	  public void TC_02_LoginWithAboveInformation() {
 		  
 		  driver.get(LoginURL);
+		  Assert.assertTrue(driver.findElement(By.xpath("//form[@name='frmLogin']")).isDisplayed());
 		  driver.findElement(By.xpath("//input[@name='uid']")).sendKeys(UserID);
 		  driver.findElement(By.xpath("//input[@name='password']")).sendKeys(password);
 		  driver.findElement(By.xpath("//input[@name='btnLogin']")).click();
