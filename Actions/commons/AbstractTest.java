@@ -22,7 +22,7 @@ public WebDriver opentMultiBrowser(String browserName) {
 		chromeOptions.addArguments("--headless");
 		driver = new ChromeDriver(chromeOptions);
 	}
-
+	driver.get(Constansts.DEV_URL);
 	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	driver.manage().window().maximize();
 	System.out.println("Driver in Abstract Test: "+driver.toString());
