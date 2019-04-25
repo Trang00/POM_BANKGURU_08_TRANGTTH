@@ -15,6 +15,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -28,8 +29,17 @@ import com.sun.corba.se.spi.orbutil.fsm.Action;
 import com.sun.corba.se.spi.orbutil.fsm.FSM;
 import com.sun.corba.se.spi.orbutil.fsm.Input;
 
+
 public class AbstractPage {
 
+	WebElement element;
+	List<WebElement> elements;
+	JavascriptExecutor javascriptExecutor;
+	WebDriverWait waitExplicit;
+	Actions action;
+	By byLocator;
+	long shortTimeout=5;
+	long longTimeout=30;
 	// WEB BROWSER
 	public void openURL(WebDriver driver, String url) {
 		driver.get(url);
@@ -108,7 +118,7 @@ public class AbstractPage {
 			String valueExpected) throws Exception {
 
 		JavascriptExecutor javascript = (JavascriptExecutor) driver;
-		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebDriverWait wait = new WebDriverWait(driver, longTimeout);
 
 		WebElement parent = driver.findElement(By.xpath(parentXpath));
 		javascript.executeScript("arguments[0].click();", parent);
@@ -163,7 +173,6 @@ public class AbstractPage {
 		return element.isDisplayed();
 	}
 
-	
 	public boolean isControlSelected(WebDriver driver, String locator) {
 		WebElement element = driver.findElement(By.xpath(locator));
 		return element.isSelected();
@@ -210,6 +219,15 @@ public class AbstractPage {
 			return false;
 	}
 
+	public void switchToIframe(WebDriver driver, String locator) {
+		WebElement element = driver.findElement(By.xpath(locator));
+		driver.switchTo().frame(element);
+	}
+	
+	public void backToTopWindow(WebDriver driver) {
+		driver.switchTo().defaultContent();
+	}
+	
 	public void doubleClickToElement(WebDriver driver, String locator) {
 		WebElement element = driver.findElement(By.xpath(locator));
 		Actions action = new Actions(driver);
@@ -219,9 +237,15 @@ public class AbstractPage {
 	public void hoverToElement(WebDriver driver, String locator) {
 		WebElement element = driver.findElement(By.xpath(locator));
 		Actions action = new Actions(driver);
-		action.moveToElement(element);
+		action.moveToElement(element).perform();
 	}
-
+	
+	public void pressKeyToElement(WebDriver driver, String locator, Keys key) {
+		WebElement element = driver.findElement(By.xpath(locator));
+		Actions action = new Actions(driver);
+		action.sendKeys(element, key);
+	}
+	
 	public void rightClick(WebDriver driver, String locator) {
 		WebElement element = driver.findElement(By.xpath(locator));
 		Actions action = new Actions(driver);
@@ -407,22 +431,22 @@ public class AbstractPage {
 	}
 
 	public void waitForControlPresence(WebDriver driver, String locator) {
-		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebDriverWait wait = new WebDriverWait(driver, longTimeout);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
 	}
 
 	public void waitForControlVisible(WebDriver driver, String locator) {
-		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebDriverWait wait = new WebDriverWait(driver, longTimeout);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
 	}
 
 	public void waitForControlNotVisible(WebDriver driver, String locator) {
-		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebDriverWait wait = new WebDriverWait(driver, longTimeout);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(locator)));
 	}
 
 	public void waitForControlClickable(WebDriver driver, String locator) {
-		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebDriverWait wait = new WebDriverWait(driver, longTimeout);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
 	}
 	
