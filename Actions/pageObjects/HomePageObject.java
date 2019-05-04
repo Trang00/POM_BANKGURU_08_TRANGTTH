@@ -15,4 +15,6 @@ public class HomePageObject extends AbstractPage{
 		waitForControlVisible(driver,HomePageUI.HOMEPAGE_WELCOME_MESSAGE);
 		return isControlDisplayed(driver, HomePageUI.HOMEPAGE_WELCOME_MESSAGE);
 	}
+	
+	
 }

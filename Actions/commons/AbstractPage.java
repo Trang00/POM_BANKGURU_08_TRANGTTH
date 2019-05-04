@@ -29,6 +29,18 @@ import com.sun.corba.se.spi.orbutil.fsm.Action;
 import com.sun.corba.se.spi.orbutil.fsm.FSM;
 import com.sun.corba.se.spi.orbutil.fsm.Input;
 
+import pageObjects.DepositPageObject;
+import pageObjects.FundTransterPageObject;
+import pageObjects.HomePageObject;
+import pageObjects.NewAccountPageObject;
+import pageObjects.NewCustomerPageObject;
+import pageObjects.PageFactoryManager;
+import pageUIs.AbstractPageUI;
+import pageUIs.DepositPageUI;
+import pageUIs.HomePageUI;
+import pageUIs.NewAccountPageUI;
+import pageUIs.NewCustomerPageUI;
+
 
 public class AbstractPage {
 
@@ -231,7 +243,7 @@ public class AbstractPage {
 	public void doubleClickToElement(WebDriver driver, String locator) {
 		WebElement element = driver.findElement(By.xpath(locator));
 		Actions action = new Actions(driver);
-		action.doubleClick(element);
+		action.doubleClick(element).perform();
 	}
 
 	public void hoverToElement(WebDriver driver, String locator) {
@@ -240,10 +252,10 @@ public class AbstractPage {
 		action.moveToElement(element).perform();
 	}
 	
-	public void pressKeyToElement(WebDriver driver, String locator, Keys key) {
+	public void sendKeyboardToElement(WebDriver driver, String locator, Keys key) {
 		WebElement element = driver.findElement(By.xpath(locator));
 		Actions action = new Actions(driver);
-		action.sendKeys(element, key);
+		action.sendKeys(element, key).perform();
 	}
 	
 	public void rightClick(WebDriver driver, String locator) {
@@ -449,6 +461,34 @@ public class AbstractPage {
 		WebDriverWait wait = new WebDriverWait(driver, longTimeout);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
 	}
+	///////
+	public NewCustomerPageObject openNewCustomerPage(WebDriver driver) {
+		waitForControlVisible(driver, AbstractPageUI.NEW_CUSTOMER_LINK);
+		clickToElement(driver, AbstractPageUI.NEW_CUSTOMER_LINK);
+		return PageFactoryManager.getNewCustomerPage(driver);
+	}
+	public NewAccountPageObject openNewAccountPage(WebDriver driver) {
+		waitForControlVisible(driver, AbstractPageUI.NEW_ACCOUNT_LINK);
+		clickToElement(driver, AbstractPageUI.NEW_ACCOUNT_LINK);
+		return PageFactoryManager.getNewAccountPage(driver);
+	}
+	public DepositPageObject openDepositPage(WebDriver driver) {
+		waitForControlVisible(driver,AbstractPageUI.DEPOSIT_LINK);
+		clickToElement(driver, AbstractPageUI.DEPOSIT_LINK);
+		return PageFactoryManager.getDepositPage(driver);
+	}
+	public FundTransterPageObject openFundTransferPage(WebDriver driver) {
+		waitForControlVisible(driver, AbstractPageUI.FUNDTRANSTER_LINK);
+		clickToElement(driver, AbstractPageUI.FUNDTRANSTER_LINK);
+		return PageFactoryManager.openFundTransferPage(driver);
+	}
+	public HomePageObject openHomePage(WebDriver driver) {
+		waitForControlVisible(driver, AbstractPageUI.HOMEPAGE_LINK);
+		clickToElement(driver, AbstractPageUI.HOMEPAGE_LINK);
+		return PageFactoryManager.openHomePage(driver);
+	}
+	
+	
 	
 
 }

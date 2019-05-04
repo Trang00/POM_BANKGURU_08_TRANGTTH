@@ -27,7 +27,9 @@ public class RegisterPageObject extends AbstractPage {
 		waitForControlVisible(driver, RegisterPageUI.PASSWORD_TEXT);
 		return getTextInElement(driver, RegisterPageUI.PASSWORD_TEXT);
 	}
-	public void openLoginPage(String loginPageUrl) {
+	public LoginPageObject openLoginPage(String loginPageUrl) {
 		openURL(driver, loginPageUrl);
+		//return new LoginPageObject(driver);
+		return PageFactoryManager.getLoginPage(driver);
 	}
 }

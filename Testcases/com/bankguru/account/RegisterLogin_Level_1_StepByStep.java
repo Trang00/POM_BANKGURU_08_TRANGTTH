@@ -59,6 +59,6 @@ public class RegisterLogin_Level_1_StepByStep {
 
 	  @AfterClass
 	  public void afterClass() {
-		  driver.quit();
+		 driver.quit();
 	  }
 }

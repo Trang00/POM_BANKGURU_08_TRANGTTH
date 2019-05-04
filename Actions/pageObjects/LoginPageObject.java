@@ -25,14 +25,16 @@ public class LoginPageObject extends AbstractPage{
 		waitForControlVisible(driver, LoginPageUI.PASSWORD_TEXTBOX);
 		senkeyToElement(driver, LoginPageUI.PASSWORD_TEXTBOX, password);
 	}
-	public void clickToLoginButton() {
+	public HomePageObject clickToLoginButton() {
 		waitForControlVisible(driver, LoginPageUI.LOGIN_BUTTON);
 		clickToElement(driver, LoginPageUI.LOGIN_BUTTON);
-		
+		return PageFactoryManager.getHomePage(driver);
 	}
-	public void clickToHereLink() {
+	public RegisterPageObject clickToHereLink() {
 		waitForControlVisible(driver, LoginPageUI.HERE_LINK);
 		clickToElement(driver, LoginPageUI.HERE_LINK);
-		
+		//return new RegisterPageObject(driver);
+		return PageFactoryManager.getRegisterPage(driver);
 	}
+
 }

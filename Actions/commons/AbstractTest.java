@@ -1,5 +1,6 @@
 package commons;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -9,7 +10,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class AbstractTest {
 	private WebDriver driver;
-public WebDriver opentMultiBrowser(String browserName) {
+protected WebDriver opentMultiBrowser(String browserName) {
 	if (browserName.equals("chrome")) {
 		System.setProperty("webdriver.chrome.driver", ".\\Resources\\chromedriver.exe");
 		driver = new ChromeDriver();
@@ -27,5 +28,10 @@ public WebDriver opentMultiBrowser(String browserName) {
 	driver.manage().window().maximize();
 	System.out.println("Driver in Abstract Test: "+driver.toString());
 	return driver;
+}
+protected int randomNumber() {
+	  Random random= new Random();
+	  int number=random.nextInt(999);
+	  return number;
 }
 }
