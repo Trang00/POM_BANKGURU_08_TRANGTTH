@@ -107,6 +107,12 @@ public class AbstractPage {
 		WebElement element = driver.findElement(By.xpath(locator));
 		element.click();
 	}
+	public void clickToElement(WebDriver driver, String locator, String ...dynamicValue) {
+		locator=String.format(locator, (Object[])dynamicValue );
+		WebElement element = driver.findElement(By.xpath(locator));
+		element.click();
+	}
+
 
 	public void senkeyToElement(WebDriver driver, String locator, String value) {
 		WebElement element = driver.findElement(By.xpath(locator));
@@ -181,6 +187,11 @@ public class AbstractPage {
 	}
 
 	public boolean isControlDisplayed(WebDriver driver, String locator) {
+		WebElement element = driver.findElement(By.xpath(locator));
+		return element.isDisplayed();
+	}
+	public boolean isControlDisplayed(WebDriver driver, String locator, String ...dynamicValue) {
+		locator=String.format(locator, (Object[])dynamicValue );
 		WebElement element = driver.findElement(By.xpath(locator));
 		return element.isDisplayed();
 	}
@@ -451,7 +462,11 @@ public class AbstractPage {
 		WebDriverWait wait = new WebDriverWait(driver, longTimeout);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
 	}
-
+	public void waitForControlVisible(WebDriver driver, String locator, String ...dynamicValue) {
+		locator=String.format(locator, (Object[])dynamicValue );
+		WebDriverWait wait = new WebDriverWait(driver, longTimeout);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
+	}
 	public void waitForControlNotVisible(WebDriver driver, String locator) {
 		WebDriverWait wait = new WebDriverWait(driver, longTimeout);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(locator)));
@@ -486,6 +501,30 @@ public class AbstractPage {
 		waitForControlVisible(driver, AbstractPageUI.HOMEPAGE_LINK);
 		clickToElement(driver, AbstractPageUI.HOMEPAGE_LINK);
 		return PageFactoryManager.openHomePage(driver);
+	}
+	////
+	public AbstractPage openDynamicPage(WebDriver driver, String pageName) {
+		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_LINK,pageName );
+		clickToElement(driver, AbstractPageUI.DYNAMIC_LINK,pageName);
+		 switch(pageName) {
+		 	case "New Customer":
+		 		return PageFactoryManager.getNewCustomerPage(driver);
+		 	case "Edit Customer":
+		 		return PageFactoryManager.getNewCustomerPage(driver);
+		 	case "Deposit":
+		 		return PageFactoryManager.getDepositPage(driver);
+		 	case "New Account":
+		 		return PageFactoryManager.getNewAccountPage(driver);
+		 	case "Fund Transfer":
+		 		return PageFactoryManager.openFundTransferPage(driver);
+		 	default:
+		 		return PageFactoryManager.getHomePage(driver);
+		 }
+	}
+	public void openDynamicMorePage(WebDriver driver, String pageName) {
+		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_LINK,pageName );
+		clickToElement(driver, AbstractPageUI.DYNAMIC_LINK,pageName);
+		 
 	}
 	
 	

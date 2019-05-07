@@ -7,5 +7,7 @@ public class AbstractPageUI {
 	public static final String FUNDTRANSTER_LINK="//a[text()='Fund Transfer']";
 	public static final String HOMEPAGE_LINK="//a[text()='Manager']";
 	
+	public static final String DYNAMIC_LINK="//a[text()='%s']";
+	
 	
 }
