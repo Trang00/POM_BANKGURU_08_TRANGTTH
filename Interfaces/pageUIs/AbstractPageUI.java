@@ -9,5 +9,8 @@ public class AbstractPageUI {
 	
 	public static final String DYNAMIC_LINK="//a[text()='%s']";
 	
+	public static final String DYNAMIC_SENKEY="//input[@name='%s']";
+	
+	public static final String ADDRESS_TEXTAREA="//textarea[@name='addr']";
 	
 }
