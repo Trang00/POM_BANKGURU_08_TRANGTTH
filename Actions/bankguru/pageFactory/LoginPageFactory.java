@@ -6,13 +6,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-import bsh.This;
+
 import commons.AbstractPage;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.PageFactoryManager;
-import pageObjects.RegisterPageObject;
-import pageUIs.LoginPageUI;
+
 
 public class LoginPageFactory extends AbstractPage {
 	private WebDriver driver;
@@ -21,10 +17,10 @@ public class LoginPageFactory extends AbstractPage {
 	private WebElement loginForm;
 	
 	@FindBy(how= How.NAME, using="uid")
-	private WebElement userIDtextbox;
+	private WebElement userIDTextbox;
 	
 	@FindBy(how= How.NAME, using="password")
-	private WebElement passwordtextbox;
+	private WebElement passwordTextbox;
 	
 	@FindBy(how= How.CSS, using="//input[@name='btnLogin']")
 	private WebElement loginButton;
@@ -32,37 +28,34 @@ public class LoginPageFactory extends AbstractPage {
 	@FindBy(how= How.XPATH, using="//a[text()='here']")
 	private WebElement hereLink;
 	
+	@FindBy(how= How.NAME, using="emailid")
+	private WebElement emailIDTextbox;
+	
 	public LoginPageFactory(WebDriver mappingDriver) {
 		this.driver=mappingDriver;
+		//driver=mappingDriver;
 		PageFactory.initElements(driver, this.getClass());
+		//PageFactory.initElements(driver.this);
+	}
+	public boolean isLoginFormDisplayes() {
+		return loginForm.isDisplayed();
 	}
 	public String getLoginPageUrl() {
 		return getCurrenUrl(driver);
 	}
 	
-	public LoginPageObject openLoginPage(String loginPageUrl) {
-		openURL(driver, loginPageUrl);
-		return new LoginPageObject(driver);
-		//return PageFactoryManager.getLoginPage(driver);
-	}
 	public void inputToUserIDTextbox(String userID) {
-		waitForControlVisible(driver, LoginPageUI.USERID_TEXTBOX);
-		senkeyToElement(driver, LoginPageUI.USERID_TEXTBOX, userID);
+		userIDTextbox.sendKeys(userID);
 	}
 	public void inputToPasswordTextbox(String password) {
-		waitForControlVisible(driver, LoginPageUI.PASSWORD_TEXTBOX);
-		senkeyToElement(driver, LoginPageUI.PASSWORD_TEXTBOX, password);
+		passwordTextbox.sendKeys(password);
 	}
-	public HomePageObject clickToLoginButton() {
-		waitForControlVisible(driver, LoginPageUI.LOGIN_BUTTON);
-		clickToElement(driver, LoginPageUI.LOGIN_BUTTON);
-		return PageFactoryManager.getHomePage(driver);
+	public void clickToLoginButton() {
+		loginButton.click();
 	}
-	public RegisterPageObject clickToHereLink() {
-		waitForControlVisible(driver, LoginPageUI.HERE_LINK);
-		clickToElement(driver, LoginPageUI.HERE_LINK);
-		return new RegisterPageObject(driver);
-		//return PageFactoryManager.getRegisterPage(driver);
+
+	public void clickToHereLink() {
+		hereLink.click();
 	}
 	
 
