@@ -1,21 +1,12 @@
 package com.bankguru.account;
 
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
-import commons.AbstractPage;
 import commons.AbstractTest;
 import pageObjects.DepositPageObject;
 import pageObjects.FundTransterPageObject;
@@ -28,7 +19,6 @@ import pageObjects.RegisterPageObject;
 
 public class RegisterLogin_Level_6_DynamicLocator_RestParameter extends AbstractTest {
 	private WebDriver driver;
-	private AbstractPage abstractPage;
 	private String email, UserID, password, LoginURL;
 	private LoginPageObject loginPage;
 	private RegisterPageObject registerPage;
@@ -115,7 +105,7 @@ public class RegisterLogin_Level_6_DynamicLocator_RestParameter extends Abstract
 		Assert.assertTrue(depositPage.isNewDepositPageDisplayed());
 		
 		depositPage.openDynamicMorePage(driver, "Fund Transfer");
-		fundTransferPage=PageFactoryManager.openFundTransferPage(driver);
+		fundTransferPage=PageFactoryManager.getFundTransferPage(driver);
 		Assert.assertTrue(fundTransferPage.isFundTransferDisplayed());
 		
 		fundTransferPage.openDynamicMorePage(driver, "Manager");
