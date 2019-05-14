@@ -6,10 +6,7 @@ import commons.AbstractPage;
 import commons.Constansts;
 import pageUIs.EditCustomerPageUI;
 import pageUIs.HomePageUI;
-import pageUIs.LoginPageUI;
-import pageUIs.NewAccountPageUI;
 import pageUIs.NewCustomerPageUI;
-import pageUIs.RegisterPageUI;
 
 public class NewCustomerPageObject extends AbstractPage{
 	WebDriver driver;

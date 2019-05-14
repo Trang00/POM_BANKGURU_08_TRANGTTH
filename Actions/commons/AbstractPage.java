@@ -6,14 +6,13 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
-import java.io.IOException;
-import java.util.Date;
+
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.Alert;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
@@ -25,11 +24,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-
-import com.sun.corba.se.spi.orbutil.fsm.Action;
-import com.sun.corba.se.spi.orbutil.fsm.FSM;
-import com.sun.corba.se.spi.orbutil.fsm.Input;
 
 import pageObjects.DepositPageObject;
 import pageObjects.FundTransterPageObject;
@@ -38,10 +32,7 @@ import pageObjects.NewAccountPageObject;
 import pageObjects.NewCustomerPageObject;
 import pageObjects.PageFactoryManager;
 import pageUIs.AbstractPageUI;
-import pageUIs.DepositPageUI;
-import pageUIs.HomePageUI;
-import pageUIs.NewAccountPageUI;
-import pageUIs.NewCustomerPageUI;
+
 
 
 public class AbstractPage {
@@ -506,7 +497,7 @@ public class AbstractPage {
 	public FundTransterPageObject openFundTransferPage(WebDriver driver) {
 		waitForControlVisible(driver, AbstractPageUI.FUNDTRANSTER_LINK);
 		clickToElement(driver, AbstractPageUI.FUNDTRANSTER_LINK);
-		return PageFactoryManager.openFundTransferPage(driver);
+		return PageFactoryManager.getFundTransferPage(driver);
 	}
 	public HomePageObject openHomePage(WebDriver driver) {
 		waitForControlVisible(driver, AbstractPageUI.HOMEPAGE_LINK);
@@ -527,7 +518,15 @@ public class AbstractPage {
 		 	case "New Account":
 		 		return PageFactoryManager.getNewAccountPage(driver);
 		 	case "Fund Transfer":
-		 		return PageFactoryManager.openFundTransferPage(driver);
+		 		return PageFactoryManager.getFundTransferPage(driver);
+		 	case "Withdrawal":
+		 		return PageFactoryManager.getWithdrawPage(driver);
+		 	case "Balance Enquiry":
+		 		return PageFactoryManager.getBalanceEnquiryPage(driver);
+		 	case "Delete Account":
+		 		return PageFactoryManager.getDeleteAccountPage(driver);
+		 	case"Delete Customer":
+		 		return PageFactoryManager.getDeleteCustomerPage(driver);
 		 	default:
 		 		return PageFactoryManager.getHomePage(driver);
 		 }

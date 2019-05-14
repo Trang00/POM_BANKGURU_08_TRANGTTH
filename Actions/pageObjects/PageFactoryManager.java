@@ -27,10 +27,22 @@ public class PageFactoryManager {
 	public static DepositPageObject getDepositPage(WebDriver driver) {
 		return new DepositPageObject(driver);
 	}
-	public static FundTransterPageObject openFundTransferPage(WebDriver driver) {
+	public static FundTransterPageObject getFundTransferPage(WebDriver driver) {
 		return new FundTransterPageObject(driver);
 	}
 	public static HomePageObject openHomePage(WebDriver driver) {
 		return new HomePageObject(driver);
+	}
+	public static WithdrawPageObject getWithdrawPage(WebDriver driver) {
+		return new WithdrawPageObject(driver);
+	}
+	public static BalanceEnquiryPageObject getBalanceEnquiryPage(WebDriver driver) {
+		return new BalanceEnquiryPageObject(driver);
+	}
+	public static DeleteAccountPageObject getDeleteAccountPage(WebDriver driver) {
+		return new DeleteAccountPageObject(driver);
+	}
+	public static DeleteCustomerPageObject getDeleteCustomerPage(WebDriver driver) {
+		return new DeleteCustomerPageObject(driver);
 	}
 }

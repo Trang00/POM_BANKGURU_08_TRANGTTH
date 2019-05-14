@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPage;
 import pageUIs.HomePageUI;
-import pageUIs.LoginPageUI;
 
 public class HomePageObject extends AbstractPage{
 	WebDriver driver;
@@ -14,6 +13,10 @@ public class HomePageObject extends AbstractPage{
 	public boolean isHomePageDisplayed() {
 		waitForControlVisible(driver,HomePageUI.HOMEPAGE_WELCOME_MESSAGE);
 		return isControlDisplayed(driver, HomePageUI.HOMEPAGE_WELCOME_MESSAGE);
+	}
+	public boolean isNewCustomerPageDisplayed() {
+		waitForControlNotVisible(driver, HomePageUI.NO_HOMEPAGE_WELCOME_MESSAGE);
+		return isControlUndisplayed(driver, HomePageUI.NO_HOMEPAGE_WELCOME_MESSAGE);
 	}
 	
 	

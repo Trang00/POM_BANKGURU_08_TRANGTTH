@@ -9,4 +9,6 @@ public class NewAccountPageUI {
 	
 	public static final String NEW_ACCOUNT_SUCCESSFULLY_TEXT="//p[text()='Account Generated Successfully!!!']";
 	public static final String CURRENT_AMOUNT_TEXT="//td[text()='Current Amount']//following-sibling::td";
+	
+	public static final String ACCOUNT_ID_TEXT="//td[text()='Account ID']//following-sibling::td";
 }

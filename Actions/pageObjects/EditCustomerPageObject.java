@@ -5,11 +5,7 @@ import org.openqa.selenium.WebDriver;
 import commons.AbstractPage;
 import commons.Constansts;
 import pageUIs.EditCustomerPageUI;
-import pageUIs.HomePageUI;
-import pageUIs.LoginPageUI;
-import pageUIs.NewAccountPageUI;
-import pageUIs.NewCustomerPageUI;
-import pageUIs.RegisterPageUI;
+
 
 public class EditCustomerPageObject extends AbstractPage{
 	WebDriver driver;

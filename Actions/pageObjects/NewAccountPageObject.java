@@ -4,12 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPage;
 import commons.Constansts;
-import pageUIs.DepositPageUI;
-import pageUIs.EditCustomerPageUI;
-import pageUIs.HomePageUI;
-import pageUIs.LoginPageUI;
 import pageUIs.NewAccountPageUI;
-import pageUIs.NewCustomerPageUI;
 
 public class NewAccountPageObject extends AbstractPage{
 	WebDriver driver;
@@ -28,7 +23,6 @@ public class NewAccountPageObject extends AbstractPage{
 		waitForControlVisible(driver, NewAccountPageUI.ACCOUNT_TYPE_DROPDOWN);
 		selectItemInHtmlDropdown(driver, NewAccountPageUI.ACCOUNT_TYPE_DROPDOWN, Constansts.ACCOUNT_TYPE_SENKEY);
 		getSelectedItemInHtmlDropdown(driver, NewAccountPageUI.ACCOUNT_TYPE_DROPDOWN);
-		
 	}
 	public void inpuInitialDeposit() {
 		waitForControlVisible(driver, NewAccountPageUI.INITIAL_DEPOSIT_TEXT);
@@ -49,6 +43,10 @@ public class NewAccountPageObject extends AbstractPage{
 	public  String getCurrentAmount() {
 		waitForControlVisible(driver, NewAccountPageUI.CURRENT_AMOUNT_TEXT);
 		return getTextInElement(driver, NewAccountPageUI.CURRENT_AMOUNT_TEXT);
+	}
+	public String getAccountIDText() {
+		waitForControlVisible(driver, NewAccountPageUI.ACCOUNT_ID_TEXT);
+		return getTextInElement(driver, NewAccountPageUI.ACCOUNT_ID_TEXT);
 	}
 	
 }

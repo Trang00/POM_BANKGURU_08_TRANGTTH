@@ -6,7 +6,7 @@ public class Constansts {
 	public static final String USER="mngr192711";
 	public static final String PASS="unadyhy";
 	
-	public static final String CUSTOMER_NAME_SENKEY="AUTOMATION TESTING gh";
+	public static final String CUSTOMER_NAME_SENKEY="AUTOMATION TESTING ghojhy";
 	public static final String DATEOFBIRTH_SENKEY="01/01/1989";
 	public static final String ADDRESS_SENKEY="PO BOX 911 8331 Duis Avenue";
 	public static final String CITY_SENKEY="Tampa";
@@ -24,4 +24,14 @@ public class Constansts {
 	public static final String ACCOUNT_TYPE_SENKEY="Current";
 	public static final String INITIAL_DEPOSIT_SENKEY="50000";
 	
+	public static final String AMOUNT_SENKEY="5000";
+	public static final String DESCRIPTION_SENKEY="Deposit";
+	
+	public static final String AMOUNT_WITHDRAWAL_SENKEY="15000";
+	public static final String DESCRIPTION_WITHDRAWAL_SENKEY="Withdrawal";
+	
+	
+	public static final String PAYEES_ACCOUNT_SENKEY="59983";
+	public static final String AMOUNT_FUND_TRANSFER_SENKEY="10000";
+	public static final String DESCRIPTION_FUND_TRANSFER_SENKEY="Transfer";
 }
