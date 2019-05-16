@@ -1,6 +1,8 @@
 package com.bankguru.account;
 
 
+import java.lang.reflect.Method;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -23,35 +25,66 @@ public class RegisterLogin_Level_8_Assert_Verify_Log_Report extends AbstractTest
 	private NewCustomerPageObject newCustomerPage;
 
 	@Test
-	public void TC_01_RegisterToSystem() {
+	public void TC_01_RegisterToSystem(Method testMethod) {
+		log.info("============== START: "+testMethod.getName()+" ============== ");
+		
+		log.info("TC_01 - Step 01: Get Login page URL");
 		LoginURL =loginPage.getLoginPageUrl();
+		
+		log.info("TC_01 - Step 02: Click to hete link");
 		registerPage=loginPage.clickToHereLink();
+		
+		log.info("TC_01 - Step 03: Input data to Email textbox");
 		registerPage.inputToEmailIDTextbox(email);
+		
+		log.info("TC_01 - Step 04: Click to Submit button");
 		registerPage.clickToSubmitButton();
+		
+		log.info("TC_01 - Step 05: Get User/ Pass information");
 		UserID=registerPage.getUserIDText();
 		password=registerPage.getPasswordText();
+		
+		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 
 	@Test
-	public void TC_02_LoginWithAboveInformation() {
-		loginPage=registerPage.openLoginPage(LoginURL);
-		loginPage.inputToUserIDTextbox(UserID);
-		loginPage.inputToPasswordTextbox(password);
-		homePage=loginPage.clickToLoginButton();
-		Assert.assertTrue(homePage.isHomePageDisplayed());
+	public void TC_02_LoginWithAboveInformation(Method testMethod) {
+		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
-		Assert.assertTrue(homePage.isNewCustomerPageDisplayed());
+		log.info("TC_02 - Step 01: Open Login Page Url");
+		loginPage=registerPage.openLoginPage(LoginURL);
+		
+		log.info("TC_02 - Step 02: Input to UserID textbox");
+		loginPage.inputToUserIDTextbox(UserID);
+		
+		log.info("TC_02 - Step 03: Input to password textbox");
+		loginPage.inputToPasswordTextbox(password);
+		
+		log.info("TC_02 - Step 04: Click to Login Button");
+		homePage=loginPage.clickToLoginButton();
+		
+		log.info("TC_02 - Step 05: Verify Home page displayed");
+		verifyTrue(homePage.isHomePageDisplayed());
+		
+		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test
-	public void TC_03_CheckUndisplayedOverrideTimeout() {
-	
+	public void TC_03_CheckUndisplayedOverrideTimeout(Method testMethod) {
+		log.info("============== START: "+testMethod.getName()+" ============== ");
+		
+		log.info("TC_03 - Step 01: Open New Customer Page");
 		newCustomerPage=homePage.openNewCustomerPage(driver);
 		
+		log.info("TC_03 - Step 02: verify New Customer page displayed");
 		Assert.assertTrue(newCustomerPage.isNewCustomerPageDisplayed());
-		//Có trong DOM- ko visible
+
+		log.info("TC_03 - Step 03: verify Add Customer page displayed");
 		Assert.assertTrue(newCustomerPage.isAddCustomerFormUndisplayed());
-		// Không có trong DOM
+		
+		log.info("TC_03 - Step 04: verify Home page displayed");
 		Assert.assertTrue(newCustomerPage.isHomePageUnDisplayed());
+		
+		log.info("============== AND: "+testMethod.getName()+" ============== ");
 		
 	}
 
