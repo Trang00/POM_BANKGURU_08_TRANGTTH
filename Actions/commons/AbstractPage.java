@@ -6,7 +6,6 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
-
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -97,23 +96,27 @@ public class AbstractPage {
 
 	// WEB ELEMENT
 	public void clickToElement(WebDriver driver, String locator) {
+		highlightElement(driver, locator);
 		WebElement element = driver.findElement(By.xpath(locator));
 		element.click();
 	}
 
 	public void clickToElement(WebDriver driver, String locator, String... dynamicValue) {
+		highlightElement(driver, locator);
 		locator = String.format(locator, (Object[]) dynamicValue);
 		WebElement element = driver.findElement(By.xpath(locator));
 		element.click();
 	}
 
 	public void senkeyToElement(WebDriver driver, String locator, String value) {
+		highlightElement(driver, locator);
 		WebElement element = driver.findElement(By.xpath(locator));
 		element.clear();
 		element.sendKeys(value);
 	}
 
 	public void senkeyToElement(WebDriver driver, String value, String locator, String... dynamicValue) {
+		highlightElement(driver, locator);
 		locator = String.format(locator, (Object[]) dynamicValue);
 		WebElement element = driver.findElement(By.xpath(locator));
 		element.clear();
@@ -163,6 +166,7 @@ public class AbstractPage {
 	}
 
 	public String getTextInElement(WebDriver driver, String locator) {
+		highlightElement(driver, locator);
 		WebElement element = driver.findElement(By.xpath(locator));
 		return element.getText();
 	}
@@ -187,6 +191,7 @@ public class AbstractPage {
 	}
 
 	public boolean isControlDisplayed(WebDriver driver, String locator) {
+		highlightElement(driver, locator);
 		try {
 			WebElement element = driver.findElement(By.xpath(locator));
 			boolean status=element.isDisplayed();
@@ -197,6 +202,7 @@ public class AbstractPage {
 	}
 
 	public boolean isControlDisplayed(WebDriver driver, String locator, String... dynamicValue) {
+		highlightElement(driver, locator);
 		locator = String.format(locator, (Object[]) dynamicValue);
 		WebElement element = driver.findElement(By.xpath(locator));
 		return element.isDisplayed();
@@ -444,12 +450,23 @@ public class AbstractPage {
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 	}
 
-	public void highlightElement(WebDriver drive, String xpathName) {
+	public void highlight(WebDriver drive, String xpathName) {
 		WebElement element = drive.findElement(By.xpath(xpathName));
 		JavascriptExecutor js = (JavascriptExecutor) drive;
 		js.executeScript("arguments[0].style.border='6px groove red'", element);
 	}
-
+	public void highlightElement(WebDriver driver, String locator) {
+		javascriptExecutor = (JavascriptExecutor) driver;
+		element = driver.findElement(By.xpath(locator));
+		String originalStyle=element.getAttribute("style");
+		javascriptExecutor.executeScript("arguments[0].setAttribute(arguments[1],arguments[2])", element,"style","border:3px solid red; border-style:dashed;");
+		try {
+			Thread.sleep(500);
+		}catch(InterruptedException e) {
+			e.printStackTrace();
+		}
+		javascriptExecutor.executeScript("arguments[0].setAttribute(arguments[1],arguments[2])", element,"style","border:3px solid red; border-style:dashed;",originalStyle);
+	}
 	public Object removeAttributeInDOM(WebDriver driver, String xpathName, String attribute) {
 		WebElement element = driver.findElement(By.xpath(xpathName));
 		JavascriptExecutor js = (JavascriptExecutor) driver;

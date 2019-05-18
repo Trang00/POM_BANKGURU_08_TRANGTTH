@@ -13,26 +13,30 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class AbstractTest {
 	private WebDriver driver;
-	
+
 	protected final Log log;
+
 	protected AbstractTest() {
-		log=LogFactory.getLog(getClass());
+		log = LogFactory.getLog(getClass());
 	}
 	protected WebDriver opentMultiBrowser(String browserName) {
 		if (browserName.equals("chrome")) {
-			System.setProperty("webdriver.chrome.driver", ".\\Resources\\chromedriver.exe");
+			//System.setProperty("webdriver.chrome.driver", ".\\Resources\\chromedriver.exe");
+			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 		} else if (browserName.equals("firefox")) {
-			// System.setProperty("webdriver.gecko.driver",
-			// ".\\Resources\\geckodriver.exe");
+			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 		} else if (browserName.equals("ie")) {
-			System.setProperty("webdriver.ie.driver", ".\\Resources\\IEDriverServer.exe");
+			WebDriverManager.chromedriver().arch32().setup();
+			WebDriverManager.chromedriver().arch64().setup();
 			driver = new InternetExplorerDriver();
 		} else if (browserName.equals("chromeheadless")) {
-			System.setProperty("webdriver.chrome.driver", ".\\Resources\\chromedriver.exe");
+			WebDriverManager.chromedriver().setup();
 			ChromeOptions chromeOptions = new ChromeOptions();
 			chromeOptions.addArguments("--headless");
 			driver = new ChromeDriver(chromeOptions);
@@ -41,8 +45,7 @@ public class AbstractTest {
 		driver.get(Constansts.DEV_URL);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		// System.out.println("Driver in Abstract Test: "+driver.toString());
-		return driver;
+			return driver;
 	}
 
 	protected int randomNumber() {
@@ -58,10 +61,10 @@ public class AbstractTest {
 				log.info("===PASSED===");
 			else
 				log.info("===FAILED===");
-				Assert.assertTrue(condition);
+			Assert.assertTrue(condition);
 		} catch (Throwable e) {
 			pass = false;
-			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(),e);
+			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
 			Reporter.getCurrentTestResult().setThrowable(e);
 
 		}
@@ -79,17 +82,19 @@ public class AbstractTest {
 				log.info("===PASSED===");
 			else
 				log.info("===FAILED===");
-				Assert.assertFalse(condition);
+			Assert.assertFalse(condition);
 		} catch (Throwable e) {
 			pass = false;
-			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(),e);
+			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
 			Reporter.getCurrentTestResult().setThrowable(e);
 		}
 		return pass;
 	}
+
 	protected boolean verifyFalse(boolean condition) {
 		return checkFailed(condition);
 	}
+
 	private boolean checkEquals(Object actual, Object expected) {
 		boolean pass = true;
 		try {
@@ -97,16 +102,46 @@ public class AbstractTest {
 				log.info("===PASSED===");
 			else
 				log.info("===FAILED===");
-			Assert.assertEquals(actual,expected);
+			Assert.assertEquals(actual, expected);
 		} catch (Throwable e) {
 			pass = false;
-			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(),e);
+			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
 			Reporter.getCurrentTestResult().setThrowable(e);
 		}
 		return pass;
 	}
+
 	protected boolean verifyEquals(Object actual, Object expected) {
 		return checkEquals(actual, expected);
+	}
+
+	protected void closeBrowserAndDriver(WebDriver driver) {
+		try {
+			String osName = System.getProperty("os.name").toLowerCase();
+			String cmd = "";
+			if (driver != null) {
+				driver.quit();
+			}
+			if (driver.toString().toLowerCase().contains("chrome")) {
+				if (osName.toLowerCase().contains("mac")) {
+					cmd = "pkill chromedriver";
+				} else if  (osName.toLowerCase().contains("Windows")) {
+					cmd = "taskkill/F/FI \"IMAGENAME eq chromedriver*\"";
+				}
+				Process process = Runtime.getRuntime().exec(cmd);
+				process.waitFor();
+			}
+			if (driver.toString().toLowerCase().contains("internetexplorer")) {
+				if (osName.toLowerCase().contains("window")) {
+				cmd = "taskkill/F/FI \"IMAGENAME eq IEDriverServer*\"";
+				Process process = Runtime.getRuntime().exec(cmd);
+				process.waitFor();
+			}
+				}
+			log.info("---------------- QUIT BROWSER SUCCESS ---------------- ");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 }
