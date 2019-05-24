@@ -25,8 +25,8 @@ public class AbstractTest {
 	}
 	protected WebDriver opentMultiBrowser(String browserName) {
 		if (browserName.equals("chrome")) {
-			//System.setProperty("webdriver.chrome.driver", ".\\Resources\\chromedriver.exe");
-			WebDriverManager.chromedriver().setup();
+			System.setProperty("webdriver.chrome.driver", ".\\Resources\\chromedriver.exe");
+			//WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 		} else if (browserName.equals("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
@@ -43,7 +43,7 @@ public class AbstractTest {
 		}
 
 		driver.get(Constansts.DEV_URL);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 			return driver;
 	}
@@ -94,8 +94,8 @@ public class AbstractTest {
 	protected boolean verifyFalse(boolean condition) {
 		return checkFailed(condition);
 	}
-
-	private boolean checkEquals(Object actual, Object expected) {
+// tham khảo
+	private boolean checkEqual(Object actual, Object expected) {
 		boolean pass = true;
 		try {
 			if (actual == expected)
@@ -103,6 +103,33 @@ public class AbstractTest {
 			else
 				log.info("===FAILED===");
 			Assert.assertEquals(actual, expected);
+		} catch (Throwable e) {
+			pass = false;
+			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
+			Reporter.getCurrentTestResult().setThrowable(e);
+		}
+		return pass;
+	}
+	private boolean checkEquals(Object actual, Object expected) {
+		boolean pass = true;
+		boolean status;//
+		try {
+			if (actual instanceof String && expected instanceof String) {
+				actual=actual.toString().trim();
+				log.info("Actual="+actual);
+				expected=expected.toString().trim();
+				log.info("Expected="+expected);
+				status=(actual.equals(expected));
+			}else {
+				status=(actual==expected);
+			}
+			log.info("Compare value="+ status);
+			if(status) {
+				log.info("===PASSED===");
+			}else {
+				log.info("===FAILED===");
+			}
+			Assert.assertEquals(actual, expected,"Value is not matching");
 		} catch (Throwable e) {
 			pass = false;
 			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);

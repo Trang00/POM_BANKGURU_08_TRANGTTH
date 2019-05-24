@@ -39,9 +39,9 @@ public class AbstractPage {
 	WebDriverWait waitExplicit;
 	Actions action;
 	By byLocator;
-	int shortTimeout = 5;
+	//int shortTimeout = 5;
 	// long shortTimeout=5;
-	int longTimeout = 30;
+	//int longTimeout = 30;
 
 	// long longTimeout=30;
 	// WEB BROWSER
@@ -102,8 +102,8 @@ public class AbstractPage {
 	}
 
 	public void clickToElement(WebDriver driver, String locator, String... dynamicValue) {
-		highlightElement(driver, locator);
 		locator = String.format(locator, (Object[]) dynamicValue);
+		highlightElement(driver, locator);
 		WebElement element = driver.findElement(By.xpath(locator));
 		element.click();
 	}
@@ -116,8 +116,8 @@ public class AbstractPage {
 	}
 
 	public void senkeyToElement(WebDriver driver, String value, String locator, String... dynamicValue) {
-		highlightElement(driver, locator);
 		locator = String.format(locator, (Object[]) dynamicValue);
+		//highlightElement(driver, locator);
 		WebElement element = driver.findElement(By.xpath(locator));
 		element.clear();
 		element.sendKeys(value);
@@ -139,7 +139,7 @@ public class AbstractPage {
 			String valueExpected) throws Exception {
 
 		JavascriptExecutor javascript = (JavascriptExecutor) driver;
-		WebDriverWait wait = new WebDriverWait(driver, longTimeout);
+		WebDriverWait wait = new WebDriverWait(driver, Constansts.LONG_TIMEOUT);
 
 		WebElement parent = driver.findElement(By.xpath(parentXpath));
 		javascript.executeScript("arguments[0].click();", parent);
@@ -170,6 +170,16 @@ public class AbstractPage {
 		WebElement element = driver.findElement(By.xpath(locator));
 		return element.getText();
 	}
+
+	public String getTextDynamicInElement(WebDriver driver, String locator,String ...dynamicValue) {
+		//
+		//highlight(driver, AbstractPageUI.DYNAMIC_TEXT);
+		locator=String.format(locator, (Object[])dynamicValue );
+		highlightElement(driver, locator);
+		WebElement element = driver.findElement(By.xpath(locator));
+		return element.getText();
+	}
+
 
 	public int countElementNumber(WebDriver driver, String locator) {
 		List<WebElement> elements = driver.findElements(By.xpath(locator));
@@ -202,8 +212,8 @@ public class AbstractPage {
 	}
 
 	public boolean isControlDisplayed(WebDriver driver, String locator, String... dynamicValue) {
-		highlightElement(driver, locator);
 		locator = String.format(locator, (Object[]) dynamicValue);
+		highlightElement(driver, locator);
 		WebElement element = driver.findElement(By.xpath(locator));
 		return element.isDisplayed();
 	}
@@ -276,6 +286,12 @@ public class AbstractPage {
 	}
 
 	public void sendKeyboardToElement(WebDriver driver, String locator, Keys key) {
+		WebElement element = driver.findElement(By.xpath(locator));
+		Actions action = new Actions(driver);
+		action.sendKeys(element, key).perform();
+	}
+	public void sendKeyDynamicboardToElement(WebDriver driver,  Keys key,String locator,String ...dynamicValue) {
+		locator=String.format(locator, (Object[])dynamicValue );
 		WebElement element = driver.findElement(By.xpath(locator));
 		Actions action = new Actions(driver);
 		action.sendKeys(element, key).perform();
@@ -450,14 +466,14 @@ public class AbstractPage {
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 	}
 
-	public void highlight(WebDriver drive, String xpathName) {
-		WebElement element = drive.findElement(By.xpath(xpathName));
-		JavascriptExecutor js = (JavascriptExecutor) drive;
+	public void highlight(WebDriver driver, String xpathName) {
+		WebElement element = driver.findElement(By.xpath(xpathName));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].style.border='6px groove red'", element);
 	}
 	public void highlightElement(WebDriver driver, String locator) {
 		javascriptExecutor = (JavascriptExecutor) driver;
-		element = driver.findElement(By.xpath(locator));
+		WebElement element = driver.findElement(By.xpath(locator));
 		String originalStyle=element.getAttribute("style");
 		javascriptExecutor.executeScript("arguments[0].setAttribute(arguments[1],arguments[2])", element,"style","border:3px solid red; border-style:dashed;");
 		try {
@@ -479,12 +495,12 @@ public class AbstractPage {
 	}
 
 	public void waitForControlPresence(WebDriver driver, String locator) {
-		WebDriverWait wait = new WebDriverWait(driver, longTimeout);
+		WebDriverWait wait = new WebDriverWait(driver, Constansts.LONG_TIMEOUT);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
 	}
 
 	public void waitForControlVisible(WebDriver driver, String locator) {
-		WebDriverWait wait = new WebDriverWait(driver, longTimeout);
+		WebDriverWait wait = new WebDriverWait(driver, Constansts.LONG_TIMEOUT);
 		try {
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
 		} catch (Exception e) {
@@ -494,17 +510,17 @@ public class AbstractPage {
 
 	public void waitForControlVisible(WebDriver driver, String locator, String... dynamicValue) {
 		locator = String.format(locator, (Object[]) dynamicValue);
-		WebDriverWait wait = new WebDriverWait(driver, longTimeout);
+		WebDriverWait wait = new WebDriverWait(driver, Constansts.LONG_TIMEOUT);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
 	}
 
 	public void waitForControlNotVisible(WebDriver driver, String locator) {
-		WebDriverWait wait = new WebDriverWait(driver, longTimeout);
+		WebDriverWait wait = new WebDriverWait(driver, Constansts.LONG_TIMEOUT);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(locator)));
 	}
 
 	public void waitForControlClickable(WebDriver driver, String locator) {
-		WebDriverWait wait = new WebDriverWait(driver, longTimeout);
+		WebDriverWait wait = new WebDriverWait(driver, Constansts.LONG_TIMEOUT);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
 	}
 
@@ -579,28 +595,28 @@ public class AbstractPage {
 	}
 
 	public boolean isControlUndisplayed(WebDriver driver, String locator) {
-		overrideGlobalTimeout(driver, shortTimeout);
+		overrideGlobalTimeout(driver, Constansts.SHORT_TIMEOUT);
 		List<WebElement> elements = driver.findElements(By.xpath(locator));
 		if (elements.size() > 0 && elements.get(0).isDisplayed()) {
-			overrideGlobalTimeout(driver, longTimeout);
+			overrideGlobalTimeout(driver, Constansts.LONG_TIMEOUT);
 			return false;
 
 		} else {
-			overrideGlobalTimeout(driver, longTimeout);
+			overrideGlobalTimeout(driver, Constansts.LONG_TIMEOUT);
 			return true;
 		}
 	}
 
 	public boolean isControlUndisplayed(WebDriver driver, String locator, String... dynamicValue) {
-		overrideGlobalTimeout(driver, shortTimeout);
+		overrideGlobalTimeout(driver, Constansts.SHORT_TIMEOUT);
 		locator = String.format(locator, (Object[]) dynamicValue);
 		List<WebElement> elements = driver.findElements(By.xpath(locator));
 		if (elements.size() == 0) {
-			overrideGlobalTimeout(driver, longTimeout);
+			overrideGlobalTimeout(driver, Constansts.LONG_TIMEOUT);
 			return true;
 
 		} else {
-			overrideGlobalTimeout(driver, longTimeout);
+			overrideGlobalTimeout(driver, Constansts.LONG_TIMEOUT);
 			return false;
 		}
 	}

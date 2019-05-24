@@ -11,6 +11,10 @@ public class AbstractPageUI {
 	
 	public static final String DYNAMIC_SENKEY="//input[@name='%s']";
 	
+	public static final String DYNAMIC_TEXT="//label[text()='%s']";
+	
+	public static final String DYNAMIC_LABEL_TEXT="//td[text()='%s']";
+	
 	public static final String ADDRESS_TEXTAREA="//textarea[@name='addr']";
 	
 }

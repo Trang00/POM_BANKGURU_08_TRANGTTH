@@ -4,6 +4,15 @@ public class NewCustomerPageUI {
 	public static final String NEW_CUSTOMER_TEXT="//p[text()='Add New Customer']";
 	public static final String CUSTOMER_FORM="//form[@name='addcust']";
 	
+	public static final String NAME_SENKEY="//input[@name='name']";
+	
+	public static final String NAME_EMPTY_TEXT="//label[text()='Customer name must not be blank']";
+	public static final String NAME_CANNOT_NUMBER_TEXT="//label[text()='Numbers are not allowed']";
+	public static final String NAME_CANNOT_SPECIAL_TEXT="//label[text()='Special characters are not allowed']";
+	public static final String NAME_FIRST_CHARACTER_CANNOT_SPACE_TEXT="//label[text()='First character can not have space']";
+	
+	
+	
 	public static final String ADDRESS_SENKEY="//textarea[@name='addr']";
 	public static final String DATEOFBIRTH_SENKEY="//input[@name='dob']";
 	public static final String CITY_SENKEY="//input[@name='city']";
