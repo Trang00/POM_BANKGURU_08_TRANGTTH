@@ -7,7 +7,6 @@ import commons.AbstractPage;
 import commons.Constansts;
 import pageUIs.AbstractPageUI;
 import pageUIs.EditCustomerPageUI;
-import pageUIs.NewCustomerPageUI;
 
 
 public class EditCustomerPageObject extends AbstractPage{
@@ -58,14 +57,7 @@ public class EditCustomerPageObject extends AbstractPage{
 		senkeyToElement(driver,  EditCustomerPageUI.EDIT_EMAIL_SENKEY, email);
 	}
 	//and payment
-	public void inputCustomerIDText1(String value, String dynamicValue) {
-		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_SENKEY);
-		senkeyToElement(driver, value, AbstractPageUI.DYNAMIC_SENKEY, dynamicValue);
-	}
-	public void cityPressTab(String dynamicValue) {
-		waitForControlVisible(driver,AbstractPageUI.DYNAMIC_SENKEY);
-		sendKeyDynamicboardToElement(driver, Keys.TAB, AbstractPageUI.DYNAMIC_SENKEY, dynamicValue);
-	}
+
 	
 	
 }

@@ -1,0 +1,100 @@
+2019-05-25 13:58:25,585 INFO  com.bankguru.account.RegisterLogin_Global - ============== START: TC_01_RegisterToSystem ============== 
+2019-05-25 13:58:25,587 INFO  com.bankguru.account.RegisterLogin_Global - TC_01 - Step 01: Click to hete link
+2019-05-25 13:58:28,041 INFO  com.bankguru.account.RegisterLogin_Global - TC_01 - Step 02: Input data to Email textbox
+2019-05-25 13:58:29,110 INFO  com.bankguru.account.RegisterLogin_Global - TC_01 - Step 03: Click to Submit button
+2019-05-25 13:58:31,046 INFO  com.bankguru.account.RegisterLogin_Global - TC_01 - Step 04: Get User/ Pass information
+2019-05-25 13:58:32,348 INFO  com.bankguru.account.RegisterLogin_Global - USER_ID:  mngr197206
+2019-05-25 13:58:33,286 INFO  com.bankguru.account.RegisterLogin_Global - PASSWORD:  zEravud
+2019-05-25 13:58:33,287 INFO  com.bankguru.account.RegisterLogin_Global - ============== AND: TC_01_RegisterToSystem ============== 
+2019-05-25 13:58:33,782 INFO  com.bankguru.account.RegisterLogin_Global - ---------------- QUIT BROWSER SUCCESS ---------------- 
+2019-05-25 13:58:33,783 INFO  com.bankguru.customer.Customer_01_NewCustomer - ============== START: LOGIN ============== 
+2019-05-25 13:58:42,282 INFO  com.bankguru.customer.Customer_01_NewCustomer - Step 01: Input data to UserID
+2019-05-25 13:58:43,049 INFO  com.bankguru.customer.Customer_01_NewCustomer - Step 02: Input data to Password
+2019-05-25 13:58:43,950 INFO  com.bankguru.customer.Customer_01_NewCustomer - Step 03: Click to Submit button
+2019-05-25 13:58:45,411 INFO  com.bankguru.customer.Customer_01_NewCustomer - Step 04: verify Home Page
+2019-05-25 13:58:47,023 INFO  com.bankguru.customer.Customer_01_NewCustomer - ===PASSED===
+2019-05-25 13:58:47,024 INFO  com.bankguru.customer.Customer_01_NewCustomer - ============== AND: LOGIN ============== 
+2019-05-25 13:58:47,025 INFO  com.bankguru.customer.Customer_01_NewCustomer - Step: Click New Customer
+2019-05-25 13:58:49,598 INFO  com.bankguru.customer.Customer_01_NewCustomer - ============== START: TC_31_ValidAllField ============== 
+2019-05-25 13:58:49,599 INFO  com.bankguru.customer.Customer_01_NewCustomer - Step 01: Enter valid Customer Name
+2019-05-25 13:58:49,789 INFO  com.bankguru.customer.Customer_01_NewCustomer - Step 02: Enter valid  Date of birth
+2019-05-25 13:58:49,894 INFO  com.bankguru.customer.Customer_01_NewCustomer - Step 01: Enter valid Address
+2019-05-25 13:58:50,048 INFO  com.bankguru.customer.Customer_01_NewCustomer - Step 01: Enter valid city
+2019-05-25 13:58:50,128 INFO  com.bankguru.customer.Customer_01_NewCustomer - Step 01: Enter valid State
+2019-05-25 13:58:50,546 INFO  com.bankguru.customer.Customer_01_NewCustomer - Step 01: Enter valid PIN
+2019-05-25 13:58:50,634 INFO  com.bankguru.customer.Customer_01_NewCustomer - Step 01: Enter valid Mobile
+2019-05-25 13:58:50,716 INFO  com.bankguru.customer.Customer_01_NewCustomer - Step 01: Enter valid Email
+2019-05-25 13:58:50,878 INFO  com.bankguru.customer.Customer_01_NewCustomer - Step 01: Enter valid Password
+2019-05-25 13:58:50,967 INFO  com.bankguru.customer.Customer_01_NewCustomer - Step 01: Click button submit
+2019-05-25 13:58:53,350 INFO  com.bankguru.customer.Customer_01_NewCustomer - Step 01: Verify successfully new Customer
+2019-05-25 13:58:54,524 INFO  com.bankguru.customer.Customer_01_NewCustomer - CUSTOMER_ID : 7896
+2019-05-25 13:58:54,525 INFO  com.bankguru.customer.Customer_01_NewCustomer - ============== AND: TC_31_ValidAllField ============== 
+2019-05-25 13:58:54,959 INFO  com.bankguru.customer.Customer_01_NewCustomer - ---------------- QUIT BROWSER SUCCESS ---------------- 
+2019-05-25 13:58:54,960 INFO  com.bankguru.account.Account_01_NewAccount - ============== START: LOGIN ============== 
+2019-05-25 13:59:03,145 INFO  com.bankguru.account.Account_01_NewAccount - Step 01: Input data to UserID
+2019-05-25 13:59:03,868 INFO  com.bankguru.account.Account_01_NewAccount - Step 02: Input data to Password
+2019-05-25 13:59:04,718 INFO  com.bankguru.account.Account_01_NewAccount - Step 03: Click to Submit button
+2019-05-25 13:59:05,709 INFO  com.bankguru.account.Account_01_NewAccount - Step 04: verify Home Page
+2019-05-25 13:59:07,912 INFO  com.bankguru.account.Account_01_NewAccount - ===PASSED===
+2019-05-25 13:59:07,913 INFO  com.bankguru.account.Account_01_NewAccount - ============== AND: LOGIN ============== 
+2019-05-25 13:59:07,913 INFO  com.bankguru.account.Account_01_NewAccount - Step: Click  New Acount
+2019-05-25 13:59:08,938 INFO  com.bankguru.account.Account_01_NewAccount - Step: Verify new account Displayed
+2019-05-25 13:59:10,848 INFO  com.bankguru.account.Account_01_NewAccount - ===PASSED===
+2019-05-25 13:59:10,849 INFO  com.bankguru.account.Account_01_NewAccount - ============== START: TC_11_ValidNewAccount ============== 
+2019-05-25 13:59:10,849 INFO  com.bankguru.account.Account_01_NewAccount - Step 01: Enter valid CustomerID
+2019-05-25 13:59:11,044 INFO  com.bankguru.account.Account_01_NewAccount - Step 02: Click Submit
+2019-05-25 13:59:13,320 INFO  com.bankguru.account.Account_01_NewAccount - Step 05: Verify  New Account
+2019-05-25 13:59:13,936 INFO  com.bankguru.account.Account_01_NewAccount - ===PASSED===
+2019-05-25 13:59:14,553 INFO  com.bankguru.account.Account_01_NewAccount - ACCOUNT_NO: 60601
+2019-05-25 13:59:14,554 INFO  com.bankguru.account.Account_01_NewAccount - ============== AND: TC_11_ValidNewAccount ============== 
+2019-05-25 13:59:14,976 INFO  com.bankguru.account.Account_01_NewAccount - ---------------- QUIT BROWSER SUCCESS ---------------- 
+2019-05-25 13:59:14,977 INFO  com.bankguru.account.Account_02_EditAccount - ============== START: LOGIN ============== 
+2019-05-25 13:59:23,730 INFO  com.bankguru.account.Account_02_EditAccount - Step 01: Input data to UserID
+2019-05-25 13:59:24,441 INFO  com.bankguru.account.Account_02_EditAccount - Step 02: Input data to Password
+2019-05-25 13:59:25,187 INFO  com.bankguru.account.Account_02_EditAccount - Step 03: Click to Submit button
+2019-05-25 13:59:26,188 INFO  com.bankguru.account.Account_02_EditAccount - Step 04: verify Home Page
+2019-05-25 13:59:28,323 INFO  com.bankguru.account.Account_02_EditAccount - ===PASSED===
+2019-05-25 13:59:28,323 INFO  com.bankguru.account.Account_02_EditAccount - ============== AND: LOGIN ============== 
+2019-05-25 13:59:28,323 INFO  com.bankguru.account.Account_02_EditAccount - Step: Click  Edit Acount
+2019-05-25 13:59:30,967 INFO  com.bankguru.account.Account_02_EditAccount - Step: Verify Edit account Displayed
+2019-05-25 13:59:31,908 INFO  com.bankguru.account.Account_02_EditAccount - ===PASSED===
+2019-05-25 13:59:31,909 INFO  com.bankguru.account.Account_02_EditAccount - ============== START: TC_01_AccountNOCannotEmpty ============== 
+2019-05-25 13:59:31,909 INFO  com.bankguru.account.Account_02_EditAccount - Step 01: Do not enter a value Customer ID
+2019-05-25 13:59:31,983 INFO  com.bankguru.account.Account_02_EditAccount - Step 02: Press Tab Customer ID
+2019-05-25 13:59:32,122 INFO  com.bankguru.account.Account_02_EditAccount - Step 03: Verify text Account NO
+2019-05-25 13:59:47,174 INFO  com.bankguru.account.Account_02_EditAccount - ============== START: TC_02_AccountNOMustBeNumeric ============== 
+2019-05-25 13:59:47,174 INFO  com.bankguru.account.Account_02_EditAccount - Step 01: Account NO must be numeric
+2019-05-25 13:59:47,273 INFO  com.bankguru.account.Account_02_EditAccount - Step 03: Verify text Account NO
+2019-05-25 13:59:47,880 INFO  com.bankguru.account.Account_02_EditAccount - Actual=Characters are not allowed
+2019-05-25 13:59:47,880 INFO  com.bankguru.account.Account_02_EditAccount - Expected=Characters are not allowed
+2019-05-25 13:59:47,880 INFO  com.bankguru.account.Account_02_EditAccount - Compare value=true
+2019-05-25 13:59:47,880 INFO  com.bankguru.account.Account_02_EditAccount - ===PASSED===
+2019-05-25 13:59:47,880 INFO  com.bankguru.account.Account_02_EditAccount - ============== AND: TC_02_AccountNOMustBeNumeric ============== 
+2019-05-25 13:59:47,882 INFO  com.bankguru.account.Account_02_EditAccount - ============== START: TC_03_AccountNOCannotSpecialCharacter ============== 
+2019-05-25 13:59:47,882 INFO  com.bankguru.account.Account_02_EditAccount - Step 01: Cannot Special Character value in AccountNO
+2019-05-25 13:59:48,548 INFO  com.bankguru.account.Account_02_EditAccount - Actual=Special characters are not allowed
+2019-05-25 13:59:48,549 INFO  com.bankguru.account.Account_02_EditAccount - Expected=Special characters are not allowed
+2019-05-25 13:59:48,549 INFO  com.bankguru.account.Account_02_EditAccount - Compare value=true
+2019-05-25 13:59:48,549 INFO  com.bankguru.account.Account_02_EditAccount - ===PASSED===
+2019-05-25 13:59:48,549 INFO  com.bankguru.account.Account_02_EditAccount - ============== AND: TC_03_AccountNOCannotSpecialCharacter ============== 
+2019-05-25 13:59:48,551 INFO  com.bankguru.account.Account_02_EditAccount - ============== START: TC_04_AccountNOCannotHaveBlankSpage ============== 
+2019-05-25 13:59:48,552 INFO  com.bankguru.account.Account_02_EditAccount - Step 01: Account NO Cannot Have bank spage
+2019-05-25 13:59:49,232 INFO  com.bankguru.account.Account_02_EditAccount - Actual=Characters are not allowed
+2019-05-25 13:59:49,232 INFO  com.bankguru.account.Account_02_EditAccount - Expected=Characters are not allowed
+2019-05-25 13:59:49,232 INFO  com.bankguru.account.Account_02_EditAccount - Compare value=true
+2019-05-25 13:59:49,232 INFO  com.bankguru.account.Account_02_EditAccount - ===PASSED===
+2019-05-25 13:59:49,233 INFO  com.bankguru.account.Account_02_EditAccount - ============== AND: TC_04_AccountNOCannotHaveBlankSpage ============== 
+2019-05-25 13:59:49,235 INFO  com.bankguru.account.Account_02_EditAccount - ============== START: TC_05_AccountNOFirstCannotSpace ============== 
+2019-05-25 13:59:49,235 INFO  com.bankguru.account.Account_02_EditAccount - Step 01: Account NO First Cannot space
+2019-05-25 14:00:04,461 INFO  com.bankguru.account.Account_02_EditAccount - ============== START: TC_06_AccountNOValid ============== 
+2019-05-25 14:00:04,462 INFO  com.bankguru.account.Account_02_EditAccount - Step 01: Account NO valid
+2019-05-25 14:00:04,566 INFO  com.bankguru.account.Account_02_EditAccount - Step 02: Click Submit
+2019-05-25 14:00:06,912 INFO  com.bankguru.account.Account_02_EditAccount - Step 03: Verify valid edit Account
+2019-05-25 14:00:07,903 INFO  com.bankguru.account.Account_02_EditAccount - ===PASSED===
+2019-05-25 14:00:07,903 INFO  com.bankguru.account.Account_02_EditAccount - ============== AND: TC_06_AccountNOValid ============== 
+2019-05-25 14:00:07,904 INFO  com.bankguru.account.Account_02_EditAccount - ============== START: TC_07_CustomerIDCannotEmpty ============== 
+2019-05-25 14:00:07,905 INFO  com.bankguru.account.Account_02_EditAccount - Step 01: Do not enter a value Customer ID
+2019-05-25 14:00:23,029 INFO  com.bankguru.account.Account_02_EditAccount - ============== START: TC_08_CustomerIDMustBeNumeric ============== 
+2019-05-25 14:00:23,029 INFO  com.bankguru.account.Account_02_EditAccount - Step 01: Customer ID must be numeric
+2019-05-25 14:00:38,142 INFO  com.bankguru.account.Account_02_EditAccount - ============== START: TC_09_CustomerIDCannotSpecialCharacter ============== 
+2019-05-25 14:00:38,142 INFO  com.bankguru.account.Account_02_EditAccount - Step 01: Cannot Special Character value in CustomerID

@@ -151,5 +151,6 @@ public class NewCustomerPageObject extends AbstractPage{
 		waitForControlVisible(driver,AbstractPageUI.DYNAMIC_TEXT);
 		return getTextDynamicInElement(driver, AbstractPageUI.DYNAMIC_TEXT, dynamicValue);
 	}
+	
 
 }

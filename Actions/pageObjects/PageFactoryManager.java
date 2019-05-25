@@ -24,6 +24,9 @@ public class PageFactoryManager {
 	public static NewAccountPageObject getNewAccountPage(WebDriver driver) {
 		return new NewAccountPageObject(driver);
 	}
+	public static EditAccountPageObject getEditAccountPage(WebDriver driver) {
+		return new EditAccountPageObject(driver);
+	}
 	public static DepositPageObject getDepositPage(WebDriver driver) {
 		return new DepositPageObject(driver);
 	}

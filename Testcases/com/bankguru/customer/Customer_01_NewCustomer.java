@@ -23,6 +23,7 @@ public class Customer_01_NewCustomer extends AbstractTest{
 	private LoginPageObject loginPage;
 	private HomePageObject homePage;
 	private NewCustomerPageObject newCustomerPage;
+	public static String CUSTOMER_ID;
 
 	@Test
 	public void TC_01_NameCannotEmpty(Method testMethod) {
@@ -345,7 +346,7 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test 
-	public void TC_30_VerifyFaileLabels(Method testMethod) {
+	public void TC_30_VerifyLabels(Method testMethod) {
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Verify Faile Label Customer Name");
@@ -378,6 +379,35 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("Step 10: Verify Faile Label Password");
 		verifyEquals(newCustomerPage.getLabelDynamicText(driver, "Password"),"Password");
 		
+		log.info("============== AND: "+testMethod.getName()+" ============== ");
+	}
+	@Test
+	public void TC_31_ValidAllField(Method testMethod) {
+		log.info("============== START: "+testMethod.getName()+" ============== ");
+		log.info("Step 01: Enter valid Customer Name");
+		newCustomerPage.inputDynamicText(driver, Constansts.CUSTOMER_NAME_SENKEY, "name");
+		log.info("Step 02: Enter valid  Date of birth");
+		newCustomerPage.inputDynamicText(driver, Constansts.DATEOFBIRTH_SENKEY, "dob");
+		log.info("Step 01: Enter valid Address");
+		newCustomerPage.inputDynamicTextArea(driver, Constansts.ADDRESS_SENKEY, "addr");
+		log.info("Step 01: Enter valid city");
+		newCustomerPage.inputDynamicText(driver, Constansts.CITY_SENKEY, "city");
+		log.info("Step 01: Enter valid State");
+		newCustomerPage.inputDynamicText(driver, Constansts.STATE_SENKEY, "state");
+		log.info("Step 01: Enter valid PIN");
+		newCustomerPage.inputDynamicText(driver, Constansts.PIN_SENKEY, "pinno");
+		log.info("Step 01: Enter valid Mobile");
+		newCustomerPage.inputDynamicText(driver, Constansts.MOBILE_SENKEY, "telephoneno");
+		log.info("Step 01: Enter valid Email");
+		newCustomerPage.inputDynamicText(driver, RegisterLogin_Global.EMAIL, "emailid");
+		log.info("Step 01: Enter valid Password");
+		newCustomerPage.inputDynamicText(driver, Constansts.PASSWORD_SENKEY, "password");
+		log.info("Step 01: Click button submit");
+		newCustomerPage.clickDynamicSubmit(driver, "sub");
+		log.info("Step 01: Verify successfully new Customer");
+		newCustomerPage.isDynamicSuccessfullyPageDisplayed(driver, "Customer Registered Successfully!!!");
+		CUSTOMER_ID=newCustomerPage.getDynamicTextDisplayed(driver, "Customer ID");
+		log.info("CUSTOMER_ID : "+CUSTOMER_ID);
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	

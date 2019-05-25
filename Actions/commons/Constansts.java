@@ -8,7 +8,7 @@ public class Constansts {
 	public static final String USER="mngr192711";
 	public static final String PASS="unadyhy";
 	
-	public static final String CUSTOMER_NAME_SENKEY="AUTOMATION TESTING ghojhy";
+	public static final String CUSTOMER_NAME_SENKEY="AUTOMATION TESTING bjsjk";
 	public static final String DATEOFBIRTH_SENKEY="01/01/1989";
 	public static final String ADDRESS_SENKEY="PO BOX 911 8331 Duis Avenue";
 	public static final String CITY_SENKEY="Tampa";
@@ -20,7 +20,7 @@ public class Constansts {
 	public static final String EDIT_ADDRESS_SENKEY="8331 Duis Avenue";
 	public static final String EDIT_CITY_SENKEY="Huston";
 	public static final String EDIT_STATE_SENKEY="Texas";
-	public static final String EDIT_PIN_SENKEY="99999";
+	public static final String EDIT_PIN_SENKEY="999999";
 	public static final String EDIT_MOBILE_SENKEY="01299999999";
 	
 	public static final String ACCOUNT_TYPE_SENKEY="Current";
@@ -43,7 +43,8 @@ public class Constansts {
 	public static final String NUMBER_SENKEY="1234";
 	public static final String CHARACTER_SENKEY="Character";
 	public static final String SPECIAL_SENKEY="!@#$";
-	public static final String FIRST_SPAGE_SENKEY="     SPAGE";
+	public static final String FIRST_SPAGE_SENKEY="     SPACE";
+	public static final String FIRST_SPAGE_NUMMER_SENKEY="   123";
 	public static final String NUMBER_SPAGE_SENKEY="12   3";
 	
 	public static final String EMAIL1_SENKEY="guru99@gmail";

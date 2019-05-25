@@ -7,18 +7,21 @@
 	<listener class-name="commons.ExtentReportListener"/>
 </listeners>
 
-
-  <test name="Run on CHROME">
-  <parameter name="browser" value="chrome"/>
+<test name="Run on FIREFOX">
+   <parameter name="browser" value="firefox"/>
     <classes>
-      		<class name="com.bankguru.account.RegisterLogin_Global"/>
-           <class name="com.bankguru.customer.Customer_01_NewCustomer">
+      <class name="com.bankguru.account.RegisterLogin_Global"/>
+      		<class name="com.bankguru.customer.Customer_01_NewCustomer">
            		<methods>
 					<include name="TC_31_ValidAllField" />
 				</methods>
-           
             </class>
+       <class name="com.bankguru.customer.Customer_02_EditCustomer"/>
+           		
+			
     </classes>
-  </test> 
+  </test>
+
+
   
 </suite> 

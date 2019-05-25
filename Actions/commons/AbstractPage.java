@@ -30,6 +30,7 @@ import pageObjects.NewAccountPageObject;
 import pageObjects.NewCustomerPageObject;
 import pageObjects.PageFactoryManager;
 import pageUIs.AbstractPageUI;
+import pageUIs.NewCustomerPageUI;
 
 public class AbstractPage {
 
@@ -568,6 +569,8 @@ public class AbstractPage {
 			return PageFactoryManager.getDepositPage(driver);
 		case "New Account":
 			return PageFactoryManager.getNewAccountPage(driver);
+		case "Edit Account":
+			return PageFactoryManager.getEditAccountPage(driver);
 		case "Fund Transfer":
 			return PageFactoryManager.getFundTransferPage(driver);
 		case "Withdrawal":
@@ -623,6 +626,41 @@ public class AbstractPage {
 
 	public void overrideGlobalTimeout(WebDriver driver, int timeout) {
 		driver.manage().timeouts().implicitlyWait(timeout, TimeUnit.SECONDS);
+	}
+	
+	// Dynamic
+	
+	public void inputDynamicText(WebDriver driver,String value, String dynamicValue) {
+		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_SENKEY, dynamicValue);
+		senkeyToElement(driver, value, AbstractPageUI.DYNAMIC_SENKEY, dynamicValue);
+	}
+	public void inputDynamicTextArea(WebDriver driver,String value, String dynamicValue) {
+		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_SENKEY_TEXTAREA, dynamicValue);
+		senkeyToElement(driver, value, AbstractPageUI.DYNAMIC_SENKEY_TEXTAREA, dynamicValue);
+	}
+	public void DynamicPressTabTextArea(WebDriver driver,String dynamicValue) {
+		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_SENKEY_TEXTAREA, dynamicValue);
+		sendKeyDynamicboardToElement(driver, Keys.TAB, AbstractPageUI.DYNAMIC_SENKEY_TEXTAREA, dynamicValue);
+	}
+	public void DynamicPressTab(WebDriver driver,String dynamicValue) {
+		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_SENKEY, dynamicValue);
+		sendKeyDynamicboardToElement(driver, Keys.TAB, AbstractPageUI.DYNAMIC_SENKEY, dynamicValue);
+	}
+	public String getDynamicText(WebDriver driver,String dynamicValue ) {
+		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_TEXT, dynamicValue);
+		return getTextDynamicInElement(driver, AbstractPageUI.DYNAMIC_TEXT, dynamicValue);
+	}
+	public String getDynamicTextDisplayed(WebDriver driver,String dynamicValue ) {
+		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_GET_TEXT_DISPLAYED, dynamicValue);
+		return getTextDynamicInElement(driver, AbstractPageUI.DYNAMIC_GET_TEXT_DISPLAYED, dynamicValue);
+	}
+	public void clickDynamicSubmit(WebDriver driver,String dynamicValue) {
+		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_SUBMIT, dynamicValue);
+		clickToElement(driver, AbstractPageUI.DYNAMIC_SUBMIT, dynamicValue);
+	}
+	public boolean isDynamicSuccessfullyPageDisplayed(WebDriver driver,String dynamicValue) {
+		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_TEXT_DISPLAYED, dynamicValue);
+		return isControlDisplayed(driver,AbstractPageUI.DYNAMIC_TEXT_DISPLAYED, dynamicValue);
 	}
 
 }

@@ -13,8 +13,16 @@ public class AbstractPageUI {
 	
 	public static final String DYNAMIC_TEXT="//label[text()='%s']";
 	
+	public static final String DYNAMIC_GET_TEXT_DISPLAYED="//td[text()='%s']//following-sibling::td";
+	
 	public static final String DYNAMIC_LABEL_TEXT="//td[text()='%s']";
 	
-	public static final String ADDRESS_TEXTAREA="//textarea[@name='addr']";
+	public static final String DYNAMIC_SENKEY_TEXTAREA="//textarea[@name='%s']";
+	
+	public static final String DYNAMIC_SUBMIT="//input[@name='%s']";
+
+	public static final String DYNAMIC_TEXT_DISPLAYED="//p[text()='%s']";
+	
+
 	
 }

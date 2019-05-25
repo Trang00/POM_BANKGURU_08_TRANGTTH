@@ -16,8 +16,8 @@ import pageObjects.RegisterPageObject;
 
 public class RegisterLogin_Global extends AbstractTest {
 	private WebDriver driver;
-	private String email;
-	public static String USER_ID, PASSWORD;
+	//private String email;
+	public static String USER_ID, PASSWORD,EMAIL;
 	private LoginPageObject loginPage;
 	private RegisterPageObject registerPage;
 
@@ -31,14 +31,18 @@ public class RegisterLogin_Global extends AbstractTest {
 		registerPage=loginPage.clickToHereLink();
 		
 		log.info("TC_01 - Step 02: Input data to Email textbox");
-		registerPage.inputToEmailIDTextbox(email);
+		registerPage.inputToEmailIDTextbox(EMAIL);
 		
 		log.info("TC_01 - Step 03: Click to Submit button");
 		registerPage.clickToSubmitButton();
 		
 		log.info("TC_01 - Step 04: Get User/ Pass information");
+		
 		USER_ID=registerPage.getUserIDText();
+		log.info("USER_ID:  "+ USER_ID);
+	
 		PASSWORD=registerPage.getPasswordText();
+		log.info("PASSWORD:  "+ PASSWORD);
 		
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
@@ -48,7 +52,7 @@ public class RegisterLogin_Global extends AbstractTest {
 	@BeforeClass
 	public void beforeClass(String browserName) {
 		driver=opentMultiBrowser(browserName);
-		email = "seleniumonline" + randomNumber() + "@gmail.com";
+		EMAIL = "seleniumonline" + randomNumber() + "@gmail.com";
 		loginPage =PageFactoryManager.getLoginPage(driver);
 	}
 
