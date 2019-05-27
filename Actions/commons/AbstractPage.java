@@ -202,11 +202,12 @@ public class AbstractPage {
 	}
 
 	public boolean isControlDisplayed(WebDriver driver, String locator) {
-		highlightElement(driver, locator);
+		
 		try {
 			WebElement element = driver.findElement(By.xpath(locator));
+			//highlightElement(driver, locator);
 			boolean status=element.isDisplayed();
-			return true;
+			return status;
 		}catch(Exception e) {
 			return false;
 		}
@@ -215,8 +216,13 @@ public class AbstractPage {
 	public boolean isControlDisplayed(WebDriver driver, String locator, String... dynamicValue) {
 		locator = String.format(locator, (Object[]) dynamicValue);
 		highlightElement(driver, locator);
-		WebElement element = driver.findElement(By.xpath(locator));
-		return element.isDisplayed();
+		try {
+			WebElement element = driver.findElement(By.xpath(locator));
+			boolean status=element.isDisplayed();
+			return status;
+		}catch(Exception e) {
+			return false;
+		}
 	}
 
 	public boolean isControlSelected(WebDriver driver, String locator) {
