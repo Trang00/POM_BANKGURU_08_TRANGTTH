@@ -515,9 +515,11 @@ public class AbstractPage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
 	}
 
-	public void waitForControlNotVisible(WebDriver driver, String locator) {
-		WebDriverWait wait = new WebDriverWait(driver, Constansts.LONG_TIMEOUT);
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(locator)));
+	public void waitToElementInvisible(WebDriver driver, String locator) {
+		waitExplicit= new WebDriverWait(driver,Constansts.SHORT_TIMEOUT);
+		overrideGlobalTimeout(driver, Constansts.SHORT_TIMEOUT);
+		waitExplicit.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(locator)));
+		overrideGlobalTimeout(driver, Constansts.LONG_TIMEOUT);
 	}
 
 	public void waitForControlClickable(WebDriver driver, String locator) {
@@ -600,13 +602,17 @@ public class AbstractPage {
 	public boolean isControlUndisplayed(WebDriver driver, String locator) {
 		overrideGlobalTimeout(driver, Constansts.SHORT_TIMEOUT);
 		List<WebElement> elements = driver.findElements(By.xpath(locator));
+		if(elements.size()==0) {
+			overrideGlobalTimeout(driver, Constansts.LONG_TIMEOUT);
+			return true;
+		}
 		if (elements.size() > 0 && elements.get(0).isDisplayed()) {
 			overrideGlobalTimeout(driver, Constansts.LONG_TIMEOUT);
-			return false;
+			return true;
 
 		} else {
 			overrideGlobalTimeout(driver, Constansts.LONG_TIMEOUT);
-			return true;
+			return false;
 		}
 	}
 
@@ -662,5 +668,6 @@ public class AbstractPage {
 		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_TEXT_DISPLAYED, dynamicValue);
 		return isControlDisplayed(driver,AbstractPageUI.DYNAMIC_TEXT_DISPLAYED, dynamicValue);
 	}
+	
 
 }

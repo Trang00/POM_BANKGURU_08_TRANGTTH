@@ -15,7 +15,7 @@ public class HomePageObject extends AbstractPage{
 		return isControlDisplayed(driver, HomePageUI.HOMEPAGE_WELCOME_MESSAGE);
 	}
 	public boolean isNewCustomerPageDisplayed() {
-		waitForControlNotVisible(driver, HomePageUI.NO_HOMEPAGE_WELCOME_MESSAGE);
+		waitToElementInvisible(driver, HomePageUI.NO_HOMEPAGE_WELCOME_MESSAGE);
 		return isControlUndisplayed(driver, HomePageUI.NO_HOMEPAGE_WELCOME_MESSAGE);
 	}
 	

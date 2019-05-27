@@ -1,14 +1,14 @@
 package commons;
 
 public class Constansts {
-	public static final int SHORT_TIMEOUT = 3;
-	public static final int LONG_TIMEOUT = 10;
+	public static final int SHORT_TIMEOUT = 5;
+	public static final int LONG_TIMEOUT = 12;
 	public static final String DEV_URL="http://demo.guru99.com/V4";
 	
 	public static final String USER="mngr192711";
 	public static final String PASS="unadyhy";
 	
-	public static final String CUSTOMER_NAME_SENKEY="AUTOMATION TESTING bjsjk";
+	public static final String CUSTOMER_NAME_SENKEY="AUTOMATION TESTING gth";
 	public static final String DATEOFBIRTH_SENKEY="01/01/1989";
 	public static final String ADDRESS_SENKEY="PO BOX 911 8331 Duis Avenue";
 	public static final String CITY_SENKEY="Tampa";
@@ -43,7 +43,7 @@ public class Constansts {
 	public static final String NUMBER_SENKEY="1234";
 	public static final String CHARACTER_SENKEY="Character";
 	public static final String SPECIAL_SENKEY="!@#$";
-	public static final String FIRST_SPAGE_SENKEY="     SPACE";
+	public static final String FIRST_SPAGE_SENKEY="    ";
 	public static final String FIRST_SPAGE_NUMMER_SENKEY="   123";
 	public static final String NUMBER_SPAGE_SENKEY="12   3";
 	
