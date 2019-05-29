@@ -23,6 +23,10 @@ public class AbstractPageUI {
 
 	public static final String DYNAMIC_TEXT_DISPLAYED="//p[text()='%s']";
 	
+	public static final String DYNAMIC_H2_TEXT="//h2[text()='%s']";
+	
+	
+	
 
 	
 }

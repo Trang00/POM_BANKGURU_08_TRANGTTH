@@ -48,4 +48,13 @@ public class PageFactoryManager {
 	public static DeleteCustomerPageObject getDeleteCustomerPage(WebDriver driver) {
 		return new DeleteCustomerPageObject(driver);
 	}
+	public static MiniStatementPageObject getMiniStatementPage(WebDriver driver) {
+		return new MiniStatementPageObject(driver);
+	}
+	public static CustomizedStatementPageObject getCustomizedStatementPage(WebDriver driver) {
+		return new CustomizedStatementPageObject(driver);
+	}
+	public static ChangePasswordPageObject getChangePasswordPage(WebDriver driver) {
+		return new ChangePasswordPageObject(driver);
+	}
 }

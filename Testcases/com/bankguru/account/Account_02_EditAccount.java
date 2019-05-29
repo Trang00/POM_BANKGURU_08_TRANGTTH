@@ -8,12 +8,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import com.bankguru.customer.Customer_01_NewCustomer;
-
 import commons.AbstractTest;
 import commons.Constansts;
 import pageObjects.EditAccountPageObject;
-import pageObjects.EditCustomerPageObject;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
 import pageObjects.PageFactoryManager;

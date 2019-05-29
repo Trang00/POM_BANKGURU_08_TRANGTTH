@@ -30,7 +30,6 @@ import pageObjects.NewAccountPageObject;
 import pageObjects.NewCustomerPageObject;
 import pageObjects.PageFactoryManager;
 import pageUIs.AbstractPageUI;
-import pageUIs.NewCustomerPageUI;
 
 public class AbstractPage {
 
@@ -589,6 +588,12 @@ public class AbstractPage {
 			return PageFactoryManager.getDeleteAccountPage(driver);
 		case "Delete Customer":
 			return PageFactoryManager.getDeleteCustomerPage(driver);
+		case "Mini Statement":
+			return PageFactoryManager.getMiniStatementPage(driver);
+		case "Customised Statement":
+			return PageFactoryManager.getCustomizedStatementPage(driver);
+		case "Change Password":
+			return PageFactoryManager.getChangePasswordPage(driver);
 		default:
 			return PageFactoryManager.getHomePage(driver);
 		}
@@ -673,6 +678,10 @@ public class AbstractPage {
 	public boolean isDynamicSuccessfullyPageDisplayed(WebDriver driver,String dynamicValue) {
 		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_TEXT_DISPLAYED, dynamicValue);
 		return isControlDisplayed(driver,AbstractPageUI.DYNAMIC_TEXT_DISPLAYED, dynamicValue);
+	}
+	public String getDynamicTextH2(WebDriver driver,String dynamicValue ) {
+		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_H2_TEXT, dynamicValue);
+		return getTextDynamicInElement(driver, AbstractPageUI.DYNAMIC_H2_TEXT, dynamicValue);
 	}
 	
 

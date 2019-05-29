@@ -8,7 +8,7 @@ public class Constansts {
 	public static final String USER="mngr192711";
 	public static final String PASS="unadyhy";
 	
-	public static final String CUSTOMER_NAME_SENKEY="AUTOMATION TESTING gth";
+	public static final String CUSTOMER_NAME_SENKEY="AUTOMATION TESTING gt";
 	public static final String DATEOFBIRTH_SENKEY="01/01/1989";
 	public static final String ADDRESS_SENKEY="PO BOX 911 8331 Duis Avenue";
 	public static final String CITY_SENKEY="Tampa";
@@ -52,4 +52,9 @@ public class Constansts {
 	public static final String EMAIL3_SENKEY="guru99@";
 	public static final String EMAIL4_SENKEY="guru99@gmail.";
 	public static final String EMAIL5_SENKEY="guru99gmail.com";
+	
+	public static final String PASSWORD_NEW_SENKEY="12345@a";
+	
+	
+	
 }

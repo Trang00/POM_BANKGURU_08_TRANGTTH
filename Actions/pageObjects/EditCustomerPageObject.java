@@ -1,11 +1,9 @@
 package pageObjects;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPage;
 import commons.Constansts;
-import pageUIs.AbstractPageUI;
 import pageUIs.EditCustomerPageUI;
 
 

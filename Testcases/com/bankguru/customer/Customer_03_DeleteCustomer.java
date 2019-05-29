@@ -3,7 +3,6 @@ package com.bankguru.customer;
 import java.lang.reflect.Method;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -14,7 +13,6 @@ import com.bankguru.account.RegisterLogin_Global;
 import commons.AbstractTest;
 import commons.Constansts;
 import pageObjects.DeleteCustomerPageObject;
-import pageObjects.EditCustomerPageObject;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
 import pageObjects.PageFactoryManager;
