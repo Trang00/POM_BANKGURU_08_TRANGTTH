@@ -651,6 +651,10 @@ public class AbstractPage {
 		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_SENKEY, dynamicValue);
 		senkeyToElement(driver, value, AbstractPageUI.DYNAMIC_SENKEY, dynamicValue);
 	}
+	public void clickDynamicRadio(WebDriver driver,String value, String dynamicValue) {
+		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_RADIO, dynamicValue);
+		clickToElement(driver, AbstractPageUI.DYNAMIC_RADIO, dynamicValue);
+	}
 	public void inputDynamicTextArea(WebDriver driver,String value, String dynamicValue) {
 		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_SENKEY_TEXTAREA, dynamicValue);
 		senkeyToElement(driver, value, AbstractPageUI.DYNAMIC_SENKEY_TEXTAREA, dynamicValue);
