@@ -8,8 +8,8 @@ public class Constansts {
 	public static final String USER="mngr192711";
 	public static final String PASS="unadyhy";
 	
-	public static final String CUSTOMER_NAME_SENKEY="AUTOMATION TESTING gt";
-	public static final String DATEOFBIRTH_SENKEY="01/01/1989";
+	public static final String CUSTOMER_NAME_SENKEY="AUTOMATION TESTING";
+	public static final String DATEOFBIRTH_SENKEY="1989-01-01";
 	public static final String ADDRESS_SENKEY="PO BOX 911 8331 Duis Avenue";
 	public static final String CITY_SENKEY="Tampa";
 	public static final String STATE_SENKEY="FL";
@@ -28,6 +28,11 @@ public class Constansts {
 	
 	public static final String AMOUNT_SENKEY="5000";
 	public static final String DESCRIPTION_SENKEY="Deposit";
+	
+	
+	public static final String AMOUNT_CURRENT_SENKEY="55000";
+	public static final String AMOUNT_CURRENT_WITHDRAW_SENKEY="40000";
+	public static final String BALANCE_SENKEY="30000";
 	
 	public static final String AMOUNT_WITHDRAWAL_SENKEY="15000";
 	public static final String DESCRIPTION_WITHDRAWAL_SENKEY="Withdrawal";

@@ -27,6 +27,8 @@ public class AbstractPageUI {
 	
 	public static final String DYNAMIC_H2_TEXT="//h2[text()='%s']";
 	
+	public static final String DYNAMIC_DROPDOWN="//select[@name='%s']";
+	
 	
 	
 

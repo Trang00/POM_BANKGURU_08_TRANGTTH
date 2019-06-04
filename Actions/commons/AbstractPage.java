@@ -90,7 +90,7 @@ public class AbstractPage {
 	}
 
 	public void waitForAlertPresence(WebDriver driver) {
-		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebDriverWait wait = new WebDriverWait(driver,  Constansts.LONG_TIMEOUT);
 		wait.until(ExpectedConditions.alertIsPresent());
 	}
 
@@ -135,6 +135,19 @@ public class AbstractPage {
 		select.getFirstSelectedOption().getText();
 	}
 
+	public void selectItemInHtmlDropdownDynamic(WebDriver driver, String valueInDropdown, String locator,String ...dynamicValue) {
+		locator=String.format(locator, (Object[])dynamicValue );
+		WebElement element = driver.findElement(By.xpath(locator));
+		Select select = new Select(element);
+		select.selectByVisibleText(valueInDropdown);
+	}
+
+	public void getSelectedItemInHtmlDropdownDynamic(WebDriver driver, String locator,String ...dynamicValue) {
+		locator=String.format(locator, (Object[])dynamicValue );
+		WebElement element = driver.findElement(By.xpath(locator));
+		Select select = new Select(element);
+		select.getFirstSelectedOption().getText();
+	}
 	public void selectItemInCustomDropdown(WebDriver driver, String parentXpath, String childXpath,
 			String valueExpected) throws Exception {
 
@@ -687,6 +700,21 @@ public class AbstractPage {
 		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_H2_TEXT, dynamicValue);
 		return getTextDynamicInElement(driver, AbstractPageUI.DYNAMIC_H2_TEXT, dynamicValue);
 	}
+	public void inputDynamicDropdown(WebDriver driver,String valueInDropdown,String dynamicValue) {
+		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_DROPDOWN, dynamicValue);
+		//selectItemInHtmlDropdownDynamic(driver,AbstractPageUI.DYNAMIC_DROPDOWN, dynamicValue);
+		selectItemInHtmlDropdownDynamic(driver, valueInDropdown, AbstractPageUI.DYNAMIC_DROPDOWN, dynamicValue);
+	}
+	public void AccepAlertwait(WebDriver driver) {
+		waitForAlertPresence(driver);
+		acceptAlert(driver);
+	}
+	public String getAlert(WebDriver driver) {
+		waitForAlertPresence(driver);
+		return getTextAlert(driver);
+	}
+	
+	
 	
 
 }

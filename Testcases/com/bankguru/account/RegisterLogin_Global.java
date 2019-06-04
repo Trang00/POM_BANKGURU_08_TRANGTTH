@@ -53,6 +53,7 @@ public class RegisterLogin_Global extends AbstractTest {
 	public void beforeClass(String browserName) {
 		driver=opentMultiBrowser(browserName);
 		EMAIL = "seleniumonline" + randomNumber() + "@gmail.com";
+		
 		loginPage =PageFactoryManager.getLoginPage(driver);
 	}
 
