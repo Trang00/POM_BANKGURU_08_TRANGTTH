@@ -13,7 +13,6 @@ import com.bankguru.account.RegisterLogin_Global;
 import commons.AbstractTest;
 import commons.Constansts;
 import pageObjects.ChangePasswordPageObject;
-import pageObjects.DeleteAccountPageObject;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
 import pageObjects.PageFactoryManager;
@@ -140,11 +139,11 @@ public class ChangePassword_01_ChangePassword extends AbstractTest {
 	}
 	
 	
-	@Parameters("browser")
+	@Parameters({"browser", "url"})
 	@BeforeClass
-	public void beforeClass(String browserName) {
+	public void beforeClass(String browserName, String url) {
 		log.info("============== START: LOGIN ============== ");
-		driver = opentMultiBrowser(browserName);
+		driver = opentMultiBrowser(browserName, url);
 		loginPage = PageFactoryManager.getLoginPage(driver);
 
 		log.info("Step 01: Input data to UserID");
@@ -168,7 +167,7 @@ public class ChangePassword_01_ChangePassword extends AbstractTest {
 		verifyTrue(changePasswordPage.isDynamicSuccessfullyPageDisplayed(driver, "Change Password"));
 	}
 
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void afterClass() {
 		closeBrowserAndDriver(driver);
 	}

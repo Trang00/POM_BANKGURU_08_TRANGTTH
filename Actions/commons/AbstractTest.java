@@ -8,8 +8,11 @@ import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.Reporter;
 
@@ -17,36 +20,75 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class AbstractTest {
 	private WebDriver driver;
-
+	//private final String workingDir=System.getProperty("user.dir");
 	protected final Log log;
 
 	protected AbstractTest() {
 		log = LogFactory.getLog(getClass());
 	}
-	protected WebDriver opentMultiBrowser(String browserName) {
+	protected WebDriver opentMultiBrowser(String browserName, String url) {
+		
 		if (browserName.equals("chrome")) {
 			System.setProperty("webdriver.chrome.driver", ".\\Resources\\chromedriver.exe");
 			//WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
+			
+			ChromeOptions options= new ChromeOptions();
+			options.addArguments("--disable-extensions--");
+			options.addArguments("disable-infobars");
+			options.addArguments("start-maximized");
+			driver=new ChromeDriver(options);
 		} else if (browserName.equals("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
+			//System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
+			//System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, workingDir+ "\\FirefoxLog.txt");
+			//FirefoxOptions options=new FirefoxOptions();
 			driver = new FirefoxDriver();
 		} else if (browserName.equals("ie")) {
-			WebDriverManager.chromedriver().arch32().setup();
-			WebDriverManager.chromedriver().arch64().setup();
-			driver = new InternetExplorerDriver();
+			//WebDriverManager.chromedriver().arch32().setup();
+			//WebDriverManager.chromedriver().arch64().setup();
+			System.setProperty("webdriver.ie.driver", ".\\Resources\\IEDriverServer.exe");
+			DesiredCapabilities capability= DesiredCapabilities.internetExplorer();
+			capability.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+			capability.setCapability(CapabilityType.ELEMENT_SCROLL_BEHAVIOR, true);
+			capability.setCapability(InternetExplorerDriver.NATIVE_EVENTS, false);
+			capability.setCapability("ignoreProtectedModeSettings", true);
+			capability.setCapability("ignoreZoomSettings", true);
+			capability.setCapability("requireWindowFocus", true);
+			capability.setJavascriptEnabled(true);
+			capability.setPlatform(org.openqa.selenium.Platform.ANY);
+			driver = new InternetExplorerDriver(capability);
+			
 		} else if (browserName.equals("chromeheadless")) {
 			WebDriverManager.chromedriver().setup();
 			ChromeOptions chromeOptions = new ChromeOptions();
 			chromeOptions.addArguments("--headless");
 			driver = new ChromeDriver(chromeOptions);
 		}
-
-		driver.get(Constansts.DEV_URL);
+		/*
+		else if (browserName.equals("firefoxheadless")) {
+			WebDriverManager.firefoxdriver().setup();
+			FirefoxBinary firefoxBinary = new FirefoxBinary();
+			firefoxBinary.addCommandLineOptions("--headless");
+			FirefoxOptions firefoxOptions=new FirefoxOptions();
+			firefoxOptions.setBinary(firefoxBinary);
+			driver= new FirefoxDriver(firefoxOptions);
+			
+		}
+		*/
+		
+		if (url.equals("Bank")) {
+			driver.get(Constansts.BANK_URL);
+		} else if (url.equals("Live")) {
+			driver.get(Constansts.LIVE_URL);
+		}
+		
+		
+		//driver.get(Constansts.DEV_URL);
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 			return driver;
 	}
+	
 
 	protected int randomNumber() {
 		Random random = new Random();
@@ -145,6 +187,7 @@ public class AbstractTest {
 	protected void closeBrowserAndDriver(WebDriver driver) {
 		try {
 			String osName = System.getProperty("os.name").toLowerCase();
+			driver.manage().deleteAllCookies();
 			String cmd = "";
 			if (driver != null) {
 				driver.quit();

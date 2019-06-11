@@ -334,17 +334,14 @@ public class PaymentFunction_Dynamic extends AbstractTest {
 		log.info("Step 7: Accep Alert Customer Deleted Sucessfully");
 		Thread.sleep(3000);
 		deleteCustomerPage.AccepAlertwait(driver);
-		
-		
-		
-		
+
 	}
 
-	@Parameters("browser")
+	@Parameters({"browser", "url"})
 	@BeforeClass
-	public void beforeClass(String browserName) {
+	public void beforeClass(String browserName, String url) {
 		log.info("============== START: LOGIN ============== ");
-		driver = opentMultiBrowser(browserName);
+		driver = opentMultiBrowser(browserName, url);
 		loginPage = PageFactoryManager.getLoginPage(driver);
 
 		log.info("Step 01: Input data to UserID");
@@ -362,7 +359,7 @@ public class PaymentFunction_Dynamic extends AbstractTest {
 		log.info("============== AND: LOGIN ============== ");
 	}
 
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void afterClass() {
 		closeBrowserAndDriver(driver);
 	}

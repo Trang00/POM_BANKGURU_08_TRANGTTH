@@ -88,10 +88,10 @@ public class RegisterLogin_Level_8_Assert_Verify_Log_Report extends AbstractTest
 		
 	}
 
-	@Parameters("browser")
+	@Parameters({"browser", "url"})
 	@BeforeClass
-	public void beforeClass(String browserName) {
-		driver=opentMultiBrowser(browserName);
+	public void beforeClass(String browserName, String url) {
+		driver=opentMultiBrowser(browserName, url);
 		email = "seleniumonline" + randomNumber() + "@gmail.com";
 		loginPage =PageFactoryManager.getLoginPage(driver);
 	}

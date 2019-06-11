@@ -41,10 +41,10 @@ public class RegisterLogin_Level_9_ExtentReport_CloseBrowser_ShareGlobalClass_Br
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 		
 	}
-	@Parameters("browser")
+	@Parameters({"browser", "url"})
 	@BeforeClass
-	public void beforeClass(String browserName) {
-		driver=opentMultiBrowser(browserName);
+	public void beforeClass(String browserName, String url) {
+		driver=opentMultiBrowser(browserName, url);
 	
 		loginPage =PageFactoryManager.getLoginPage(driver);
 	

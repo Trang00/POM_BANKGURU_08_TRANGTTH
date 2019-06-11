@@ -112,10 +112,10 @@ public class RegisterLogin_Level_6_DynamicLocator_RestParameter extends Abstract
 		homePage=PageFactoryManager.getHomePage(driver);
 		Assert.assertTrue(homePage.isHomePageDisplayed());
 	}
-	@Parameters("browser")
+	@Parameters({"browser", "url"})
 	@BeforeClass
-	public void beforeClass(String browserName) {
-		driver=opentMultiBrowser(browserName);
+	public void beforeClass(String browserName, String url) {
+		driver=opentMultiBrowser(browserName, url);
 		email = "seleniumonline" + randomNumber() + "@gmail.com";
 		loginPage =PageFactoryManager.getLoginPage(driver);
 	}

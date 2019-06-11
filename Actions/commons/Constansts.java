@@ -3,13 +3,15 @@ package commons;
 public class Constansts {
 	public static final int SHORT_TIMEOUT = 5;
 	public static final int LONG_TIMEOUT = 12;
-	public static final String DEV_URL="http://demo.guru99.com/V4";
+	public static final String BANK_URL="http://demo.guru99.com/V4";
+	public static final String LIVE_URL="http://live.guru99.com";
 	
 	public static final String USER="mngr192711";
 	public static final String PASS="unadyhy";
 	
 	public static final String CUSTOMER_NAME_SENKEY="AUTOMATION TESTING";
 	public static final String DATEOFBIRTH_SENKEY="1989-01-01";
+	//public static final String DATEOFBIRTH_SENKEY="01/01/1989";
 	public static final String ADDRESS_SENKEY="PO BOX 911 8331 Duis Avenue";
 	public static final String CITY_SENKEY="Tampa";
 	public static final String STATE_SENKEY="FL";

@@ -179,10 +179,10 @@ public class PaymentFunction extends AbstractTest {
 		homePage=(HomePageObject) deleteCustomerPage.openDynamicPage(driver, "Manager");
 		Assert.assertTrue(homePage.isHomePageDisplayed());
 	}
-	@Parameters("browser")
+	@Parameters({"browser", "url"})
 	@BeforeClass
-	public void beforeClass(String browserName) {
-		driver=opentMultiBrowser(browserName);
+	public void beforeClass(String browserName, String url) {
+		driver=opentMultiBrowser(browserName, url);
 		
 		email = "seleniumonline" + randomNumber() + "@gmail.com";
 		loginPage =PageFactoryManager.getLoginPage(driver);
@@ -196,7 +196,7 @@ public class PaymentFunction extends AbstractTest {
 		Assert.assertTrue(homePage.isHomePageDisplayed());
 	}
 
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void afterClass() {
 		driver.quit();
 	}

@@ -143,7 +143,7 @@ public class NewCustomerPageObject extends AbstractPage{
 		clickToElementByJS(driver,NewCustomerPageUI.SUBMIT_BUTTON);
 	}
 
-	public String getLabelDynamicText(WebDriver driver,String dynamicValue ) {
+	public String getLabelCustomerDynamicText(WebDriver driver,String dynamicValue ) {
 		waitForControlVisible(driver,AbstractPageUI.DYNAMIC_LABEL_TEXT);
 		return getTextDynamicInElement(driver, AbstractPageUI.DYNAMIC_LABEL_TEXT, dynamicValue);
 	}

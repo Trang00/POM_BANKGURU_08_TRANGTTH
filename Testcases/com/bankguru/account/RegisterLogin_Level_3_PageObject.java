@@ -51,10 +51,10 @@ public class RegisterLogin_Level_3_PageObject extends AbstractTest {
 		
 	}
 
-	@Parameters("browser")
+	@Parameters({"browser", "url"})
 	@BeforeClass
-	public void beforeClass(String browserName) {
-		driver=opentMultiBrowser(browserName);
+	public void beforeClass(String browserName, String url) {
+		driver=opentMultiBrowser(browserName, url);
 		email = "seleniumonline" + randomNumber() + "@gmail.com";
 
 		loginPage = new LoginPageObject(driver);

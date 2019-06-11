@@ -8,12 +8,10 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import com.bankguru.account.Account_01_NewAccount;
 import com.bankguru.account.RegisterLogin_Global;
 
 import commons.AbstractTest;
 import commons.Constansts;
-import pageObjects.CustomizedStatementPageObject;
 import pageObjects.FundTransterPageObject;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
@@ -230,11 +228,11 @@ public class FundTransfer_01_FundTransfer extends AbstractTest {
 	}
 	
 	
-	@Parameters("browser")
+	@Parameters({"browser", "url"})
 	@BeforeClass
-	public void beforeClass(String browserName) {
+	public void beforeClass(String browserName, String url) {
 		log.info("============== START: LOGIN ============== ");
-		driver = opentMultiBrowser(browserName);
+		driver = opentMultiBrowser(browserName, url);
 		loginPage = PageFactoryManager.getLoginPage(driver);
 
 		log.info("Step 01: Input data to UserID");
@@ -258,7 +256,7 @@ public class FundTransfer_01_FundTransfer extends AbstractTest {
 		verifyTrue(fundTransterPage.isDynamicSuccessfullyPageDisplayed(driver, "Fund transfer"));
 	}
 
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void afterClass() {
 		closeBrowserAndDriver(driver);
 	}

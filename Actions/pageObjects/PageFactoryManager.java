@@ -2,6 +2,8 @@ package pageObjects;
 
 import org.openqa.selenium.WebDriver;
 
+import liveguruPageObjects.LiveRegisterPageObject;
+
 public class PageFactoryManager {
 	public static LoginPageObject getLoginPage(WebDriver driver) {
 		return new LoginPageObject(driver);
@@ -57,4 +59,5 @@ public class PageFactoryManager {
 	public static ChangePasswordPageObject getChangePasswordPage(WebDriver driver) {
 		return new ChangePasswordPageObject(driver);
 	}
+	
 }

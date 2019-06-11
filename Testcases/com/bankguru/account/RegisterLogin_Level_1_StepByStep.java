@@ -57,7 +57,7 @@ public class RegisterLogin_Level_1_StepByStep {
 			email="seleniumonline"+randomNumber()+"@gmail.com";
 	  }
 
-	  @AfterClass
+	  @AfterClass(alwaysRun = true)
 	  public void afterClass() {
 		 driver.quit();
 	  }

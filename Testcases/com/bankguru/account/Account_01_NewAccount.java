@@ -167,11 +167,11 @@ public class Account_01_NewAccount extends AbstractTest {
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	
-	@Parameters("browser")
+	@Parameters({"browser", "url"})
 	@BeforeClass
-	public void beforeClass(String browserName) {
+	public void beforeClass(String browserName,String url) {
 		log.info("============== START: LOGIN ============== ");
-		driver = opentMultiBrowser(browserName);
+		driver = opentMultiBrowser(browserName, url);
 		loginPage = PageFactoryManager.getLoginPage(driver);
 
 		log.info("Step 01: Input data to UserID");
@@ -195,7 +195,7 @@ public class Account_01_NewAccount extends AbstractTest {
 		verifyTrue(newAccountPage.isDynamicSuccessfullyPageDisplayed(driver, "Add new account form"));
 	}
 
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void afterClass() {
 		closeBrowserAndDriver(driver);
 	}

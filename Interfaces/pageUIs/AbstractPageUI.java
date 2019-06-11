@@ -29,7 +29,8 @@ public class AbstractPageUI {
 	
 	public static final String DYNAMIC_DROPDOWN="//select[@name='%s']";
 	
-	
+	//
+	public static final String DYNAMIC_MENU="//header[@id='header']//span[text()='%s']";
 	
 
 	

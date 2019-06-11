@@ -7,6 +7,8 @@
 	<listener class-name="commons.ExtentReportListener"/>
 </listeners>
 
+<parameter name="url" value="Bank"/>
+
 <test name="Run on FIREFOX">
    <parameter name="browser" value="firefox"/>
     <classes>

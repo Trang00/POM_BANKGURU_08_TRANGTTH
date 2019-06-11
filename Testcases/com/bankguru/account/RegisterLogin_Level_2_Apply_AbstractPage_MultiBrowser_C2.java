@@ -42,10 +42,10 @@ public class RegisterLogin_Level_2_Apply_AbstractPage_MultiBrowser_C2 extends Ab
 
 	}
 
-	@Parameters("browser")
+	@Parameters({"browser", "url"})
 	@BeforeClass
-	public void beforeClass(String browserName) {
-		driver=opentMultiBrowser(browserName);
+	public void beforeClass(String browserName, String url) {
+		driver=opentMultiBrowser(browserName,url);
 		System.out.println("Driver in tesst case: "+driver.toString());
 		abstractPage = new AbstractPage();
 		email = "seleniumonline" + abstractPage.randomNumber() + "@gmail.com";

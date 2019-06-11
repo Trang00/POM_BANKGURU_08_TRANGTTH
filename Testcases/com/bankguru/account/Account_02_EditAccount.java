@@ -257,11 +257,11 @@ public class Account_02_EditAccount extends AbstractTest {
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	
-	@Parameters("browser")
+	@Parameters({"browser", "url"})
 	@BeforeClass
-	public void beforeClass(String browserName) {
+	public void beforeClass(String browserName,String url) {
 		log.info("============== START: LOGIN ============== ");
-		driver = opentMultiBrowser(browserName);
+		driver = opentMultiBrowser(browserName,url);
 		loginPage = PageFactoryManager.getLoginPage(driver);
 
 		log.info("Step 01: Input data to UserID");
@@ -285,7 +285,7 @@ public class Account_02_EditAccount extends AbstractTest {
 		verifyTrue(editAccountPage.isDynamicSuccessfullyPageDisplayed(driver, "Edit Account Form"));
 	}
 
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void afterClass() {
 		closeBrowserAndDriver(driver);
 	}

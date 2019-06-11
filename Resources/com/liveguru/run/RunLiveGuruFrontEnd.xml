@@ -10,12 +10,10 @@
 
 <test name="Run on FIREFOX">
    <parameter name="browser" value="firefox"/>
-   <parameter name="url" value="Bank"/>
+   <parameter name="url" value="Live"/>
     <classes>
-      	<class name="com.bankguru.account.RegisterLogin_Global"/>
-      	
-       <class name="com.bankguru.payment.PaymentFunction_Dynamic"/>	
       
+      <class name="com.liveguru.FrontEnd_User" />
 			
     </classes>
   </test>

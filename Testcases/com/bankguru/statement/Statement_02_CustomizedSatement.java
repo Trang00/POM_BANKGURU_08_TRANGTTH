@@ -8,7 +8,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import com.bankguru.account.Account_01_NewAccount;
 import com.bankguru.account.RegisterLogin_Global;
 
 import commons.AbstractTest;
@@ -210,11 +209,11 @@ public class Statement_02_CustomizedSatement extends AbstractTest {
 
 	
 	
-	@Parameters("browser")
+	@Parameters({"browser", "url"})
 	@BeforeClass
-	public void beforeClass(String browserName) {
+	public void beforeClass(String browserName, String url) {
 		log.info("============== START: LOGIN ============== ");
-		driver = opentMultiBrowser(browserName);
+		driver = opentMultiBrowser(browserName, url);
 		loginPage = PageFactoryManager.getLoginPage(driver);
 
 		log.info("Step 01: Input data to UserID");
@@ -238,7 +237,7 @@ public class Statement_02_CustomizedSatement extends AbstractTest {
 		verifyTrue(customizedStatementPage.isDynamicSuccessfullyPageDisplayed(driver, "Customized Statement Form"));
 	}
 
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void afterClass() {
 		closeBrowserAndDriver(driver);
 	}

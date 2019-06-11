@@ -30,13 +30,17 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Do not enter a value Name");
-		newCustomerPage.inputNameText(Constansts.BLANK_SENKEY);
+		//newCustomerPage.inputNameText(Constansts.BLANK_SENKEY);
+		newCustomerPage.inputDynamicText(driver, Constansts.BLANK_SENKEY, "name");
 		
 		log.info("Step 02: Press Tab");
-		newCustomerPage.namePressTab();
+		//newCustomerPage.namePressTab();
+		newCustomerPage.DynamicPressTab(driver, "name");
 	
 		log.info("Step 03: Verify Name");
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "Customer name must not be blank"), "Customer name must not be blank");
+		
+		verifyEquals(newCustomerPage.getDynamicText(driver, "Customer name must not be blank"), "Customer name must not be blank");
+		//verifyEquals(newCustomerPage.getNameDynamicText(driver, "Customer name must not be blank"), "Customer name must not be blank");
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test
@@ -44,9 +48,10 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Numeric value in Name");
-		newCustomerPage.inputNameText(Constansts.NUMBER_SENKEY);
+		//newCustomerPage.inputNameText(Constansts.NUMBER_SENKEY);
+		newCustomerPage.inputDynamicText(driver,Constansts.NUMBER_SENKEY,"name");
 		
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "Numbers are not allowed"), "Numbers are not allowed");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "Numbers are not allowed"), "Numbers are not allowed");
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test
@@ -54,9 +59,9 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Cannot Special Character value in Name");
-		newCustomerPage.inputNameText(Constansts.SPECIAL_SENKEY);
+		newCustomerPage.inputDynamicText(driver,Constansts.SPECIAL_SENKEY,"name");
 		
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "Special characters are not allowed"), "Special characters are not allowed");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "Special characters are not allowed"), "Special characters are not allowed");
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test
@@ -64,9 +69,9 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Cannot have first Character Blank Space value in Name");
-		newCustomerPage.inputNameText(Constansts.FIRST_SPAGE_SENKEY);
+		newCustomerPage.inputDynamicText(driver,Constansts.FIRST_SPAGE_SENKEY,"name");
 		
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "First character can not have space"), "First character can not have space");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "First character can not have space"), "First character can not have space");
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test
@@ -74,12 +79,12 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Do not enter a value Address");
-		newCustomerPage.inputAdressTextArea(Constansts.BLANK_SENKEY);
+		newCustomerPage.inputDynamicTextArea(driver,Constansts.BLANK_SENKEY,"addr");
 		
 		log.info("Step 02: Press Tab");
-		newCustomerPage.addressPressTab();
+		newCustomerPage.DynamicPressTabTextArea(driver,"addr");
 	
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "Address Field must not be blank"), "Address Field must not be blank");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "Address Field must not be blank"), "Address Field must not be blank");
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test
@@ -87,9 +92,9 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Cannot have first Character Blank Space value in Address");
-		newCustomerPage.inputAdressTextArea(Constansts.FIRST_SPAGE_SENKEY);
+		newCustomerPage.inputDynamicTextArea(driver,Constansts.FIRST_SPAGE_SENKEY,"addr");
 	
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "First character can not have space"), "First character can not have space");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "First character can not have space"), "First character can not have space");
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test
@@ -97,9 +102,9 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Cannot Special Character value in Address");
-		newCustomerPage.inputAdressTextArea(Constansts.SPECIAL_SENKEY);
+		newCustomerPage.inputDynamicTextArea(driver,Constansts.SPECIAL_SENKEY,"addr");
 		
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "Special characters are not allowed"), "Special characters are not allowed");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "Special characters are not allowed"), "Special characters are not allowed");
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test
@@ -107,12 +112,12 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Do not enter a value City");
-		newCustomerPage.inputCityText(Constansts.BLANK_SENKEY);
+		newCustomerPage.inputDynamicText(driver,Constansts.BLANK_SENKEY,"city");
 		
 		log.info("Step 02: Press Tab");
-		newCustomerPage.cityPressTab();
+		newCustomerPage.DynamicPressTab(driver,"city");
 	
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "City Field must not be blank"), "City Field must not be blank");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "City Field must not be blank"), "City Field must not be blank");
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test
@@ -120,9 +125,9 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Numeric value in City");
-		newCustomerPage.inputCityText(Constansts.NUMBER_SENKEY);
+		newCustomerPage.inputDynamicText(driver,Constansts.NUMBER_SENKEY,"city");
 		
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "Numbers are not allowed"), "Numbers are not allowed");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "Numbers are not allowed"), "Numbers are not allowed");
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test
@@ -130,9 +135,9 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Cannot Special Character value in City");
-		newCustomerPage.inputCityText(Constansts.SPECIAL_SENKEY);
+		newCustomerPage.inputDynamicText(driver,Constansts.SPECIAL_SENKEY,"city");
 	
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "Special characters are not allowed"), "Special characters are not allowed");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "Special characters are not allowed"), "Special characters are not allowed");
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test
@@ -140,9 +145,9 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Cannot have first Character Blank Space value in City");
-		newCustomerPage.inputCityText(Constansts.FIRST_SPAGE_SENKEY);
+		newCustomerPage.inputDynamicText(driver,Constansts.FIRST_SPAGE_SENKEY,"city");
 	
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "First character can not have space"), "First character can not have space");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "First character can not have space"), "First character can not have space");
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test
@@ -150,12 +155,12 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Do not enter a value State");
-		newCustomerPage.inputStateText(Constansts.BLANK_SENKEY);
+		newCustomerPage.inputDynamicText(driver,Constansts.BLANK_SENKEY,"state");
 		
 		log.info("Step 02: Press Tab");
-		newCustomerPage.statePressTab();
+		newCustomerPage.DynamicPressTab(driver, "state");
 	
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "State must not be blank"), "State must not be blank");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "State must not be blank"), "State must not be blank");
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test
@@ -163,9 +168,9 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Numeric value in State");
-		newCustomerPage.inputStateText(Constansts.NUMBER_SENKEY);
+		newCustomerPage.inputDynamicText(driver,Constansts.NUMBER_SENKEY,"state");
 			
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "Numbers are not allowed"), "Numbers are not allowed");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "Numbers are not allowed"), "Numbers are not allowed");
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test
@@ -173,9 +178,9 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Cannot Special Character value in State");
-		newCustomerPage.inputStateText(Constansts.SPECIAL_SENKEY);
+		newCustomerPage.inputDynamicText(driver,Constansts.SPECIAL_SENKEY,"state");
 		
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "Special characters are not allowed"), "Special characters are not allowed");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "Special characters are not allowed"), "Special characters are not allowed");
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test
@@ -183,9 +188,9 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Cannot have first Character Blank Space value in State");
-		newCustomerPage.inputStateText(Constansts.FIRST_SPAGE_SENKEY);
+		newCustomerPage.inputDynamicText(driver,Constansts.FIRST_SPAGE_SENKEY,"state");
 				
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "First character can not have space"), "First character can not have space");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "First character can not have space"), "First character can not have space");
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test
@@ -193,9 +198,9 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Do not enter a value Pin");
-		newCustomerPage.inputPinText(Constansts.CHARACTER_SENKEY);
+		newCustomerPage.inputDynamicText(driver,Constansts.CHARACTER_SENKEY,"pinno");
 			
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "Characters are not allowed"), "Characters are not allowed");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "Characters are not allowed"), "Characters are not allowed");
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test
@@ -203,12 +208,12 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Do not enter a value Pin");
-		newCustomerPage.inputPinText(Constansts.BLANK_SENKEY);
+		newCustomerPage.inputDynamicText(driver,Constansts.BLANK_SENKEY,"pinno");
 		
 		log.info("Step 02: Pin Press Tab");
-		newCustomerPage.pinPressTab();
+		newCustomerPage.DynamicPressTab(driver, "pinno");
 	
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "PIN Code must not be blank"), "PIN Code must not be blank");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "PIN Code must not be blank"), "PIN Code must not be blank");
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test
@@ -216,15 +221,9 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Numeric value in Pin");
-		newCustomerPage.inputPinText(Constansts.NUMBER_MIN_SENKEY);
+		newCustomerPage.inputDynamicText(driver,Constansts.NUMBER_MIN_SENKEY,"pinno");
 	
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "PIN Code must have 6 Digits"), "PIN Code must have 6 Digits");
-		log.info("============== AND: "+testMethod.getName()+" ============== ");
-		
-		log.info("Step 01: Numeric value in Pin ");
-		newCustomerPage.inputPinText(Constansts.NUMBER_MAX_SENKEY);
-	
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "PIN Code must have 6 Digits"), "PIN Code must have 6 Digits");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "PIN Code must have 6 Digits"), "PIN Code must have 6 Digits");
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test
@@ -232,9 +231,9 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Cannot Special Character value in Pin");
-		newCustomerPage.inputPinText(Constansts.SPECIAL_SENKEY);
+		newCustomerPage.inputDynamicText(driver,Constansts.SPECIAL_SENKEY,"pinno");
 	
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "Special characters are not allowed"), "Special characters are not allowed");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "Special characters are not allowed"), "Special characters are not allowed");
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test
@@ -242,9 +241,9 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Cannot have first Character Blank Space value in Pin");
-		newCustomerPage.inputPinText(Constansts.FIRST_SPAGE_SENKEY);
+		newCustomerPage.inputDynamicText(driver,Constansts.FIRST_SPAGE_SENKEY,"pinno");
 
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "First character can not have space"), "First character can not have space");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "First character can not have space"), "First character can not have space");
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test
@@ -252,9 +251,9 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Cannot have first Character Blank Space value in Pin");
-		newCustomerPage.inputPinText(Constansts.NUMBER_SPAGE_SENKEY);
+		newCustomerPage.inputDynamicText(driver,Constansts.NUMBER_SPAGE_SENKEY,"pinno");
 			
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "Characters are not allowed"), "Characters are not allowed");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "Characters are not allowed"), "Characters are not allowed");
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test
@@ -262,12 +261,12 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Do not enter a value Telephone");
-		newCustomerPage.inputTelephoneText(Constansts.BLANK_SENKEY);
+		newCustomerPage.inputDynamicText(driver,Constansts.BLANK_SENKEY,"telephoneno");
 		
 		log.info("Step 02: Press Tab");
-		newCustomerPage.telephonePressTab();
+		newCustomerPage.DynamicPressTab(driver, "telephoneno");
 	
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "Mobile no must not be blank"), "Mobile no must not be blank");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "Mobile no must not be blank"), "Mobile no must not be blank");
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test
@@ -275,9 +274,9 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Cannot have first Character Blank Space value in Telephone");
-		newCustomerPage.inputTelephoneText(Constansts.FIRST_SPAGE_SENKEY);
+		newCustomerPage.inputDynamicText(driver,Constansts.FIRST_SPAGE_SENKEY,"telephoneno");
 				
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "First character can not have space"), "First character can not have space");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "First character can not have space"), "First character can not have space");
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test
@@ -285,9 +284,9 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Cannot have first Character Blank Space value in Telephone");
-		newCustomerPage.inputTelephoneText(Constansts.NUMBER_SPAGE_SENKEY);
+		newCustomerPage.inputDynamicText(driver,Constansts.NUMBER_SPAGE_SENKEY,"telephoneno");
 			
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "Characters are not allowed"), "Characters are not allowed");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "Characters are not allowed"), "Characters are not allowed");
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test
@@ -295,9 +294,9 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Cannot Special Character value in Telephone");
-		newCustomerPage.inputTelephoneText(Constansts.SPECIAL_SENKEY);
+		newCustomerPage.inputDynamicText(driver,Constansts.SPECIAL_SENKEY,"telephoneno");
 		
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "Special characters are not allowed"), "Special characters are not allowed");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "Special characters are not allowed"), "Special characters are not allowed");
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test
@@ -305,12 +304,12 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Do not enter a value Telephone");
-		newCustomerPage.inputEmailText(Constansts.BLANK_SENKEY);
+		newCustomerPage.inputDynamicText(driver,Constansts.BLANK_SENKEY,"emailid");
 		
 		log.info("Step 02: Press Tab");
-		newCustomerPage.emailPressTab();
+		newCustomerPage.DynamicPressTab(driver, "emailid");
 	
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "Email-ID must not be blank"), "Email-ID must not be blank");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "Email-ID must not be blank"), "Email-ID must not be blank");
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test
@@ -318,20 +317,20 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Email must be in correct format");
-		newCustomerPage.inputEmailText(Constansts.EMAIL1_SENKEY);
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "Email-ID is not valid"), "Email-ID is not valid");
+		newCustomerPage.inputDynamicText(driver,Constansts.EMAIL1_SENKEY,"emailid");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "Email-ID is not valid"), "Email-ID is not valid");
 		
-		newCustomerPage.inputEmailText(Constansts.EMAIL2_SENKEY);
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "Email-ID is not valid"), "Email-ID is not valid");
+		newCustomerPage.inputDynamicText(driver,Constansts.EMAIL2_SENKEY,"emailid");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "Email-ID is not valid"), "Email-ID is not valid");
 		
-		newCustomerPage.inputEmailText(Constansts.EMAIL3_SENKEY);
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "Email-ID is not valid"), "Email-ID is not valid");
+		newCustomerPage.inputDynamicText(driver,Constansts.EMAIL3_SENKEY,"emailid");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "Email-ID is not valid"), "Email-ID is not valid");
 		
-		newCustomerPage.inputEmailText(Constansts.EMAIL4_SENKEY);
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "Email-ID is not valid"), "Email-ID is not valid");
+		newCustomerPage.inputDynamicText(driver,Constansts.EMAIL4_SENKEY,"emailid");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "Email-ID is not valid"), "Email-ID is not valid");
 		
-		newCustomerPage.inputEmailText(Constansts.EMAIL5_SENKEY);
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "Email-ID is not valid"), "Email-ID is not valid");
+		newCustomerPage.inputDynamicText(driver,Constansts.EMAIL5_SENKEY,"emailid");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "Email-ID is not valid"), "Email-ID is not valid");
 		
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
@@ -340,9 +339,9 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("============== START: "+testMethod.getName()+" ============== ");
 		
 		log.info("Step 01: Cannot have first Character Blank Space value in Email");
-		newCustomerPage.inputEmailText(Constansts.NUMBER_SPAGE_SENKEY);
+		newCustomerPage.inputDynamicText(driver,Constansts.NUMBER_SPAGE_SENKEY,"emailid");
 			
-		verifyEquals(newCustomerPage.getNameDynamicText(driver, "Characters are not allowed"), "Characters are not allowed");
+		verifyEquals(newCustomerPage.getDynamicText(driver, "Characters are not allowed"), "Characters are not allowed");
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
 	@Test 
@@ -410,20 +409,20 @@ public class Customer_01_NewCustomer extends AbstractTest{
 		log.info("CUSTOMER_ID : "+CUSTOMER_ID);
 		log.info("============== AND: "+testMethod.getName()+" ============== ");
 	}
-	
-	
-	@Parameters("browser")
+	@Parameters({"browser", "url"})
 	@BeforeClass
-	public void beforeClass(String browserName) {
+	public void beforeClass(String browserName, String url) {
 		log.info("============== START: LOGIN ============== ");
-		driver=opentMultiBrowser(browserName);
+		driver=opentMultiBrowser(browserName, url);
 		loginPage =PageFactoryManager.getLoginPage(driver);
 		
 		log.info("Step 01: Input data to UserID");
-		loginPage.inputToUserIDTextbox(RegisterLogin_Global.USER_ID);
+		//loginPage.inputToUserIDTextbox(RegisterLogin_Global.USER_ID);
+		loginPage.inputDynamicText(driver, RegisterLogin_Global.USER_ID, "uid");
 		
 		log.info("Step 02: Input data to Password");
-		loginPage.inputToPasswordTextbox(RegisterLogin_Global.PASSWORD);
+		//loginPage.inputToPasswordTextbox(RegisterLogin_Global.PASSWORD);
+		loginPage.inputDynamicText(driver, RegisterLogin_Global.PASSWORD, "password");
 		
 		log.info("Step 03: Click to Submit button");
 		homePage=loginPage.clickToLoginButton();
@@ -439,7 +438,7 @@ public class Customer_01_NewCustomer extends AbstractTest{
 
 
 	}
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void afterClass() {
 		closeBrowserAndDriver(driver);
 	}
