@@ -10,6 +10,7 @@
 
   <test name="Run on FIREFOX">
   <parameter name="browser" value="firefox"/>
+     <parameter name="url" value="Bank"/>
     <classes>
     		<class name="com.bankguru.account.RegisterLogin_Global"/>
            <class name="com.bankguru.account.RegisterLogin_Level_10_DynamicPageObject_PageElement_PageUI"/>

@@ -4,6 +4,7 @@
 
   <test name="Run on FIREFOX">
   <parameter name="browser" value="firefox"/>
+   <parameter name="url" value="Bank"/>
     <classes>
            <class name="com.bankguru.account.RegisterLogin_Level_2_Apply_AbstractPage_MultiBrowser_C1"/>
     </classes>

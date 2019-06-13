@@ -9,7 +9,7 @@
 <parameter name="url" value="Bank"/>
 
   <test name="Run on CHROME">
-  <parameter name="browser" value="ie"/>
+  <parameter name="browser" value="chrome"/>
     <classes>
       		<class name="com.bankguru.account.RegisterLogin_Global"/>
            <class name="com.bankguru.customer.Customer_01_NewCustomer">

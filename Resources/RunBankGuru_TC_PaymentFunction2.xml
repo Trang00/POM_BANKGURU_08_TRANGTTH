@@ -6,6 +6,7 @@
 
   <test name="Run on FIREFOX">
    <parameter name="browser" value="firefox"/>
+    <parameter name="url" value="Bank"/>
     <classes>
       <class name="com.bankguru.payment.PaymentFunction"/>
     </classes>

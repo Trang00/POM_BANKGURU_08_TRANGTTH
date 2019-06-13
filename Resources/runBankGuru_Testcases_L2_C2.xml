@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="BANKGURU" parallel="tests">
 
-
+ <parameter name="url" value="Bank"/>
   <test name="Run on FIREFOX">
   <parameter name="browser" value="firefox"/>
     <classes>

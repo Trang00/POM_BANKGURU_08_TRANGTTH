@@ -71,13 +71,7 @@
 				<appender-ref ref="testng"/>
 	</category>
 	
-		<category name="com.bankguru.changePassword">
-		<priority value="all" />
-		<appender-ref ref="console"/>
-			<appender-ref ref="logfile"/>
-				<appender-ref ref="testng"/>
-	</category>
-	
+
 	
 			<category name="com.liveguru">
 		<priority value="all" />
