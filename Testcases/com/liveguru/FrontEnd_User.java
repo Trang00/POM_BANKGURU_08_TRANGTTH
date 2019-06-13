@@ -150,7 +150,7 @@ public class FrontEnd_User extends AbstractTest {
 		liveHomePage.getDynamicTextDisplayedLive(driver, "Sony Xperia was added to your shopping cart.");
 		
 		log.info("Step 5: Input QTY value 501 ");
-		liveHomePage.sendKeyboardToElement(driver, AbstractLivePageUI.QTY_TEXTBOX, Keys.TAB);
+		//liveHomePage.sendKeyboardToElement(driver, AbstractLivePageUI.QTY_TEXTBOX, Keys.TAB);
 		liveHomePage.inputDynamicTextBoxQTY(driver, "501", "Sony Xperia");
 		
 		log.info("Step 6:Click button Update ");
@@ -167,7 +167,7 @@ public class FrontEnd_User extends AbstractTest {
 
 		log.info("============== AND: " + testMethod.getName() + " ============== ");
 	}
-	@Test
+	
 	public void TC_06_VerifyCompareTwoProduct(Method testMethod) {
 		
 		log.info("============== START: " + testMethod.getName() + " ============== ");

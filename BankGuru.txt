@@ -1,0 +1,53 @@
+2019-06-13 14:50:52,054 INFO  com.bankguru.account.RegisterLogin_Global - ============== START: TC_01_RegisterToSystem ============== 
+2019-06-13 14:50:52,057 INFO  com.bankguru.account.RegisterLogin_Global - TC_01 - Step 01: Click to hete link
+2019-06-13 14:50:54,656 INFO  com.bankguru.account.RegisterLogin_Global - TC_01 - Step 02: Input data to Email textbox
+2019-06-13 14:50:55,288 INFO  com.bankguru.account.RegisterLogin_Global - TC_01 - Step 03: Click to Submit button
+2019-06-13 14:50:57,867 INFO  com.bankguru.account.RegisterLogin_Global - TC_01 - Step 04: Get User/ Pass information
+2019-06-13 14:50:58,538 INFO  com.bankguru.account.RegisterLogin_Global - USER_ID:  mngr201835
+2019-06-13 14:50:59,200 INFO  com.bankguru.account.RegisterLogin_Global - PASSWORD:  gadApYz
+2019-06-13 14:50:59,200 INFO  com.bankguru.account.RegisterLogin_Global - ============== AND: TC_01_RegisterToSystem ============== 
+2019-06-13 14:51:09,172 INFO  com.bankguru.login.Login_01_ValidateLoginForm - ============== START:  TC_01_LoginWithEmailInvalid============== 
+2019-06-13 14:51:09,172 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Step 01: Click to hete link
+2019-06-13 14:51:13,044 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Step 02: Input data to Email textbox
+2019-06-13 14:51:13,157 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Step 03: Click to Submit button
+2019-06-13 14:51:13,764 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Step 04: verify Msg
+2019-06-13 14:51:14,344 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Actual=Email ID is not valid
+2019-06-13 14:51:14,344 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Expected=Email ID is not valid
+2019-06-13 14:51:14,344 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Compare value=true
+2019-06-13 14:51:14,345 INFO  com.bankguru.login.Login_01_ValidateLoginForm - ===PASSED===
+2019-06-13 14:51:14,346 INFO  com.bankguru.login.Login_01_ValidateLoginForm - ============== AND:  TC_01_LoginWithEmailInvalid============== 
+2019-06-13 14:51:23,830 INFO  com.bankguru.login.Login_01_ValidateLoginForm - ============== START:  TC_02_LoginWithEmailValid============== 
+2019-06-13 14:51:23,830 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Step 01: Click to hete link
+2019-06-13 14:51:27,330 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Step 02: Input data to Email textbox
+2019-06-13 14:51:27,518 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Step 03: Click to Submit button
+2019-06-13 14:51:29,962 INFO  com.bankguru.login.Login_01_ValidateLoginForm - TC_01 - Step 04: Get User/ Pass information
+2019-06-13 14:51:30,570 INFO  com.bankguru.login.Login_01_ValidateLoginForm - USER_ID:  mngr201836
+2019-06-13 14:51:31,193 INFO  com.bankguru.login.Login_01_ValidateLoginForm - PASSWORD:  uhetEpu
+2019-06-13 14:51:31,193 INFO  com.bankguru.login.Login_01_ValidateLoginForm - ============== AND:  TC_02_LoginWithEmailValid============== 
+2019-06-13 14:51:39,816 INFO  com.bankguru.login.Login_01_ValidateLoginForm - ============== START:  TC_03_LoginWithPasswordLessThan6Chars============== 
+2019-06-13 14:51:39,817 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Step 01: Input data to UserID
+2019-06-13 14:51:39,959 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Step 02: Input data to Password
+2019-06-13 14:51:40,049 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Step 03: Click to Submit button
+2019-06-13 14:51:41,326 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Step 04:Verify and Accep alert 
+2019-06-13 14:51:41,338 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Actual=User or Password is not valid
+2019-06-13 14:51:41,339 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Expected=User or Password is not valid
+2019-06-13 14:51:41,339 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Compare value=true
+2019-06-13 14:51:41,339 INFO  com.bankguru.login.Login_01_ValidateLoginForm - ===PASSED===
+2019-06-13 14:51:41,347 INFO  com.bankguru.login.Login_01_ValidateLoginForm - ============== AND:  TC_03_LoginWithPasswordLessThan6Chars============== 
+2019-06-13 14:51:50,667 INFO  com.bankguru.login.Login_01_ValidateLoginForm - ============== START:  TC_04_LoginWithPaswordIncorrect============== 
+2019-06-13 14:51:50,668 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Step 01: Input data to UserID
+2019-06-13 14:51:50,793 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Step 02: Input data to Password
+2019-06-13 14:51:50,924 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Step 03: Click to Submit button
+2019-06-13 14:51:52,075 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Step 04:Verify and Accep alert 
+2019-06-13 14:51:52,082 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Actual=User or Password is not valid
+2019-06-13 14:51:52,082 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Expected=User or Password is not valid
+2019-06-13 14:51:52,082 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Compare value=true
+2019-06-13 14:51:52,082 INFO  com.bankguru.login.Login_01_ValidateLoginForm - ===PASSED===
+2019-06-13 14:51:52,089 INFO  com.bankguru.login.Login_01_ValidateLoginForm - ============== AND:  TC_04_LoginWithPaswordIncorrect============== 
+2019-06-13 14:52:03,121 INFO  com.bankguru.login.Login_01_ValidateLoginForm - ============== START:  TC_05_LoginWithUserAndPassValid============== 
+2019-06-13 14:52:03,121 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Step 01: Input data to UserID
+2019-06-13 14:52:03,365 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Step 02: Input data to Password
+2019-06-13 14:52:03,465 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Step 03: Click to Submit button
+2019-06-13 14:54:17,448 INFO  com.bankguru.login.Login_01_ValidateLoginForm - Step 04: verify Home Page
+2019-06-13 14:54:47,534 INFO  com.bankguru.login.Login_01_ValidateLoginForm - ===FAILED===
+2019-06-13 14:54:47,541 INFO  com.bankguru.login.Login_01_ValidateLoginForm - ============== AND:  TC_05_LoginWithUserAndPassValid============== 

@@ -2,7 +2,7 @@ package commons;
 
 public class Constansts {
 	public static final int SHORT_TIMEOUT = 5;
-	public static final int LONG_TIMEOUT = 12;
+	public static final int LONG_TIMEOUT = 15;
 	public static final String BANK_URL="http://demo.guru99.com/V4";
 	public static final String LIVE_URL="http://live.guru99.com";
 	

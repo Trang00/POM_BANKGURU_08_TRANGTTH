@@ -777,7 +777,9 @@ public class AbstractPage {
 	}
 	public void inputDynamicTextBoxQTY(WebDriver driver,String value, String dynamicValue) {
 		waitForControlVisible(driver, AbstractLivePageUI.QTY_TEXTBOX, dynamicValue);
+		clickToElement(driver, AbstractLivePageUI.QTY_TEXTBOX, dynamicValue);
 		senkeyToElement(driver, value, AbstractLivePageUI.QTY_TEXTBOX, dynamicValue);
+		//sendKeyDynamicboardToElement(driver, Keys.TAB, AbstractLivePageUI.QTY_TEXTBOX, dynamicValue);
 	}
 	public void clickDynamicCompare(WebDriver driver,String dynamicValue) {
 		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_COMPARE, dynamicValue);
