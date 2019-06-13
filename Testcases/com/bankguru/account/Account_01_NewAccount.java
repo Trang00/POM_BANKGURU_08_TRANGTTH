@@ -175,10 +175,10 @@ public class Account_01_NewAccount extends AbstractTest {
 		loginPage = PageFactoryManager.getLoginPage(driver);
 
 		log.info("Step 01: Input data to UserID");
-		loginPage.inputToUserIDTextbox(RegisterLogin_Global.USER_ID);
-
+		loginPage.inputDynamicText(driver, RegisterLogin_Global.USER_ID, "uid");
+		
 		log.info("Step 02: Input data to Password");
-		loginPage.inputToPasswordTextbox(RegisterLogin_Global.PASSWORD);
+		loginPage.inputDynamicText(driver, RegisterLogin_Global.PASSWORD, "password");
 
 		log.info("Step 03: Click to Submit button");
 		homePage = loginPage.clickToLoginButton();
