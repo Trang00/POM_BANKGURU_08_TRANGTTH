@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import commons.AbstractPage;
 import liveguruPageUIs.AbstractLivePageUI;
 import liveguruPageUIs.LiveHomePageUI;
+import pageUIs.AbstractPageUI;
 
 public class LiveHomePageObject extends AbstractPage{
 	WebDriver driver;
@@ -42,6 +43,11 @@ public class LiveHomePageObject extends AbstractPage{
 	public String getEmptyCartLive() {
 		waitForControlVisible(driver, LiveHomePageUI.VERIFY_EMPTY_CART);
 		return getTextInElement(driver, LiveHomePageUI.VERIFY_EMPTY_CART);
+	}
+	
+	public boolean isTextWishListDisplayed() {
+		waitForControlVisible(driver, LiveHomePageUI.MSG_WISHLIT);
+		return isControlDisplayed(driver, LiveHomePageUI.MSG_WISHLIT);
 	}
 	
 	

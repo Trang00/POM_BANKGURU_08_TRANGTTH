@@ -19,6 +19,7 @@ public class LiveHomePageUI {
 	
 	public static final String VERIFY_EMPTY_CART="//div[@class='page-title']/h1";
 	
+	public static final String MSG_WISHLIT="//li[@class='success-msg']//span";
 
 	
 }

@@ -19,6 +19,7 @@ import commons.AbstractTest;
 import commons.Constansts;
 import liveguruPageObjects.LiveHomePageObject;
 import liveguruPageObjects.LiveMyAccountPageObject;
+import liveguruPageObjects.LiveMyWishListPageObject;
 import liveguruPageObjects.LivePageFactoryManager;
 import liveguruPageObjects.LiveRegisterPageObject;
 import liveguruPageUIs.AbstractLivePageUI;
@@ -31,7 +32,7 @@ public class FrontEnd_User extends AbstractTest {
 	private LiveHomePageObject liveHomePage;
 	private LiveRegisterPageObject liveRegisterPage;
 	private LiveMyAccountPageObject liveMyAccountPage;
-
+	private LiveMyWishListPageObject liveMyWishListPage;
 	private String firstName, middleName, lastName, password, confirmPass, fullName;
 
 	@Test
@@ -47,12 +48,12 @@ public class FrontEnd_User extends AbstractTest {
 		liveRegisterPage=liveHomePage.clickRegisterMenu();
 
 		log.info("Step 3: Input data");
-		liveRegisterPage.inputDynamicTextBox(driver, firstName, "firstname");
-		liveRegisterPage.inputDynamicTextBox(driver, middleName, "middlename");
-		liveRegisterPage.inputDynamicTextBox(driver, lastName, "lastname");
-		liveRegisterPage.inputDynamicTextBox(driver, EMAIL, "email");
-		liveRegisterPage.inputDynamicTextBox(driver, password, "password");
-		liveRegisterPage.inputDynamicTextBox(driver, confirmPass, "confirmation");
+		liveRegisterPage.inputDynamicTextBoxTextArea(driver, firstName, "firstname");
+		liveRegisterPage.inputDynamicTextBoxTextArea(driver, middleName, "middlename");
+		liveRegisterPage.inputDynamicTextBoxTextArea(driver, lastName, "lastname");
+		liveRegisterPage.inputDynamicTextBoxTextArea(driver, EMAIL, "email");
+		liveRegisterPage.inputDynamicTextBoxTextArea(driver, password, "password");
+		liveRegisterPage.inputDynamicTextBoxTextArea(driver, confirmPass, "confirmation");
 
 		log.info("Step 4: Click button REGISTER");
 		liveRegisterPage.clickDynamicButton(driver, "Register");
@@ -62,7 +63,7 @@ public class FrontEnd_User extends AbstractTest {
 
 		log.info("============== AND: " + testMethod.getName() + " ============== ");
 	}
-	@Test
+
 	public void TC_02_VerifyUser(Method testMethod) {
 		
 		log.info("============== START: " + testMethod.getName() + " ============== ");
@@ -79,7 +80,7 @@ public class FrontEnd_User extends AbstractTest {
 		
 		log.info("============== AND: " + testMethod.getName() + " ============== ");
 	}
-	@Test
+
 	public void TC_03_VerifyCostProduct(Method testMethod) {
 		
 		log.info("============== START: " + testMethod.getName() + " ============== ");
@@ -102,7 +103,7 @@ public class FrontEnd_User extends AbstractTest {
 
 		log.info("============== AND: " + testMethod.getName() + " ============== ");
 	}
-	@Test
+
 	public void TC_04_DiscountCoupon(Method testMethod) {
 		
 		log.info("============== START: " + testMethod.getName() + " ============== ");
@@ -119,7 +120,7 @@ public class FrontEnd_User extends AbstractTest {
 		liveHomePage.getDynamicTextDisplayedLive(driver, "IPhone was added to your shopping cart.");
 		
 		log.info("Step 5: Input Discount codes ");
-		liveHomePage.inputDynamicTextBox(driver, "GURU50", "coupon_code");
+		liveHomePage.inputDynamicTextBoxTextArea(driver, "GURU50", "coupon_code");
 		
 		log.info("Step 6: Click button apply ");
 		liveHomePage.clickDynamicButton(driver, "Apply");
@@ -133,7 +134,7 @@ public class FrontEnd_User extends AbstractTest {
 
 		log.info("============== AND: " + testMethod.getName() + " ============== ");
 	}
-	@Test
+	// Chết ko hiển thị button Update
 	public void TC_05_VerifyCannotAddMore500Items(Method testMethod) {
 		
 		log.info("============== START: " + testMethod.getName() + " ============== ");
@@ -163,11 +164,11 @@ public class FrontEnd_User extends AbstractTest {
 		liveHomePage.clickDynamicButton(driver, "Empty Cart");
 		
 		log.info("Step 9: Verify Empty cart");
-		verifyEquals(liveHomePage.getEmptyCartLive(),"Shopping Cart is Empty");
+		verifyEquals(liveHomePage.getEmptyCartLive(),"SHOPPING CART IS EMPTY");
 
 		log.info("============== AND: " + testMethod.getName() + " ============== ");
 	}
-	
+
 	public void TC_06_VerifyCompareTwoProduct(Method testMethod) {
 		
 		log.info("============== START: " + testMethod.getName() + " ============== ");
@@ -195,14 +196,93 @@ public class FrontEnd_User extends AbstractTest {
 		verifyEquals(liveHomePage.getDynamicTextH1Live(driver, "Compare Products"),"COMPARE PRODUCTS");
 		
 		liveHomePage.closeAllWithoutParentWindows(driver, parentWindow);
+	
+		log.info("============== AND: " + testMethod.getName() + " ============== ");
+	}
+	@Test
+	public void TC_07_ShareWishlist(Method testMethod) {
+		
+		log.info("============== START: " + testMethod.getName() + " ============== ");
+		log.info("Step 1: Open URL ");
+		liveHomePage = LivePageFactoryManager.getHomePageLive(driver);
+		
+		log.info("Step 2: Click menu TV");
+		liveHomePage.clickDynamicLink(driver, "TV");
+		
+		log.info("Step 3: Add LG LCD product your wishlist and Msg display");
+		liveHomePage.clickDynamicWishList(driver, "LG LCD");
+		
+		verifyTrue(liveHomePage.isTextWishListDisplayed());
+		
+		log.info("Step 4: Click button Share Wishlist ");
+		liveHomePage.clickDynamicButton(driver, "Share Wishlist");
+		
+		log.info("Step 5: Input Email and msg ");////////////////////////////
+		liveHomePage.inputDynamicTextBoxTextArea(driver, "TrangHC0938@gmail.com", "email_address");
+		
+		liveHomePage.inputDynamicTextBoxTextArea(driver, "Message WishList", "message");
 		
 		
+		log.info("Step 6: Click button Share Wishlist ");
+		liveHomePage.clickDynamicButton(driver, "Share Wishlist");
 		
+		verifyTrue(liveHomePage.isTextWishListDisplayed());
+		
+		liveMyWishListPage=(LiveMyWishListPageObject) liveHomePage.openDynamicLivePage(driver, "My Wishlist");
+		verifyEquals(liveMyWishListPage.getDynamicTextH1Live(driver, "My Wishlist"),"MY WISHLIST");
+	
+		log.info("============== AND: " + testMethod.getName() + " ============== ");
+	}
+	
+	public void TC_08_AddYourReview(Method testMethod) {
+		
+		log.info("============== START: " + testMethod.getName() + " ============== ");
+		log.info("Step 1: Open URL ");
+		liveHomePage = LivePageFactoryManager.getHomePageLive(driver);
+		
+		log.info("Step 2: Click menu TV");
+		liveHomePage.clickDynamicLink(driver, "TV");
+		
+		log.info("Step 3: Click detail Samsung LCD");
+		liveHomePage.clickDynamicLink(driver, "Samsung LCD");
+		
+		log.info("Step 4: Click link 'Add Your Review'");
+		liveHomePage.clickDynamicLink(driver, "Add Your Review");
+		
+		log.info("Step 5: Input data 3 field");//////////////
+		
+		log.info("Step 6: Click button Submit Review ");
+		liveHomePage.clickDynamicButton(driver, "Submit Review");
 		
 	
 		log.info("============== AND: " + testMethod.getName() + " ============== ");
 	}
 	
+	public void TC_09_UserIsAblePuschaseProduct(Method testMethod) {
+		
+		log.info("============== START: " + testMethod.getName() + " ============== ");
+		log.info("Step 1: Open URL ");
+		liveHomePage = LivePageFactoryManager.getHomePageLive(driver);
+		
+		log.info("Step 2: Click menu TV");
+		liveHomePage.clickDynamicLink(driver, "TV");
+		
+	
+		log.info("============== AND: " + testMethod.getName() + " ============== ");
+	}
+	
+	public void TC_10_VerifySearchFuntionality(Method testMethod) {
+		
+		log.info("============== START: " + testMethod.getName() + " ============== ");
+		log.info("Step 1: Open URL ");
+		liveHomePage = LivePageFactoryManager.getHomePageLive(driver);
+		
+		log.info("Step 2: Click menu TV");
+		liveHomePage.clickDynamicLink(driver, "TV");
+		
+	
+		log.info("============== AND: " + testMethod.getName() + " ============== ");
+	}
 	@Parameters({ "browser", "url" })
 	@BeforeClass
 	public void beforeClass(String browserName, String url) {

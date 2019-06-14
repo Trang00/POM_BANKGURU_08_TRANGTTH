@@ -520,6 +520,12 @@ public class AbstractPage {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		return js.executeScript("arguments[0].removeAttribute('" + attribute + "');", element);
 	}
+	public Object removeAttributeInDOM(WebDriver driver, String locator, String attribute, String ...values) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		locator=String.format(locator, (Object[]) values);
+		WebElement element = driver.findElement(By.xpath(locator));
+		return js.executeScript("arguments[0].removeAttribute('" + attribute + "');", element);
+	}
 
 	public Object navigateToUrlByJS(WebDriver drive, String url) {
 		JavascriptExecutor js = (JavascriptExecutor) drive;
@@ -591,6 +597,14 @@ public class AbstractPage {
 	public void overrideGlobalTimeout(WebDriver driver, int timeout) {
 		driver.manage().timeouts().implicitlyWait(timeout, TimeUnit.SECONDS);
 	}
+	public void sleepInSecond(long timeInSecond) {
+		try {
+			Thread.sleep(timeInSecond*1000);
+		}catch(InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
 
 	///////
 	public NewCustomerPageObject openNewCustomerPage(WebDriver driver) {
@@ -674,9 +688,12 @@ public class AbstractPage {
 	
 	// Dynamic bank guru
 	
-	public void inputDynamicText(WebDriver driver,String value, String dynamicValue) {
+	public void inputDynamicText(WebDriver driver,String values, String dynamicValue) {
 		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_SENKEY, dynamicValue);
-		senkeyToElement(driver, value, AbstractPageUI.DYNAMIC_SENKEY, dynamicValue);
+		if(driver.toString().contains("chrome")) {
+			removeAttributeInDOM(driver, AbstractPageUI.DYNAMIC_SENKEY, "type", values);
+		}
+		senkeyToElement(driver, values, AbstractPageUI.DYNAMIC_SENKEY, dynamicValue);
 	}
 	public void clickDynamicRadio(WebDriver driver,String value, String dynamicValue) {
 		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_RADIO, dynamicValue);
@@ -739,10 +756,9 @@ public class AbstractPage {
 		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_LINK, pageName);
 		clickToElement(driver, AbstractLivePageUI.DYNAMIC_LINK, pageName);
 		switch (pageName) {
-		case "Register":
+		case "My Wishlist":
 			return LivePageFactoryManager.getRegisterLivePage(driver);
-		case "My Account":
-			return LivePageFactoryManager.getMyAccountPageLive(driver);
+		
 		default:
 			return LivePageFactoryManager.getHomePageLive(driver);
 		}
@@ -755,9 +771,9 @@ public class AbstractPage {
 		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_BUTTON, dynamicValue);
 		clickToElement(driver, AbstractLivePageUI.DYNAMIC_BUTTON, dynamicValue);
 	}
-	public void inputDynamicTextBox(WebDriver driver,String value, String dynamicValue) {
-		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_TEXTBOX, dynamicValue);
-		senkeyToElement(driver, value, AbstractLivePageUI.DYNAMIC_TEXTBOX, dynamicValue);
+	public void inputDynamicTextBoxTextArea(WebDriver driver,String value, String dynamicValue) {
+		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_TEXTBOX_TEXTAREA, dynamicValue);
+		senkeyToElement(driver, value, AbstractLivePageUI.DYNAMIC_TEXTBOX_TEXTAREA, dynamicValue);
 	}
 	public String getDynamicTextDisplayedLive(WebDriver driver,String dynamicValue ) {
 		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_VERIFY_TEXT, dynamicValue);
@@ -777,14 +793,17 @@ public class AbstractPage {
 	}
 	public void inputDynamicTextBoxQTY(WebDriver driver,String value, String dynamicValue) {
 		waitForControlVisible(driver, AbstractLivePageUI.QTY_TEXTBOX, dynamicValue);
-		clickToElement(driver, AbstractLivePageUI.QTY_TEXTBOX, dynamicValue);
 		senkeyToElement(driver, value, AbstractLivePageUI.QTY_TEXTBOX, dynamicValue);
-		//sendKeyDynamicboardToElement(driver, Keys.TAB, AbstractLivePageUI.QTY_TEXTBOX, dynamicValue);
 	}
 	public void clickDynamicCompare(WebDriver driver,String dynamicValue) {
 		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_COMPARE, dynamicValue);
 		clickToElement(driver, AbstractLivePageUI.DYNAMIC_COMPARE, dynamicValue);
 	}
+	public void clickDynamicWishList(WebDriver driver,String dynamicValue) {
+		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_WISHLIST, dynamicValue);
+		clickToElement(driver, AbstractLivePageUI.DYNAMIC_WISHLIST, dynamicValue);
+	}
+	
 	public String getDynamicTextH1Live(WebDriver driver,String dynamicValue ) {
 		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_TEXT_H1, dynamicValue);
 		return getTextDynamicInElement(driver, AbstractLivePageUI.DYNAMIC_TEXT_H1, dynamicValue);

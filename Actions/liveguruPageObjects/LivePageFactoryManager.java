@@ -13,9 +13,8 @@ public class LivePageFactoryManager {
 	public static LiveHomePageObject getHomePageLive(WebDriver driver) {
 		return new LiveHomePageObject(driver);
 	}
-	
-	public static LiveMyAccountPageObject getMyAccountPageLive(WebDriver driver) {
-		return new LiveMyAccountPageObject(driver);
+	public static LiveMyWishListPageObject getMyWishListPageLive(WebDriver driver) {
+		return new LiveMyWishListPageObject(driver);
 	}
 	
 }

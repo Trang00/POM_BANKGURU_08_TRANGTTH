@@ -4,9 +4,9 @@ public class AbstractLivePageUI {
 	public static final String DYNAMIC_MENU = "//header[@id='header']//span[text()='%s']";
 
 	public static final String DYNAMIC_LINK = "//a[text()='%s']";//
-
-	public static final String DYNAMIC_TEXTBOX = "//input[@name='%s']";
-
+		
+	public static final String DYNAMIC_TEXTBOX_TEXTAREA = "(//textarea | //input) [@id='%s']";
+	
 	public static final String DYNAMIC_BUTTON = "//button[@title='%s']";
 
 	public static final String DYNAMIC_VERIFY_TEXT = "//span[text()='%s']";
@@ -22,6 +22,8 @@ public class AbstractLivePageUI {
 	public static final String DYNAMIC_COMPARE = "//a[text()='%s']/parent::h2/following-sibling::div[@class='actions']//a[text()='Add to Compare']";
 	
 	public static final String DYNAMIC_TEXT_H1 = "//h1[text()='%s']";//
+	
+	public static final String DYNAMIC_WISHLIST = "//a[text()='%s']/parent::h2/following-sibling::div[@class='actions']//a[text()='Add to Wishlist']";
 	
 	//
 
