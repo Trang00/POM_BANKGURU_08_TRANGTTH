@@ -5,7 +5,7 @@ public class AbstractLivePageUI {
 
 	public static final String DYNAMIC_LINK = "//a[text()='%s']";//
 		
-	public static final String DYNAMIC_TEXTBOX_TEXTAREA = "(//textarea | //input) [@id='%s']";
+	public static final String DYNAMIC_TEXTBOX_TEXTAREA_RADIO = "(//textarea | //input) [@id='%s']";
 	
 	public static final String DYNAMIC_BUTTON = "//button[@title='%s']";
 
@@ -21,10 +21,17 @@ public class AbstractLivePageUI {
 	
 	public static final String DYNAMIC_COMPARE = "//a[text()='%s']/parent::h2/following-sibling::div[@class='actions']//a[text()='Add to Compare']";
 	
-	public static final String DYNAMIC_TEXT_H1 = "//h1[text()='%s']";//
+	public static final String DYNAMIC_TEXT_H1_H2 = "//h1 | h2 [text()='%s']";//
 	
 	public static final String DYNAMIC_WISHLIST = "//a[text()='%s']/parent::h2/following-sibling::div[@class='actions']//a[text()='Add to Wishlist']";
 	
+	public static final String DYNAMIC_TEXT_EMPTY_REVIEW = "//div[@id='%s']";
+	
+	public static final String DYNAMIC_DROPDOWN="//select[@name='%s']";
+	
+	public static final String DYNAMIC_CONTINUE="//h2[text()='%s']/parent::div/following-sibling::div//span[text()='Continue']";
+	
+	public static final String DYNAMIC_ORDER_GENERATED="//td[contains(text(),'%s')]/following-sibling::td//span";
 	//
 
 }

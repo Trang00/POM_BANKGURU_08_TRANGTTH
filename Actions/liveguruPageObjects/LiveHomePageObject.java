@@ -49,7 +49,49 @@ public class LiveHomePageObject extends AbstractPage{
 		waitForControlVisible(driver, LiveHomePageUI.MSG_WISHLIT);
 		return isControlDisplayed(driver, LiveHomePageUI.MSG_WISHLIT);
 	}
+	public String getShippingCostTotalLive() {
+		waitForControlVisible(driver, LiveHomePageUI.SHIPPING_COST_TOTAL);
+		return getTextInElement(driver, LiveHomePageUI.SHIPPING_COST_TOTAL);
+	}
+	public String getShippingCostGeneratdLive() {
+		waitForControlVisible(driver, LiveHomePageUI.SHIPPING_COST_GENERATED);
+		return getTextInElement(driver, LiveHomePageUI.SHIPPING_COST_GENERATED);
+	}
+	public void clickButtonAddToCart(WebDriver driver) {
+		waitForControlVisible(driver, LiveHomePageUI.BUTTON_ADD_TO_CART);
+		clickToElement(driver, LiveHomePageUI.BUTTON_ADD_TO_CART);
+	}
 	
+	public void clickButtonUpdateQTY(WebDriver driver) {
+		waitForControlVisible(driver, LiveHomePageUI.BUTTON_UPDATE_QTY);
+		clickToElementByJS(driver,  LiveHomePageUI.BUTTON_UPDATE_QTY);
+	}
 	
+	public void clickLinkMyWishlist(WebDriver driver) {
+		waitForControlVisible(driver, LiveHomePageUI.LINK_MY_WISHLIST);
+		clickToElementByJS(driver,  LiveHomePageUI.LINK_MY_WISHLIST);
+	}
+	public void clickButtonEstimate(WebDriver driver) {
+		waitForControlVisible(driver, LiveHomePageUI.LINK_MY_WISHLIST);
+		clickToElementByJS(driver,  LiveHomePageUI.LINK_MY_WISHLIST);
+	}
+	
+	public boolean isTextOrderNumberDisplayed() {
+		waitForControlVisible(driver, LiveHomePageUI.ORDER_NUMBER);
+		return isControlDisplayed(driver, LiveHomePageUI.ORDER_NUMBER);
+	}
+
+	public String getOrderNumberLive() {
+		waitForControlVisible(driver, LiveHomePageUI.ORDER_NUMBER);
+		return getTextInElement(driver, LiveHomePageUI.ORDER_NUMBER);
+	}
+	public String getOrderReviewTotalLive(WebDriver driver ) {
+		waitForControlVisible(driver, LiveHomePageUI.TOTAL_ORDER);
+		return getTextDynamicInElement(driver, LiveHomePageUI.TOTAL_ORDER);
+	}
+	public void clickButtonSearch(WebDriver driver) {
+		waitForControlVisible(driver, LiveHomePageUI.BUTTON_SEARCH);
+		clickToElementByJS(driver,  LiveHomePageUI.BUTTON_SEARCH);
+	}
 	
 }

@@ -2,28 +2,17 @@ package com.liveguru;
 
 import java.lang.reflect.Method;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.AbstractTest;
-import commons.Constansts;
 import liveguruPageObjects.LiveHomePageObject;
 import liveguruPageObjects.LiveMyAccountPageObject;
-import liveguruPageObjects.LiveMyWishListPageObject;
 import liveguruPageObjects.LivePageFactoryManager;
 import liveguruPageObjects.LiveRegisterPageObject;
-import liveguruPageUIs.AbstractLivePageUI;
-import pageObjects.PageFactoryManager;
 
 public class FrontEnd_User extends AbstractTest {
 	private WebDriver driver;
@@ -32,8 +21,8 @@ public class FrontEnd_User extends AbstractTest {
 	private LiveHomePageObject liveHomePage;
 	private LiveRegisterPageObject liveRegisterPage;
 	private LiveMyAccountPageObject liveMyAccountPage;
-	private LiveMyWishListPageObject liveMyWishListPage;
-	private String firstName, middleName, lastName, password, confirmPass, fullName;
+	private String firstName, middleName, lastName, password, confirmPass, fullName,letUsKnowYourThoughts,summaryOfYourReview,nickname,zip,shipping;
+	private String subtotal,grandTotal,address,country,state,city,telephone;
 
 	@Test
 	public void TC_01_Register(Method testMethod) {
@@ -51,7 +40,7 @@ public class FrontEnd_User extends AbstractTest {
 		liveRegisterPage.inputDynamicTextBoxTextArea(driver, firstName, "firstname");
 		liveRegisterPage.inputDynamicTextBoxTextArea(driver, middleName, "middlename");
 		liveRegisterPage.inputDynamicTextBoxTextArea(driver, lastName, "lastname");
-		liveRegisterPage.inputDynamicTextBoxTextArea(driver, EMAIL, "email");
+		liveRegisterPage.inputDynamicTextBoxTextArea(driver, EMAIL, "email_address");
 		liveRegisterPage.inputDynamicTextBoxTextArea(driver, password, "password");
 		liveRegisterPage.inputDynamicTextBoxTextArea(driver, confirmPass, "confirmation");
 
@@ -63,7 +52,7 @@ public class FrontEnd_User extends AbstractTest {
 
 		log.info("============== AND: " + testMethod.getName() + " ============== ");
 	}
-
+	@Test
 	public void TC_02_VerifyUser(Method testMethod) {
 		
 		log.info("============== START: " + testMethod.getName() + " ============== ");
@@ -80,7 +69,7 @@ public class FrontEnd_User extends AbstractTest {
 		
 		log.info("============== AND: " + testMethod.getName() + " ============== ");
 	}
-
+	@Test
 	public void TC_03_VerifyCostProduct(Method testMethod) {
 		
 		log.info("============== START: " + testMethod.getName() + " ============== ");
@@ -103,7 +92,7 @@ public class FrontEnd_User extends AbstractTest {
 
 		log.info("============== AND: " + testMethod.getName() + " ============== ");
 	}
-
+	@Test
 	public void TC_04_DiscountCoupon(Method testMethod) {
 		
 		log.info("============== START: " + testMethod.getName() + " ============== ");
@@ -127,14 +116,14 @@ public class FrontEnd_User extends AbstractTest {
 		
 		log.info("Step 7: Verify Discount and Grand total");
 		verifyEquals(liveHomePage.getDiscountLive(), "-$25.00");
-		verifyEquals(liveHomePage.getGrandTotalLive(), "$500.00");///
+		verifyEquals(liveHomePage.getGrandTotalLive(), "$500.00");
 		
 		
-		liveHomePage.clickDynamicButton(driver, "Empty Cart");// phuc vu cho TC 5
+		liveHomePage.clickDynamicButton(driver, "Empty Cart");
 
 		log.info("============== AND: " + testMethod.getName() + " ============== ");
 	}
-	// Chết ko hiển thị button Update
+	@Test
 	public void TC_05_VerifyCannotAddMore500Items(Method testMethod) {
 		
 		log.info("============== START: " + testMethod.getName() + " ============== ");
@@ -150,13 +139,13 @@ public class FrontEnd_User extends AbstractTest {
 		log.info("Step 4: Verify ");
 		liveHomePage.getDynamicTextDisplayedLive(driver, "Sony Xperia was added to your shopping cart.");
 		
-		log.info("Step 5: Input QTY value 501 ");
-		//liveHomePage.sendKeyboardToElement(driver, AbstractLivePageUI.QTY_TEXTBOX, Keys.TAB);
-		liveHomePage.inputDynamicTextBoxQTY(driver, "501", "Sony Xperia");
-		
+		log.info("Step 5: Input QTY value 501 ");;
+		liveHomePage.inputDynamicTextBoxQTY(driver, "1000", "Sony Xperia");
+	
 		log.info("Step 6:Click button Update ");
-		liveHomePage.clickDynamicButton(driver, "Update");
-		
+		//liveHomePage.clickDynamicButton(driver, "Update");
+		liveHomePage.clickButtonUpdateQTY(driver);
+
 		log.info("Step 7:Verify Message error ");
 		verifyEquals(liveHomePage.getMsgErrorQTYLive(),"* The maximum quantity allowed for purchase is 500. ");
 		
@@ -168,7 +157,7 @@ public class FrontEnd_User extends AbstractTest {
 
 		log.info("============== AND: " + testMethod.getName() + " ============== ");
 	}
-
+	@Test
 	public void TC_06_VerifyCompareTwoProduct(Method testMethod) {
 		
 		log.info("============== START: " + testMethod.getName() + " ============== ");
@@ -217,7 +206,7 @@ public class FrontEnd_User extends AbstractTest {
 		log.info("Step 4: Click button Share Wishlist ");
 		liveHomePage.clickDynamicButton(driver, "Share Wishlist");
 		
-		log.info("Step 5: Input Email and msg ");////////////////////////////
+		log.info("Step 5: Input Email and msg ");
 		liveHomePage.inputDynamicTextBoxTextArea(driver, "TrangHC0938@gmail.com", "email_address");
 		
 		liveHomePage.inputDynamicTextBoxTextArea(driver, "Message WishList", "message");
@@ -227,13 +216,10 @@ public class FrontEnd_User extends AbstractTest {
 		liveHomePage.clickDynamicButton(driver, "Share Wishlist");
 		
 		verifyTrue(liveHomePage.isTextWishListDisplayed());
-		
-		liveMyWishListPage=(LiveMyWishListPageObject) liveHomePage.openDynamicLivePage(driver, "My Wishlist");
-		verifyEquals(liveMyWishListPage.getDynamicTextH1Live(driver, "My Wishlist"),"MY WISHLIST");
 	
 		log.info("============== AND: " + testMethod.getName() + " ============== ");
 	}
-	
+	@Test
 	public void TC_08_AddYourReview(Method testMethod) {
 		
 		log.info("============== START: " + testMethod.getName() + " ============== ");
@@ -249,49 +235,163 @@ public class FrontEnd_User extends AbstractTest {
 		log.info("Step 4: Click link 'Add Your Review'");
 		liveHomePage.clickDynamicLink(driver, "Add Your Review");
 		
-		log.info("Step 5: Input data 3 field");//////////////
+		log.info("Step 5: Input data 3 field Empty");
+		liveHomePage.inputDynamicTextBoxTextArea(driver, "", "review_field");
+		liveHomePage.inputDynamicTextBoxTextArea(driver, "", "summary_field");
+		liveHomePage.inputDynamicTextBoxTextArea(driver, "", "nickname_field");
+		
 		
 		log.info("Step 6: Click button Submit Review ");
 		liveHomePage.clickDynamicButton(driver, "Submit Review");
 		
-	
+		verifyTrue(liveHomePage.isDynamicTextDisplayed(driver, "advice-required-entry-review_field"));
+		verifyTrue(liveHomePage.isDynamicTextDisplayed(driver, "advice-required-entry-summary_field"));
+		verifyTrue(liveHomePage.isDynamicTextDisplayed(driver, "advice-required-entry-nickname_field"));
+		
+		log.info("Step 7: Input data 3 field ");
+		liveHomePage.inputDynamicTextBoxTextArea(driver, letUsKnowYourThoughts, "review_field");
+		liveHomePage.inputDynamicTextBoxTextArea(driver, summaryOfYourReview, "summary_field");
+		liveHomePage.inputDynamicTextBoxTextArea(driver, nickname, "nickname_field");
+		
+		log.info("Step 8: Click button Submit Review ");
+		liveHomePage.clickDynamicButton(driver, "Submit Review");
+		verifyTrue(liveHomePage.isDynamicTextDisplayed_SPAN(driver, "Your review has been accepted for moderation."));
+		
+		liveHomePage.clickAccountMenu();
+		liveHomePage.clickDynamicLink(driver, "Log Out");
+		
 		log.info("============== AND: " + testMethod.getName() + " ============== ");
 	}
-	
+	@Test
 	public void TC_09_UserIsAblePuschaseProduct(Method testMethod) {
 		
 		log.info("============== START: " + testMethod.getName() + " ============== ");
 		log.info("Step 1: Open URL ");
 		liveHomePage = LivePageFactoryManager.getHomePageLive(driver);
 		
-		log.info("Step 2: Click menu TV");
-		liveHomePage.clickDynamicLink(driver, "TV");
+		log.info("Step 2: Click MY ACCOUNT ");
+		liveHomePage.clickMyAccountMenu();
 		
-	
+		log.info("Step 3: Login ");
+		liveHomePage.inputDynamicTextBoxTextArea(driver, EMAIL, "email");
+		liveHomePage.inputDynamicTextBoxTextArea(driver, password, "pass");
+		liveHomePage.clickDynamicButton(driver, "Login");
+		
+		log.info("Step 4: Click link My Wishlist");
+		//liveHomePage.clickDynamicLink(driver, "My Wishlist");
+		liveHomePage.clickLinkMyWishlist(driver);
+		
+		log.info("Step 5: Click Add to cart");
+		liveHomePage.clickButtonAddToCart(driver);
+		
+		log.info("Step 6: Enter general shipping country, state/province and zip for the shipping cost estimate");
+		liveHomePage.inputDynamicDropdown(driver, country ,"country_id");
+		liveHomePage.inputDynamicDropdown(driver, state,"region_id");
+		liveHomePage.inputDynamicTextBoxTextArea(driver, zip, "postcode");
+		
+		log.info("Step 7: Click Estimate");
+		liveHomePage.clickDynamicButton(driver, "Estimate");
+		
+		log.info("Step 8: Verify Shipping cost generated");
+		verifyEquals(liveHomePage.getShippingCostGeneratdLive(),shipping);
+		
+		log.info("Step 9: Select Shipping Cost, Update Total ");
+		liveHomePage.ClickDynamicTextBoxTextAreaRadio(driver, "s_method_flatrate_flatrate");
+		liveHomePage.clickDynamicButton(driver, "Update Total");
+		
+		log.info("Step 10: Verify shipping cost is added to total ");
+		verifyEquals(liveHomePage.getShippingCostTotalLive(),shipping);
+		
+		log.info("Step 11: Click Button 'Proceed to Checkout'");
+		liveHomePage.clickDynamicButton(driver, "Proceed to Checkout");
+		
+		log.info("Step 12a: Enter Billing Information, and click Continue");
+		
+		liveHomePage.inputDynamicTextBoxTextArea(driver, address, "billing:street1");
+		liveHomePage.inputDynamicTextBoxTextArea(driver, city, "billing:city");
+		liveHomePage.inputDynamicDropdown(driver, state,"billing[region_id]");
+		liveHomePage.inputDynamicTextBoxTextArea(driver, zip, "billing:postcode");
+		liveHomePage.inputDynamicDropdown(driver, country ,"billing[country_id]");
+		liveHomePage.inputDynamicTextBoxTextArea(driver, telephone, "billing:telephone");
+		
+		liveHomePage.ClickDynamicTextBoxTextAreaRadio(driver, "billing:use_for_shipping_no");
+		
+		liveHomePage.clickDynamicContinue(driver, "Billing Information");
+		
+		log.info("Step 12b.: Enter Shipping Information, and click Continue");
+		
+		liveHomePage.inputDynamicTextBoxTextArea(driver, firstName, "shipping:firstname");
+		liveHomePage.inputDynamicTextBoxTextArea(driver, lastName, "shipping:lastname");
+		liveHomePage.inputDynamicTextBoxTextArea(driver, address, "shipping:street1");
+		liveHomePage.inputDynamicTextBoxTextArea(driver, city, "shipping:city");
+		liveHomePage.inputDynamicDropdown(driver, state,"shipping[region_id]");
+		liveHomePage.inputDynamicTextBoxTextArea(driver, zip, "shipping:postcode");
+		liveHomePage.inputDynamicDropdown(driver, country ,"shipping[country_id]");
+		liveHomePage.inputDynamicTextBoxTextArea(driver, telephone, "shipping:telephone");
+		
+		liveHomePage.clickDynamicContinue(driver, "Shipping Information");
+		
+		log.info("Step 13: In Shipping Method, Click Continue");
+		liveHomePage.clickDynamicContinue(driver, "Shipping Method");
+		
+		log.info("Step 14: In Payment Information select 'Check/Money Order' radio button. Click Continue");
+		liveHomePage.ClickDynamicTextBoxTextAreaRadio(driver, "p_method_checkmo");
+		liveHomePage.clickDynamicContinue(driver, "Payment Information");
+		
+		//verifyEquals(liveHomePage.getDynamicOrderReviewLive(driver, "Subtotal"),subtotal);
+		verifyEquals(liveHomePage.getDynamicOrderReviewLive(driver, "Shipping & Handling"),shipping);
+	//	verifyEquals(liveHomePage.getOrderReviewTotalLive(driver),grandTotal);
+		
+		log.info("Step 15: Click 'PLACE ORDER' button ");
+		liveHomePage.clickDynamicButton(driver, "Place Order");
+		
+		log.info("Step 16: Verify Oder is generated. Note the order number ");
+		verifyTrue(liveHomePage.isTextOrderNumberDisplayed());
+		String ORDER_NUMBER=liveHomePage.getOrderNumberLive();
+		
+		log.info("ORDER_NUMBER:   " +ORDER_NUMBER);
+		
 		log.info("============== AND: " + testMethod.getName() + " ============== ");
 	}
-	
+	@Test
 	public void TC_10_VerifySearchFuntionality(Method testMethod) {
 		
 		log.info("============== START: " + testMethod.getName() + " ============== ");
 		log.info("Step 1: Open URL ");
 		liveHomePage = LivePageFactoryManager.getHomePageLive(driver);
 		
-		log.info("Step 2: Click menu TV");
-		liveHomePage.clickDynamicLink(driver, "TV");
+		log.info("Step 2: Click Advanced Search ");
+		liveHomePage.clickDynamicLink(driver, "Advanced Search");
 		
+		log.info("Step 3: In price enter rangen 0-150 and click search");
+		liveHomePage.inputDynamicTextBoxTextArea(driver, "0", "price");
+		liveHomePage.inputDynamicTextBoxTextArea(driver, "150", "price_to");
+		//liveHomePage.clickDynamicButton(driver, "Search");
+		liveHomePage.clickButtonSearch(driver);
+
+		log.info("Step 4: print on console name and price product ");
+		liveHomePage.GetNameAndPrice(driver);
+		
+		log.info("Step 5: Click Advanced Search ");
+		liveHomePage.clickDynamicLink(driver, "Advanced Search");
+		
+		log.info("Step 6: In price enter rangen 151-1000 and click search");
+		liveHomePage.inputDynamicTextBoxTextArea(driver, "151", "price");
+		liveHomePage.inputDynamicTextBoxTextArea(driver, "1000", "price_to");
+		liveHomePage.clickButtonSearch(driver);
 	
+		log.info("Step 7: print on console name and price product ");
+		liveHomePage.GetNameAndPrice(driver);
+		
+
+		
+		
 		log.info("============== AND: " + testMethod.getName() + " ============== ");
 	}
 	@Parameters({ "browser", "url" })
 	@BeforeClass
 	public void beforeClass(String browserName, String url) {
-		log.info("============== START:  ============== ");
 		driver = opentMultiBrowser(browserName, url);
-
-		
-
-		log.info("============== AND: ============== ");
 
 		firstName = "Trang";
 		middleName = "";
@@ -300,11 +400,26 @@ public class FrontEnd_User extends AbstractTest {
 		password = "123456";
 		confirmPass = "123456";
 		fullName = firstName +" "+ lastName;
+		
+		letUsKnowYourThoughts="Ready to experience";
+		summaryOfYourReview="Good";
+		nickname="small roses";
+		
+		shipping="$5.00";
+		subtotal="$100.00";
+		grandTotal="$105.00";
+		
+		country = "United States"; 
+		state= "New York";
+		zip="542896";
+		address="ABC";
+		city="New York";
+		telephone="12345678";
 
 	}
 
 	@AfterClass(alwaysRun = true)
 	public void afterClass() {
-		//closeBrowserAndDriver(driver);
+		closeBrowserAndDriver(driver);
 	}
 }

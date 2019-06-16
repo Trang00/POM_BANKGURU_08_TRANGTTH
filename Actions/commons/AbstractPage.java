@@ -25,6 +25,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import liveguruPageObjects.LivePageFactoryManager;
 import liveguruPageUIs.AbstractLivePageUI;
+import liveguruPageUIs.LiveHomePageUI;
 import pageObjects.DepositPageObject;
 import pageObjects.FundTransterPageObject;
 import pageObjects.HomePageObject;
@@ -765,15 +766,17 @@ public class AbstractPage {
 	}
 	public void clickDynamicLink(WebDriver driver,String dynamicValue) {
 		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_LINK, dynamicValue);
-		clickToElement(driver, AbstractLivePageUI.DYNAMIC_LINK, dynamicValue);
+		clickToElementByJS(driver, AbstractLivePageUI.DYNAMIC_LINK, dynamicValue);
+		//clickToElement(driver, AbstractLivePageUI.DYNAMIC_LINK, dynamicValue);
 	}
 	public void clickDynamicButton(WebDriver driver,String dynamicValue) {
 		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_BUTTON, dynamicValue);
-		clickToElement(driver, AbstractLivePageUI.DYNAMIC_BUTTON, dynamicValue);
+		//clickToElement(driver, AbstractLivePageUI.DYNAMIC_BUTTON, dynamicValue);
+		clickToElementByJS(driver, AbstractLivePageUI.DYNAMIC_BUTTON, dynamicValue);
 	}
 	public void inputDynamicTextBoxTextArea(WebDriver driver,String value, String dynamicValue) {
-		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_TEXTBOX_TEXTAREA, dynamicValue);
-		senkeyToElement(driver, value, AbstractLivePageUI.DYNAMIC_TEXTBOX_TEXTAREA, dynamicValue);
+		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_TEXTBOX_TEXTAREA_RADIO, dynamicValue);
+		senkeyToElement(driver, value, AbstractLivePageUI.DYNAMIC_TEXTBOX_TEXTAREA_RADIO, dynamicValue);
 	}
 	public String getDynamicTextDisplayedLive(WebDriver driver,String dynamicValue ) {
 		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_VERIFY_TEXT, dynamicValue);
@@ -805,10 +808,49 @@ public class AbstractPage {
 	}
 	
 	public String getDynamicTextH1Live(WebDriver driver,String dynamicValue ) {
-		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_TEXT_H1, dynamicValue);
-		return getTextDynamicInElement(driver, AbstractLivePageUI.DYNAMIC_TEXT_H1, dynamicValue);
+		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_TEXT_H1_H2, dynamicValue);
+		return getTextDynamicInElement(driver, AbstractLivePageUI.DYNAMIC_TEXT_H1_H2, dynamicValue);
+	}
+	public boolean isDynamicTextDisplayed(WebDriver driver,String dynamicValue) {
+		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_TEXT_EMPTY_REVIEW, dynamicValue);
+		return isControlDisplayed(driver,AbstractLivePageUI.DYNAMIC_TEXT_EMPTY_REVIEW, dynamicValue);
+	}
+	public boolean isDynamicTextDisplayed_SPAN(WebDriver driver,String dynamicValue) {
+		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_VERIFY_TEXT, dynamicValue);
+		return isControlDisplayed(driver,AbstractLivePageUI.DYNAMIC_VERIFY_TEXT, dynamicValue);
+	}
+	public void clickDynamicContinue(WebDriver driver,String dynamicValue) {
+		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_CONTINUE, dynamicValue);
+		clickToElement(driver, AbstractLivePageUI.DYNAMIC_CONTINUE, dynamicValue);
+	}
+	public void ClickDynamicTextBoxTextAreaRadio(WebDriver driver, String dynamicValue) {
+		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_TEXTBOX_TEXTAREA_RADIO, dynamicValue);
+		clickToElement(driver, AbstractLivePageUI.DYNAMIC_TEXTBOX_TEXTAREA_RADIO, dynamicValue);
+	}
+	public String getDynamicOrderReviewLive(WebDriver driver,String dynamicValue ) {
+		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_ORDER_GENERATED, dynamicValue);
+		return getTextDynamicInElement(driver, AbstractLivePageUI.DYNAMIC_ORDER_GENERATED, dynamicValue);
 	}
 	
+	public String getDynamicLinkLive(WebDriver driver,String dynamicValue ) {
+		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_LINK, dynamicValue);
+		return getTextDynamicInElement(driver, AbstractLivePageUI.DYNAMIC_LINK, dynamicValue);
+	}
+	public void GetNameAndPrice(WebDriver driver) {
+		List <WebElement> listName =driver.findElements(By.xpath(LiveHomePageUI.LIST_NAME));
+		List <WebElement> listPrice =driver.findElements(By.xpath(LiveHomePageUI.LIST_PRICE));
+	
+		if(listName.size()>0) {
+			for(WebElement nameProduct:listName )  {
+				System.out.println(" Name_product: "+	nameProduct.getText());
+			}
+		}
+		if(listPrice.size()>0) {
+			for(WebElement priceProduct: listPrice) {
+				System.out.println(" Price_product: "+	priceProduct.getText());
+			}
+		}
+	}
 	
 
 }

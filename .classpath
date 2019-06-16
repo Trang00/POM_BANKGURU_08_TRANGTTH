@@ -4,7 +4,6 @@
 	<classpathentry kind="src" path="Actions"/>
 	<classpathentry kind="src" path="Interfaces"/>
 	<classpathentry kind="src" path="Resources"/>
-	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="lib/selenium-server-standalone-2.53.1.jar"/>
 	<classpathentry kind="lib" path="lib/bsh-2.0b4.jar"/>
 	<classpathentry kind="lib" path="lib/bson-3.0.4.jar"/>
