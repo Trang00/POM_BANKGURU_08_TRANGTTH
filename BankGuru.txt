@@ -1,150 +1,20 @@
-2019-06-16 14:27:51,424 INFO  com.liveguru.FrontEnd_User - ============== START:  ============== 
-2019-06-16 14:28:03,253 INFO  com.liveguru.FrontEnd_User - ============== AND: ============== 
-2019-06-16 14:28:03,264 INFO  com.liveguru.FrontEnd_User - ============== START: TC_01_Register ============== 
-2019-06-16 14:28:03,264 INFO  com.liveguru.FrontEnd_User - Step 1: Click ACCOUNT menu
-2019-06-16 14:28:04,121 INFO  com.liveguru.FrontEnd_User - Step 2: Choose Register link
-2019-06-16 14:28:04,916 INFO  com.liveguru.FrontEnd_User - Step 3: Input data
-2019-06-16 14:28:07,249 INFO  com.liveguru.FrontEnd_User - Step 4: Click button REGISTER
-2019-06-16 14:28:07,407 INFO  com.liveguru.FrontEnd_User - Step 5: Verify text displayed after register successelly
-2019-06-16 14:28:09,402 INFO  com.liveguru.FrontEnd_User - Actual=Thank you for registering with Main Website Store.
-2019-06-16 14:28:09,403 INFO  com.liveguru.FrontEnd_User - Expected=Thank you for registering with Main Website Store.
-2019-06-16 14:28:09,403 INFO  com.liveguru.FrontEnd_User - Compare value=true
-2019-06-16 14:28:09,404 INFO  com.liveguru.FrontEnd_User - ===PASSED===
-2019-06-16 14:28:09,406 INFO  com.liveguru.FrontEnd_User - ============== AND: TC_01_Register ============== 
-2019-06-16 14:28:09,411 INFO  com.liveguru.FrontEnd_User - ============== START: TC_02_VerifyUser ============== 
-2019-06-16 14:28:09,411 INFO  com.liveguru.FrontEnd_User - Step 1: Open URL 
-2019-06-16 14:28:09,411 INFO  com.liveguru.FrontEnd_User - Step 2: Click MY ACCOUNT 
-2019-06-16 14:28:10,203 INFO  com.liveguru.FrontEnd_User - Step 3: Verify user information displayed
-2019-06-16 14:28:11,539 INFO  com.liveguru.FrontEnd_User - ===PASSED===
-2019-06-16 14:28:11,539 INFO  com.liveguru.FrontEnd_User - ============== AND: TC_02_VerifyUser ============== 
-2019-06-16 14:28:11,549 INFO  com.liveguru.FrontEnd_User - ============== START: TC_03_VerifyCostProduct ============== 
-2019-06-16 14:28:11,549 INFO  com.liveguru.FrontEnd_User - Step 1: Open URL 
-2019-06-16 14:28:11,550 INFO  com.liveguru.FrontEnd_User - Step 2: Click menu Mobile
-2019-06-16 14:28:11,641 INFO  com.liveguru.FrontEnd_User - Step 3: Get cost Sony Xperia
-2019-06-16 14:28:14,574 INFO  com.liveguru.FrontEnd_User - Step 4: Click detail
-2019-06-16 14:28:14,652 INFO  com.liveguru.FrontEnd_User - Step 5: Get cost detail
-2019-06-16 14:28:18,988 INFO  com.liveguru.FrontEnd_User - ===PASSED===
-2019-06-16 14:28:18,989 INFO  com.liveguru.FrontEnd_User - ============== AND: TC_03_VerifyCostProduct ============== 
-2019-06-16 14:28:18,992 INFO  com.liveguru.FrontEnd_User - ============== START: TC_04_DiscountCoupon ============== 
-2019-06-16 14:28:18,993 INFO  com.liveguru.FrontEnd_User - Step 1: Open URL 
-2019-06-16 14:28:18,993 INFO  com.liveguru.FrontEnd_User - Step 2: Click menu Mobile
-2019-06-16 14:28:19,132 INFO  com.liveguru.FrontEnd_User - Step 3: Add Iphone to cart 
-2019-06-16 14:28:22,776 INFO  com.liveguru.FrontEnd_User - Step 4: Verify 
-2019-06-16 14:28:23,459 INFO  com.liveguru.FrontEnd_User - Step 5: Input Discount codes 
-2019-06-16 14:28:23,613 INFO  com.liveguru.FrontEnd_User - Step 6: Click button apply 
-2019-06-16 14:28:23,713 INFO  com.liveguru.FrontEnd_User - Step 7: Verify Discount and Grand total
-2019-06-16 14:28:25,721 INFO  com.liveguru.FrontEnd_User - Actual=-$25.00
-2019-06-16 14:28:25,721 INFO  com.liveguru.FrontEnd_User - Expected=-$25.00
-2019-06-16 14:28:25,722 INFO  com.liveguru.FrontEnd_User - Compare value=true
-2019-06-16 14:28:25,722 INFO  com.liveguru.FrontEnd_User - ===PASSED===
-2019-06-16 14:28:26,410 INFO  com.liveguru.FrontEnd_User - Actual=$500.00
-2019-06-16 14:28:26,410 INFO  com.liveguru.FrontEnd_User - Expected=$500.00
-2019-06-16 14:28:26,411 INFO  com.liveguru.FrontEnd_User - Compare value=true
-2019-06-16 14:28:26,411 INFO  com.liveguru.FrontEnd_User - ===PASSED===
-2019-06-16 14:28:26,523 INFO  com.liveguru.FrontEnd_User - ============== AND: TC_04_DiscountCoupon ============== 
-2019-06-16 14:28:26,528 INFO  com.liveguru.FrontEnd_User - ============== START: TC_05_VerifyCannotAddMore500Items ============== 
-2019-06-16 14:28:26,528 INFO  com.liveguru.FrontEnd_User - Step 1: Open URL 
-2019-06-16 14:28:26,528 INFO  com.liveguru.FrontEnd_User - Step 2: Click menu Mobile
-2019-06-16 14:28:27,732 INFO  com.liveguru.FrontEnd_User - Step 3: Add Iphone to cart 
-2019-06-16 14:28:30,936 INFO  com.liveguru.FrontEnd_User - Step 4: Verify 
-2019-06-16 14:28:31,671 INFO  com.liveguru.FrontEnd_User - Step 5: Input QTY value 501 
-2019-06-16 14:28:31,993 INFO  com.liveguru.FrontEnd_User - Step 6:Click button Update 
-2019-06-16 14:28:32,149 INFO  com.liveguru.FrontEnd_User - Step 7:Verify Message error 
-2019-06-16 14:28:34,274 INFO  com.liveguru.FrontEnd_User - Actual=* The maximum quantity allowed for purchase is 500.
-2019-06-16 14:28:34,275 INFO  com.liveguru.FrontEnd_User - Expected=* The maximum quantity allowed for purchase is 500.
-2019-06-16 14:28:34,275 INFO  com.liveguru.FrontEnd_User - Compare value=true
-2019-06-16 14:28:34,275 INFO  com.liveguru.FrontEnd_User - ===PASSED===
-2019-06-16 14:28:34,275 INFO  com.liveguru.FrontEnd_User - Step 8: Click link Empty cart
-2019-06-16 14:28:34,367 INFO  com.liveguru.FrontEnd_User - Step 9: Verify Empty cart
-2019-06-16 14:28:35,998 INFO  com.liveguru.FrontEnd_User - Actual=SHOPPING CART IS EMPTY
-2019-06-16 14:28:35,999 INFO  com.liveguru.FrontEnd_User - Expected=SHOPPING CART IS EMPTY
-2019-06-16 14:28:35,999 INFO  com.liveguru.FrontEnd_User - Compare value=true
-2019-06-16 14:28:35,999 INFO  com.liveguru.FrontEnd_User - ===PASSED===
-2019-06-16 14:28:35,999 INFO  com.liveguru.FrontEnd_User - ============== AND: TC_05_VerifyCannotAddMore500Items ============== 
-2019-06-16 14:28:36,002 INFO  com.liveguru.FrontEnd_User - ============== START: TC_06_VerifyCompareTwoProduct ============== 
-2019-06-16 14:28:36,005 INFO  com.liveguru.FrontEnd_User - Step 1: Open URL 
-2019-06-16 14:28:36,005 INFO  com.liveguru.FrontEnd_User - Step 2: Click menu Mobile
-2019-06-16 14:28:36,087 INFO  com.liveguru.FrontEnd_User - Step 3: Add to compare Sony Xperia 
-2019-06-16 14:28:40,022 INFO  com.liveguru.FrontEnd_User - Actual=The product Sony Xperia has been added to comparison list.
-2019-06-16 14:28:40,023 INFO  com.liveguru.FrontEnd_User - Expected=The product Sony Xperia has been added to comparison list.
-2019-06-16 14:28:40,023 INFO  com.liveguru.FrontEnd_User - Compare value=true
-2019-06-16 14:28:40,023 INFO  com.liveguru.FrontEnd_User - ===PASSED===
-2019-06-16 14:28:40,023 INFO  com.liveguru.FrontEnd_User - Step 4: Add to compare IPhone 
-2019-06-16 14:28:42,957 INFO  com.liveguru.FrontEnd_User - Actual=The product IPhone has been added to comparison list.
-2019-06-16 14:28:42,958 INFO  com.liveguru.FrontEnd_User - Expected=The product IPhone has been added to comparison list.
-2019-06-16 14:28:42,958 INFO  com.liveguru.FrontEnd_User - Compare value=true
-2019-06-16 14:28:42,958 INFO  com.liveguru.FrontEnd_User - ===PASSED===
-2019-06-16 14:28:42,958 INFO  com.liveguru.FrontEnd_User - Step 5: Click Compare 
-2019-06-16 14:28:43,655 INFO  com.liveguru.FrontEnd_User - Step 6: Verify Pop- up Window
-2019-06-16 14:28:46,545 INFO  com.liveguru.FrontEnd_User - Actual=COMPARE PRODUCTS
-2019-06-16 14:28:46,546 INFO  com.liveguru.FrontEnd_User - Expected=COMPARE PRODUCTS
-2019-06-16 14:28:46,546 INFO  com.liveguru.FrontEnd_User - Compare value=true
-2019-06-16 14:28:46,546 INFO  com.liveguru.FrontEnd_User - ===PASSED===
-2019-06-16 14:28:46,846 INFO  com.liveguru.FrontEnd_User - ============== AND: TC_06_VerifyCompareTwoProduct ============== 
-2019-06-16 14:28:46,849 INFO  com.liveguru.FrontEnd_User - ============== START: TC_07_ShareWishlist ============== 
-2019-06-16 14:28:46,849 INFO  com.liveguru.FrontEnd_User - Step 1: Open URL 
-2019-06-16 14:28:46,849 INFO  com.liveguru.FrontEnd_User - Step 2: Click menu TV
-2019-06-16 14:28:46,970 INFO  com.liveguru.FrontEnd_User - Step 3: Add LG LCD product your wishlist and Msg display
-2019-06-16 14:28:50,392 INFO  com.liveguru.FrontEnd_User - ===PASSED===
-2019-06-16 14:28:50,392 INFO  com.liveguru.FrontEnd_User - Step 4: Click button Share Wishlist 
-2019-06-16 14:28:50,501 INFO  com.liveguru.FrontEnd_User - Step 5: Input Email and msg 
-2019-06-16 14:28:52,587 INFO  com.liveguru.FrontEnd_User - Step 6: Click button Share Wishlist 
-2019-06-16 14:28:54,107 INFO  com.liveguru.FrontEnd_User - ===PASSED===
-2019-06-16 14:28:54,108 INFO  com.liveguru.FrontEnd_User - ============== AND: TC_07_ShareWishlist ============== 
-2019-06-16 14:28:54,110 INFO  com.liveguru.FrontEnd_User - ============== START: TC_08_AddYourReview ============== 
-2019-06-16 14:28:54,110 INFO  com.liveguru.FrontEnd_User - Step 1: Open URL 
-2019-06-16 14:28:54,110 INFO  com.liveguru.FrontEnd_User - Step 2: Click menu TV
-2019-06-16 14:28:54,188 INFO  com.liveguru.FrontEnd_User - Step 3: Click detail Samsung LCD
-2019-06-16 14:28:55,089 INFO  com.liveguru.FrontEnd_User - Step 4: Click link 'Add Your Review'
-2019-06-16 14:28:56,316 INFO  com.liveguru.FrontEnd_User - Step 5: Input data 3 field Empty
-2019-06-16 14:28:57,599 INFO  com.liveguru.FrontEnd_User - Step 6: Click button Submit Review 
-2019-06-16 14:28:58,731 INFO  com.liveguru.FrontEnd_User - ===PASSED===
-2019-06-16 14:28:59,413 INFO  com.liveguru.FrontEnd_User - ===PASSED===
-2019-06-16 14:29:00,056 INFO  com.liveguru.FrontEnd_User - ===PASSED===
-2019-06-16 14:29:00,056 INFO  com.liveguru.FrontEnd_User - Step 7: Input data 3 field 
-2019-06-16 14:29:00,712 INFO  com.liveguru.FrontEnd_User - Step 8: Click button Submit Review 
-2019-06-16 14:29:03,561 INFO  com.liveguru.FrontEnd_User - ===PASSED===
-2019-06-16 14:29:04,856 INFO  com.liveguru.FrontEnd_User - ============== AND: TC_08_AddYourReview ============== 
-2019-06-16 14:29:04,860 INFO  com.liveguru.FrontEnd_User - ============== START: TC_09_UserIsAblePuschaseProduct ============== 
-2019-06-16 14:29:04,862 INFO  com.liveguru.FrontEnd_User - Step 1: Open URL 
-2019-06-16 14:29:04,863 INFO  com.liveguru.FrontEnd_User - Step 2: Click MY ACCOUNT 
-2019-06-16 14:29:07,006 INFO  com.liveguru.FrontEnd_User - Step 3: Login 
-2019-06-16 14:29:08,468 INFO  com.liveguru.FrontEnd_User - Step 4: Click link My Wishlist
-2019-06-16 14:29:09,651 INFO  com.liveguru.FrontEnd_User - Step 5: Click Add to cart
-2019-06-16 14:29:13,010 INFO  com.liveguru.FrontEnd_User - Step 6: Enter general shipping country, state/province and zip for the shipping cost estimate
-2019-06-16 14:29:14,026 INFO  com.liveguru.FrontEnd_User - Step 7: Click Estimate
-2019-06-16 14:29:14,151 INFO  com.liveguru.FrontEnd_User - Step 8: Verify Shipping cost generated
-2019-06-16 14:29:16,164 INFO  com.liveguru.FrontEnd_User - Actual=$5.00
-2019-06-16 14:29:16,165 INFO  com.liveguru.FrontEnd_User - Expected=$5.00
-2019-06-16 14:29:16,165 INFO  com.liveguru.FrontEnd_User - Compare value=true
-2019-06-16 14:29:16,165 INFO  com.liveguru.FrontEnd_User - ===PASSED===
-2019-06-16 14:29:16,165 INFO  com.liveguru.FrontEnd_User - Step 9: Select Shipping Cost, Update Total 
-2019-06-16 14:29:16,990 INFO  com.liveguru.FrontEnd_User - Step 10: Verify shipping cost is added to total 
-2019-06-16 14:29:19,205 INFO  com.liveguru.FrontEnd_User - Actual=$5.00
-2019-06-16 14:29:19,205 INFO  com.liveguru.FrontEnd_User - Expected=$5.00
-2019-06-16 14:29:19,206 INFO  com.liveguru.FrontEnd_User - Compare value=true
-2019-06-16 14:29:19,206 INFO  com.liveguru.FrontEnd_User - ===PASSED===
-2019-06-16 14:29:19,206 INFO  com.liveguru.FrontEnd_User - Step 11: Click Button 'Proceed to Checkout'
-2019-06-16 14:29:19,317 INFO  com.liveguru.FrontEnd_User - Step 12a: Enter Billing Information, and click Continue
-2019-06-16 14:29:23,799 INFO  com.liveguru.FrontEnd_User - Step 12b.: Enter Shipping Information, and click Continue
-2019-06-16 14:29:27,586 INFO  com.liveguru.FrontEnd_User - Step 13: In Shipping Method, Click Continue
-2019-06-16 14:29:29,627 INFO  com.liveguru.FrontEnd_User - Step 14: In Payment Information select 'Check/Money Order' radio button. Click Continue
-2019-06-16 14:29:33,858 INFO  com.liveguru.FrontEnd_User - Actual=$5.00
-2019-06-16 14:29:33,858 INFO  com.liveguru.FrontEnd_User - Expected=$5.00
-2019-06-16 14:29:33,859 INFO  com.liveguru.FrontEnd_User - Compare value=true
-2019-06-16 14:29:33,859 INFO  com.liveguru.FrontEnd_User - ===PASSED===
-2019-06-16 14:29:33,859 INFO  com.liveguru.FrontEnd_User - Step 15: Click 'PLACE ORDER' button 
-2019-06-16 14:29:33,978 INFO  com.liveguru.FrontEnd_User - Step 16: Verify Oder is generated. Note the order number 
-2019-06-16 14:29:37,184 INFO  com.liveguru.FrontEnd_User - ===PASSED===
-2019-06-16 14:29:37,825 INFO  com.liveguru.FrontEnd_User - ORDER_NUMBER:   100009717
-2019-06-16 14:29:37,825 INFO  com.liveguru.FrontEnd_User - ============== AND: TC_09_UserIsAblePuschaseProduct ============== 
-2019-06-16 14:29:37,831 INFO  com.liveguru.FrontEnd_User - ============== START: TC_10_VerifySearchFuntionality ============== 
-2019-06-16 14:29:37,831 INFO  com.liveguru.FrontEnd_User - Step 1: Open URL 
-2019-06-16 14:29:37,831 INFO  com.liveguru.FrontEnd_User - Step 2: Click Advanced Search 
-2019-06-16 14:29:37,903 INFO  com.liveguru.FrontEnd_User - Step 3: In price enter rangen 0-150 and click search
-2019-06-16 14:29:39,648 INFO  com.liveguru.FrontEnd_User - Step 4: print on console name and price product 
-2019-06-16 14:29:40,847 INFO  com.liveguru.FrontEnd_User - Step 5: Click Advanced Search 
-2019-06-16 14:29:40,940 INFO  com.liveguru.FrontEnd_User - Step 6: In price enter rangen 151-1000 and click search
-2019-06-16 14:29:42,294 INFO  com.liveguru.FrontEnd_User - Step 7: print on console name and price product 
-2019-06-16 14:29:43,697 INFO  com.liveguru.FrontEnd_User - ============== AND: TC_10_VerifySearchFuntionality ============== 
-2019-06-16 14:29:50,028 INFO  com.liveguru.FrontEnd_User - ---------------- QUIT BROWSER SUCCESS ---------------- 
+2019-06-18 23:03:50,757 INFO  com.bankguru.account.RegisterLogin_Global - ============== START: TC_01_RegisterToSystem ============== 
+2019-06-18 23:03:50,761 INFO  com.bankguru.account.RegisterLogin_Global - TC_01 - Step 01: Click to hete link
+2019-06-18 23:03:51,759 INFO  com.bankguru.account.RegisterLogin_Global - TC_01 - Step 02: Input data to Email textbox
+2019-06-18 23:03:54,280 INFO  com.bankguru.account.RegisterLogin_Global - TC_01 - Step 03: Click to Submit button
+2019-06-18 23:03:57,361 INFO  com.bankguru.account.RegisterLogin_Global - TC_01 - Step 04: Get User/ Pass information
+2019-06-18 23:03:58,425 INFO  com.bankguru.account.RegisterLogin_Global - USER_ID:  mngr203348
+2019-06-18 23:03:59,254 INFO  com.bankguru.account.RegisterLogin_Global - PASSWORD:  yhYzasu
+2019-06-18 23:03:59,254 INFO  com.bankguru.account.RegisterLogin_Global - ============== AND: TC_01_RegisterToSystem ============== 
+2019-06-18 23:04:00,774 INFO  com.bankguru.account.RegisterLogin_Global - ---------------- QUIT BROWSER SUCCESS ---------------- 
+2019-06-18 23:04:12,769 INFO  com.bankguru.account.RegisterLogin_Level_11_RetryTestFailed - ============== START: TC_01_LoginWithAboveInformation ============== 
+2019-06-18 23:04:12,770 INFO  com.bankguru.account.RegisterLogin_Level_11_RetryTestFailed - Step 1- Input userID
+2019-06-18 23:04:14,201 INFO  com.bankguru.account.RegisterLogin_Level_11_RetryTestFailed - Step 2- Input password
+2019-06-18 23:04:15,604 INFO  com.bankguru.account.RegisterLogin_Level_11_RetryTestFailed - Step 3- Click button
+2019-06-18 23:04:19,369 INFO  com.bankguru.account.RegisterLogin_Level_11_RetryTestFailed - ===PASSED===
+2019-06-18 23:04:19,400 INFO  com.bankguru.account.RegisterLogin_Level_11_RetryTestFailed - ============== AND: TC_01_LoginWithAboveInformation ============== 
+2019-06-18 23:04:19,445 INFO  com.bankguru.account.RegisterLogin_Level_11_RetryTestFailed - ============== START: TC_01_LoginWithAboveInformation ============== 
+2019-06-18 23:04:19,449 INFO  com.bankguru.account.RegisterLogin_Level_11_RetryTestFailed - Step 1- Input userID
+2019-06-18 23:05:05,628 INFO  com.bankguru.account.RegisterLogin_Level_11_RetryTestFailed - ============== START: TC_01_LoginWithAboveInformation ============== 
+2019-06-18 23:05:05,629 INFO  com.bankguru.account.RegisterLogin_Level_11_RetryTestFailed - Step 1- Input userID
+2019-06-18 23:05:52,724 INFO  com.bankguru.account.RegisterLogin_Level_11_RetryTestFailed - ---------------- QUIT BROWSER SUCCESS ---------------- 
