@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="BANKGURU" parallel="tests" thread-cout="2">
+<listeners>
+	<listener class-name="org.uncommons.reportng.HTMLReporter"/>
+	<listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+	<listener class-name="commons.ExtentReportListener"/>
+</listeners>
+
+
+
+<test name="Run on FIREFOX">
+   <parameter name="browser" value="firefox"/>
+   <parameter name="url" value="Live_Backend"/>
+    <classes>
+      
+      <class name="com.liveguru.BackEnd_Admin" />
+			
+    </classes>
+  </test>
+  
+</suite> <!-- Suite -->

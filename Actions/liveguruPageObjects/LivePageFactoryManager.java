@@ -16,5 +16,8 @@ public class LivePageFactoryManager {
 	public static LiveMyWishListPageObject getMyWishListPageLive(WebDriver driver) {
 		return new LiveMyWishListPageObject(driver);
 	}
+	public static LiveAdminPageObject getAdminPageLive(WebDriver driver) {
+		return new LiveAdminPageObject(driver);
+	}
 	
 }

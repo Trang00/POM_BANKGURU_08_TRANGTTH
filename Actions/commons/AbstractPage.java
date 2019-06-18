@@ -734,7 +734,6 @@ public class AbstractPage {
 	}
 	public void inputDynamicDropdown(WebDriver driver,String valueInDropdown,String dynamicValue) {
 		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_DROPDOWN, dynamicValue);
-		//selectItemInHtmlDropdownDynamic(driver,AbstractPageUI.DYNAMIC_DROPDOWN, dynamicValue);
 		selectItemInHtmlDropdownDynamic(driver, valueInDropdown, AbstractPageUI.DYNAMIC_DROPDOWN, dynamicValue);
 	}
 	public String getLabelDynamicText(WebDriver driver,String dynamicValue ) {
@@ -852,5 +851,15 @@ public class AbstractPage {
 		}
 	}
 	
+// Live Admin 
+	public void clickDynamicMenu(WebDriver driver,String dynamicValue) {
+		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_VERIFY_TEXT, dynamicValue);
+		clickToElement(driver, AbstractLivePageUI.DYNAMIC_VERIFY_TEXT, dynamicValue);
+	}
+	
+	public void inputDynamicDropdown_ID(WebDriver driver,String valueInDropdown,String dynamicValue) {
+		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_DROPDOWN_ID, dynamicValue);
+		selectItemInHtmlDropdownDynamic(driver, valueInDropdown, AbstractLivePageUI.DYNAMIC_DROPDOWN_ID, dynamicValue);
+	}
 
 }

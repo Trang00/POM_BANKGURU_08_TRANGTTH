@@ -29,6 +29,8 @@ public class AbstractLivePageUI {
 	
 	public static final String DYNAMIC_DROPDOWN="//select[@name='%s']";
 	
+	public static final String DYNAMIC_DROPDOWN_ID="//select[@id='%s']";
+	
 	public static final String DYNAMIC_CONTINUE="//h2[text()='%s']/parent::div/following-sibling::div//span[text()='Continue']";
 	
 	public static final String DYNAMIC_ORDER_GENERATED="//td[contains(text(),'%s')]/following-sibling::td//span";
