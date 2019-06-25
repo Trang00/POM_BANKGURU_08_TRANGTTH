@@ -1,20 +1,12 @@
-2019-06-18 23:03:50,757 INFO  com.bankguru.account.RegisterLogin_Global - ============== START: TC_01_RegisterToSystem ============== 
-2019-06-18 23:03:50,761 INFO  com.bankguru.account.RegisterLogin_Global - TC_01 - Step 01: Click to hete link
-2019-06-18 23:03:51,759 INFO  com.bankguru.account.RegisterLogin_Global - TC_01 - Step 02: Input data to Email textbox
-2019-06-18 23:03:54,280 INFO  com.bankguru.account.RegisterLogin_Global - TC_01 - Step 03: Click to Submit button
-2019-06-18 23:03:57,361 INFO  com.bankguru.account.RegisterLogin_Global - TC_01 - Step 04: Get User/ Pass information
-2019-06-18 23:03:58,425 INFO  com.bankguru.account.RegisterLogin_Global - USER_ID:  mngr203348
-2019-06-18 23:03:59,254 INFO  com.bankguru.account.RegisterLogin_Global - PASSWORD:  yhYzasu
-2019-06-18 23:03:59,254 INFO  com.bankguru.account.RegisterLogin_Global - ============== AND: TC_01_RegisterToSystem ============== 
-2019-06-18 23:04:00,774 INFO  com.bankguru.account.RegisterLogin_Global - ---------------- QUIT BROWSER SUCCESS ---------------- 
-2019-06-18 23:04:12,769 INFO  com.bankguru.account.RegisterLogin_Level_11_RetryTestFailed - ============== START: TC_01_LoginWithAboveInformation ============== 
-2019-06-18 23:04:12,770 INFO  com.bankguru.account.RegisterLogin_Level_11_RetryTestFailed - Step 1- Input userID
-2019-06-18 23:04:14,201 INFO  com.bankguru.account.RegisterLogin_Level_11_RetryTestFailed - Step 2- Input password
-2019-06-18 23:04:15,604 INFO  com.bankguru.account.RegisterLogin_Level_11_RetryTestFailed - Step 3- Click button
-2019-06-18 23:04:19,369 INFO  com.bankguru.account.RegisterLogin_Level_11_RetryTestFailed - ===PASSED===
-2019-06-18 23:04:19,400 INFO  com.bankguru.account.RegisterLogin_Level_11_RetryTestFailed - ============== AND: TC_01_LoginWithAboveInformation ============== 
-2019-06-18 23:04:19,445 INFO  com.bankguru.account.RegisterLogin_Level_11_RetryTestFailed - ============== START: TC_01_LoginWithAboveInformation ============== 
-2019-06-18 23:04:19,449 INFO  com.bankguru.account.RegisterLogin_Level_11_RetryTestFailed - Step 1- Input userID
-2019-06-18 23:05:05,628 INFO  com.bankguru.account.RegisterLogin_Level_11_RetryTestFailed - ============== START: TC_01_LoginWithAboveInformation ============== 
-2019-06-18 23:05:05,629 INFO  com.bankguru.account.RegisterLogin_Level_11_RetryTestFailed - Step 1- Input userID
-2019-06-18 23:05:52,724 INFO  com.bankguru.account.RegisterLogin_Level_11_RetryTestFailed - ---------------- QUIT BROWSER SUCCESS ---------------- 
+2019-06-23 17:52:17,492 INFO  com.liveguru.BackEnd_Admin - ============== START: TC_01_VerifyInvoiceCanBePrinted ============== 
+2019-06-23 17:52:17,510 INFO  com.liveguru.BackEnd_Admin - Step 2: Login
+2019-06-23 17:52:23,465 INFO  com.liveguru.BackEnd_Admin - Step 3: Goto Sales -> Orders menu
+2019-06-23 17:52:24,998 INFO  com.liveguru.BackEnd_Admin - Step 4:  In the status field select 'Canceled'. Click Search
+2019-06-23 17:52:26,847 INFO  com.liveguru.BackEnd_Admin - Step 5: Select checkbox next to first order
+2019-06-23 17:52:46,076 INFO  com.liveguru.BackEnd_Admin - Step 6: In action, select Print Invoices. Click button Submit
+2019-06-23 17:52:46,702 INFO  com.liveguru.BackEnd_Admin - Step 7: Verify error msg 
+2019-06-23 17:52:49,199 INFO  com.liveguru.BackEnd_Admin - ===PASSED===
+2019-06-23 17:52:49,201 INFO  com.liveguru.BackEnd_Admin - Step 8: Select Complete. Click search
+2019-06-23 17:52:49,738 INFO  com.liveguru.BackEnd_Admin - Step 9: Select checkbox next to first order
+2019-06-23 17:52:49,889 INFO  com.liveguru.BackEnd_Admin - Step 10: In action, select Print Invoices. Click button Submit
+2019-06-23 17:52:50,318 INFO  com.liveguru.BackEnd_Admin - Step 11: Verify invoice is downloaded

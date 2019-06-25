@@ -9,25 +9,28 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.AbstractTest;
+import commons.Constansts;
 import liveguruPageObjects.LiveAdminPageObject;
+import liveguruPageObjects.LiveHomePageObject;
 import liveguruPageObjects.LivePageFactoryManager;
 
 
 public class BackEnd_Admin extends AbstractTest{
 	private WebDriver driver;
 	private LiveAdminPageObject liveAdminPage;
-	private String USER, PASS; 
-	@Test
+	private LiveHomePageObject liveHomePage;
+	private String USER, PASS,review,summaryReview,nickReview; 
+	
 	public void TC_01_VerifyInvoiceCanBePrinted(Method testMethod) {
 		log.info("============== START: " + testMethod.getName() + " ============== ");
-		liveAdminPage = LivePageFactoryManager.getAdminPageLive(driver);
+		
 		
 		log.info("Step 2: Login");
 		liveAdminPage.inputDynamicTextBoxTextArea(driver, USER, "username");
 		liveAdminPage.inputDynamicTextBoxTextArea(driver, PASS, "login");
-		liveAdminPage.clickDynamicButton(driver, "Login");
+		liveAdminPage.clickLogin(driver);
 		
-		liveAdminPage.clickCloseIncomingMessage(driver);
+		liveAdminPage.clickDynamicMenu(driver, "close");
 		
 		log.info("Step 3: Goto Sales -> Orders menu");
 		liveAdminPage.clickDynamicMenu(driver, "Sales");
@@ -39,6 +42,7 @@ public class BackEnd_Admin extends AbstractTest{
 		
 		log.info("Step 5: Select checkbox next to first order");
 		liveAdminPage.clickCheckboxOrder2(driver);
+		liveAdminPage.sleepInSecond(3);
 		
 		log.info("Step 6: In action, select Print Invoices. Click button Submit");
 		liveAdminPage.inputDynamicDropdown_ID(driver, "Print Invoices", "sales_order_grid_massaction-select");
@@ -63,17 +67,59 @@ public class BackEnd_Admin extends AbstractTest{
 		
 		log.info("============== AND: " + testMethod.getName() + " ============== ");
 	}
+	@Test
+	public void TC_02_VerifyProductReview(Method testMethod) {
+		log.info("============== START: " + testMethod.getName() + " ============== ");
+		liveHomePage = LivePageFactoryManager.getHomePageLive(driver);
+		
+		log.info("Step 02: Go To Link - http:/live.guru99.com/index.php/review/productilist/id/1/");
+		liveHomePage.openURL(driver, Constansts.LIVE_BACKEND_REVIEW_URL);
+		
+		log.info("Step 03: Fill the required review and submit it");
+		liveHomePage.inputDynamicTextBoxTextArea(driver, review, "review_field");
+		liveHomePage.inputDynamicTextBoxTextArea(driver, summaryReview, "summary_field");
+		liveHomePage.inputDynamicTextBoxTextArea(driver, nickReview, "nickname_field");
+		
+		liveHomePage.clickDynamicButton(driver, "Submit Review");
+		
+		log.info("Step 04: Go to http: //live.guru99.com/index.php/backendlogin");
+		liveAdminPage = LivePageFactoryManager.getAdminPageLive(driver);
+		
+
+		log.info("Step 05: Go to http: //live.guru99.com/index.php/backendlogin");
+		liveAdminPage.inputDynamicTextBoxTextArea(driver, USER, "username");
+		liveAdminPage.inputDynamicTextBoxTextArea(driver, PASS, "login");
+		liveAdminPage.clickLogin(driver);
+		
+		liveAdminPage.clickDynamicMenu(driver, "close");
+		
+		log.info("Step 5: Go to Catalogue -> Reviews and Ratings \r\n" + 
+				"-> Customer Reviews ->Pending Reviews Menu");
+		liveAdminPage.clickDynamicMenu(driver, "Sales");
+		
+		
+		
+		
+		
+		
+		
+		log.info("==============END: " + testMethod.getName() + " ============== ");
+	}
 
 	@Parameters({ "browser", "url" })
 	@BeforeClass
 	public void beforeClass(String browserName, String url) {
 		driver = opentMultiBrowser(browserName, url);
+		liveAdminPage = LivePageFactoryManager.getAdminPageLive(driver);
 		
 		USER="user01";
 		PASS="guru99com";
+		review="This is good prouct";
+		summaryReview="Good";
+		nickReview="";
 	}
 	@AfterClass(alwaysRun = true)
 	public void afterClass() {
-		closeBrowserAndDriver(driver);
+		//closeBrowserAndDriver(driver);
 	}
 }

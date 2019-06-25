@@ -81,7 +81,7 @@ public class AbstractTest {
 		} else if (url.equals("Live")) {
 			driver.get(Constansts.LIVE_URL);
 		}else if (url.equals("Live_Backend")) {
-			driver.get(Constansts.LIVE_BACKAND_URL);
+			driver.get(Constansts.LIVE_BACKEND_URL);
 		}
 		
 		
