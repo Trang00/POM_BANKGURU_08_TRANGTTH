@@ -43,4 +43,8 @@ public class LiveHomePageUI {
 	
 	public static final String LIST_PRICE = "//li[@class='item last']//div[@class='product-info']//div[@class='price-box']";
 	
+	public static final String REVIEW_TAB="//li[@class='last']//span[text()='Reviews']";
+	
+	public static final String VERYFY_REVIEW_TOP1="//div[@id='customer-reviews']//dl//dt[1]";
+	
 }

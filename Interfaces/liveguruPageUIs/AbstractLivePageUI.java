@@ -34,6 +34,13 @@ public class AbstractLivePageUI {
 	public static final String DYNAMIC_CONTINUE="//h2[text()='%s']/parent::div/following-sibling::div//span[text()='Continue']";
 	
 	public static final String DYNAMIC_ORDER_GENERATED="//td[contains(text(),'%s')]/following-sibling::td//span";
+	
+	public static final String DYNAMIC_IMG="//a[text()='%s']/ancestor::div[@class='product-info']/preceding-sibling::a";
+
+	public static final String VERIFY_TABLE_CUSTOMERS="//table[@id='customerGrid_table']/tbody/tr[1]/td[%s]";
+	
+	public static final String VERIFY_ITEMS_SELECTED="//strong [@id='%s']";
+	
 	//
 
 }

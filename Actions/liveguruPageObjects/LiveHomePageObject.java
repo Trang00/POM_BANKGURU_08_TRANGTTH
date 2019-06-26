@@ -12,6 +12,10 @@ public class LiveHomePageObject extends AbstractPage{
 	public LiveHomePageObject(WebDriver driverMapping) {
 		driver=driverMapping;
 	}
+	public LiveAdminPageObject openAdminPage(String AdminPageUrl) {
+		openURL(driver, AdminPageUrl);
+		return LivePageFactoryManager.getAdminPageLive(driver);
+	}
 	public void clickAccountMenu() {
 		waitForControlVisible(driver, LiveHomePageUI.ACCOUNT_MENU_HEADER);
 		clickToElement(driver, LiveHomePageUI.ACCOUNT_MENU_HEADER);
@@ -92,6 +96,14 @@ public class LiveHomePageObject extends AbstractPage{
 	public void clickButtonSearch(WebDriver driver) {
 		waitForControlVisible(driver, LiveHomePageUI.BUTTON_SEARCH);
 		clickToElementByJS(driver,  LiveHomePageUI.BUTTON_SEARCH);
+	}
+	public void clickReviewTab(WebDriver driver) {
+		waitForControlVisible(driver, LiveHomePageUI.REVIEW_TAB);
+		clickToElementByJS(driver, LiveHomePageUI.REVIEW_TAB);
+	}
+	public String GetReviewDisplayed() {
+		waitForControlVisible(driver, LiveHomePageUI.VERYFY_REVIEW_TOP1);
+		return getTextInElement(driver, LiveHomePageUI.VERYFY_REVIEW_TOP1);
 	}
 	
 }

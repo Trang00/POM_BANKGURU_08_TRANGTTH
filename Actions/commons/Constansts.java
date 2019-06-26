@@ -6,7 +6,7 @@ public class Constansts {
 	public static final String BANK_URL="http://demo.guru99.com/V4";
 	public static final String LIVE_URL="http://live.guru99.com";
 	public static final String LIVE_BACKEND_URL="http://live.guru99.com/index.php/backendlogin";
-	public static final String LIVE_BACKEND_REVIEW_URL="http://live.guru99.com/index.php/review/productilist/id/1/";
+	public static final String LIVE_BACKEND_REVIEW_URL="http://live.guru99.com/index.php/review/product/list/id/1/";
 	
 	
 	public static final String USER="mngr192711";

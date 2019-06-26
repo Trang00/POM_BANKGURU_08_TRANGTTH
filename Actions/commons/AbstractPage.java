@@ -188,8 +188,6 @@ public class AbstractPage {
 	}
 
 	public String getTextDynamicInElement(WebDriver driver, String locator,String ...dynamicValue) {
-		//
-		//highlight(driver, AbstractPageUI.DYNAMIC_TEXT);
 		locator=String.format(locator, (Object[])dynamicValue );
 		highlightElement(driver, locator);
 		WebElement element = driver.findElement(By.xpath(locator));
@@ -770,8 +768,8 @@ public class AbstractPage {
 	}
 	public void clickDynamicButton(WebDriver driver,String dynamicValue) {
 		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_BUTTON, dynamicValue);
-		//clickToElement(driver, AbstractLivePageUI.DYNAMIC_BUTTON, dynamicValue);
-		clickToElementByJS(driver, AbstractLivePageUI.DYNAMIC_BUTTON, dynamicValue);
+		clickToElement(driver, AbstractLivePageUI.DYNAMIC_BUTTON, dynamicValue);
+		//clickToElementByJS(driver, AbstractLivePageUI.DYNAMIC_BUTTON, dynamicValue);
 	}
 	public void inputDynamicTextBoxTextArea(WebDriver driver,String value, String dynamicValue) {
 		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_TEXTBOX_TEXTAREA_RADIO, dynamicValue);
@@ -861,5 +859,16 @@ public class AbstractPage {
 		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_DROPDOWN_ID, dynamicValue);
 		selectItemInHtmlDropdownDynamic(driver, valueInDropdown, AbstractLivePageUI.DYNAMIC_DROPDOWN_ID, dynamicValue);
 	}
-
+	public void clickDynamicImg(WebDriver driver,String dynamicValue) {
+		waitForControlVisible(driver, AbstractLivePageUI.DYNAMIC_IMG, dynamicValue);
+		clickToElement(driver, AbstractLivePageUI.DYNAMIC_IMG, dynamicValue);
+	}
+	public String getVerifyTableCustomerLive(WebDriver driver,String dynamicValue ) {
+		waitForControlVisible(driver, AbstractLivePageUI.VERIFY_TABLE_CUSTOMERS, dynamicValue);
+		return getTextDynamicInElement(driver, AbstractLivePageUI.VERIFY_TABLE_CUSTOMERS, dynamicValue);
+	}
+	public String getVerifyItemsSelectedLive(WebDriver driver,String dynamicValue ) {
+		waitForControlVisible(driver, AbstractLivePageUI.VERIFY_ITEMS_SELECTED, dynamicValue);
+		return getTextDynamicInElement(driver, AbstractLivePageUI.VERIFY_ITEMS_SELECTED, dynamicValue);
+	}
 }
