@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="Testcases"/>
-	<classpathentry kind="src" path="Testdatas"/>
 	<classpathentry kind="src" path="Actions"/>
 	<classpathentry kind="src" path="Interfaces"/>
 	<classpathentry kind="src" path="Resources"/>

@@ -3,8 +3,8 @@ package com.liveguru;
 import java.lang.reflect.Method;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -20,7 +20,7 @@ public class BackEnd_Admin extends AbstractTest{
 	private LiveAdminPageObject liveAdminPage;
 	private LiveHomePageObject liveHomePage;
 	private String USER, PASS,review,summaryReview,nickReview, ID, Name, Email, Telephone, Zip, Country,State; 
-	
+	@Test
 	public void TC_01_VerifyInvoiceCanBePrinted(Method testMethod) {
 		log.info("============== START: " + testMethod.getName() + " ============== ");
 		
@@ -39,9 +39,9 @@ public class BackEnd_Admin extends AbstractTest{
 		log.info("Step 4:  In the status field select 'Canceled'. Click Search");
 		liveAdminPage.inputDynamicDropdown(driver, "Canceled", "status");
 		liveAdminPage.clickDynamicButton(driver, "Search");
-		
+		liveAdminPage.sleepInSecond(3);
 		log.info("Step 5: Select checkbox next to first order");
-		liveAdminPage.clickCheckboxOrder2(driver);
+		liveAdminPage.clickCheckboxOrder(driver);
 		liveAdminPage.sleepInSecond(3);
 		
 		log.info("Step 6: In action, select Print Invoices. Click button Submit");
@@ -53,21 +53,25 @@ public class BackEnd_Admin extends AbstractTest{
 		
 		log.info("Step 8: Select Complete. Click search");
 		liveAdminPage.inputDynamicDropdown(driver, "Complete", "status");
-		liveAdminPage.clickDynamicButton(driver, "Search");
-		
+		liveAdminPage.sleepInSecond(3);
+		//liveAdminPage.scrollToTopPage(driver);
+		//liveAdminPage.sleepInSecond(5);
+		liveAdminPage.clickDynamicButton(driver, "Search");//
+		liveAdminPage.sleepInSecond(2);
 		log.info("Step 9: Select checkbox next to first order");
-		liveAdminPage.clickCheckboxOrder2(driver);
+		liveAdminPage.clickCheckboxOrder(driver);
 		
 		log.info("Step 10: In action, select Print Invoices. Click button Submit");
 		liveAdminPage.inputDynamicDropdown_ID(driver, "Print Invoices", "sales_order_grid_massaction-select");
 		liveAdminPage.clickDynamicButton(driver, "Submit");
 		
 		log.info("Step 11: Verify invoice is downloaded");
-		liveAdminPage.acceptAlert(driver);
+		liveAdminPage.sleepInSecond(2);
+		//liveAdminPage.acceptAlert(driver);
 		
 		log.info("============== AND: " + testMethod.getName() + " ============== ");
 	}
-
+	@Test
 	public void TC_02_VerifyProductReview(Method testMethod) {
 		log.info("============== START: " + testMethod.getName() + " ============== ");
 		log.info("Step 01:  http://live.guru99.com/");
@@ -127,7 +131,7 @@ public class BackEnd_Admin extends AbstractTest{
 		
 		log.info("==============END: " + testMethod.getName() + " ============== ");
 	}
-	
+	@Test
 	public void TC_03_VerifySortIsWorkingCorrectly(Method testMethod) {
 		log.info("============== START: " + testMethod.getName() + " ============== ");
 		log.info("Step 02: Login");
@@ -171,7 +175,7 @@ public class BackEnd_Admin extends AbstractTest{
 		
 		log.info("==============END: " + testMethod.getName() + " ============== ");
 		}
-	
+	@Test
 	public void TC_04_VerifyPaginationFunctionality(Method testMethod) {
 		log.info("============== START: " + testMethod.getName() + " ============== ");
 		log.info("Step 02: Login");
@@ -212,7 +216,7 @@ public class BackEnd_Admin extends AbstractTest{
 		log.info("AB="+CountRowTable);
 		log.info("==============END: " + testMethod.getName() + " ============== ");
 		}
-
+	@Test
 	public void TC_05_VerifySeachFunctionality(Method testMethod) {
 		log.info("============== START: " + testMethod.getName() + " ============== ");
 		log.info("Step 02: Login");
@@ -288,23 +292,50 @@ public class BackEnd_Admin extends AbstractTest{
 		
 		log.info("Step 4: Click Select Visible link");
 		liveAdminPage.clickDynamicLink(driver, "Select Visible");
-		verifyEquals(liveAdminPage.getVerifyItemsSelectedLive(driver, "sales_order_grid_massaction-count"),20);
+		verifyEquals(liveAdminPage.getVerifyItemsSelectedLive(driver, "sales_order_grid_massaction-count"),"20");//???
 		
 		
 		
+		
+		
+		
+		
+		
+		log.info("Step 5: Click Unselect Visible link");
+		liveAdminPage.clickDynamicLink(driver, "Unselect Visible");
+		verifyEquals(liveAdminPage.getVerifyItemsSelectedLive(driver, "sales_order_grid_massaction-count"),"0");
 		
 		
 		
 		
 		log.info("==============END: " + testMethod.getName() + " ============== ");
 		}
-	
+	@Test
 	public void TC_07_VerifyDisabledFields(Method testMethod) {
 		log.info("============== START: " + testMethod.getName() + " ============== ");
+		log.info("Step 02: Login");
+		liveAdminPage.inputDynamicTextBoxTextArea(driver, USER, "username");
+		liveAdminPage.inputDynamicTextBoxTextArea(driver, PASS, "login");
+		liveAdminPage.clickLogin(driver);
+		
+		liveAdminPage.clickDynamicMenu(driver, "close");
+		
+		log.info("Step 3: Go to Customer -> Manage Customer menu");
+		liveAdminPage.clickDynamicMenu(driver, "Customers");
+		liveAdminPage.clickDynamicMenu(driver, "Manage Customers");
+		
+		log.info("Step 4: Open any customer's detail by clicking on view link in the grid");
+		
+		log.info("Step 5: Click on 'Account Information' tab for the customer's detail page");
+		
+		log.info("Step 6:  Verify disabled fields");
+		
+		log.info("Step 7:  Verify Blank fields");
+		
 		log.info("==============END: " + testMethod.getName() + " ============== ");
 		}
 	@Parameters({ "browser", "url" })
-	@BeforeClass
+	@BeforeMethod
 	public void beforeClass(String browserName, String url) {
 		driver = opentMultiBrowser(browserName, url);
 		liveAdminPage = LivePageFactoryManager.getAdminPageLive(driver);
@@ -323,8 +354,8 @@ public class BackEnd_Admin extends AbstractTest{
 		Country="Vietnam";
 		State="Cam Le";
 	}
-	@AfterClass(alwaysRun = true)
+	@AfterMethod(alwaysRun = true)
 	public void afterClass() {
-		//closeBrowserAndDriver(driver);
+		closeBrowserAndDriver(driver);
 	}
 }

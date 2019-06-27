@@ -1,40 +1,6 @@
-2019-06-26 22:31:27,929 INFO  com.liveguru.BackEnd_Admin - ============== START: TC_05_VerifySeachFunctionality ============== 
-2019-06-26 22:31:27,933 INFO  com.liveguru.BackEnd_Admin - Step 02: Login
-2019-06-26 22:31:33,591 INFO  com.liveguru.BackEnd_Admin - Step 3: Go to Customer- > manage customers
-2019-06-26 22:31:35,150 INFO  com.liveguru.BackEnd_Admin - Step 4: Seach data with each criteria:
-2019-06-26 22:31:35,151 INFO  com.liveguru.BackEnd_Admin - ID
-2019-06-26 22:31:40,703 INFO  com.liveguru.BackEnd_Admin - Actual=32562
-2019-06-26 22:31:40,704 INFO  com.liveguru.BackEnd_Admin - Expected=32562
-2019-06-26 22:31:40,704 INFO  com.liveguru.BackEnd_Admin - Compare value=true
-2019-06-26 22:31:40,705 INFO  com.liveguru.BackEnd_Admin - ===PASSED===
-2019-06-26 22:31:40,707 INFO  com.liveguru.BackEnd_Admin - Name
-2019-06-26 22:31:44,846 INFO  com.liveguru.BackEnd_Admin - Actual=Automation FC
-2019-06-26 22:31:44,847 INFO  com.liveguru.BackEnd_Admin - Expected=Automation FC
-2019-06-26 22:31:44,847 INFO  com.liveguru.BackEnd_Admin - Compare value=true
-2019-06-26 22:31:44,847 INFO  com.liveguru.BackEnd_Admin - ===PASSED===
-2019-06-26 22:31:44,848 INFO  com.liveguru.BackEnd_Admin - Email
-2019-06-26 22:31:48,547 INFO  com.liveguru.BackEnd_Admin - Actual=automationfc.vn@gmail.com
-2019-06-26 22:31:48,549 INFO  com.liveguru.BackEnd_Admin - Expected=automationfc.vn@gmail.com
-2019-06-26 22:31:48,550 INFO  com.liveguru.BackEnd_Admin - Compare value=true
-2019-06-26 22:31:48,550 INFO  com.liveguru.BackEnd_Admin - ===PASSED===
-2019-06-26 22:31:48,550 INFO  com.liveguru.BackEnd_Admin - Telephone
-2019-06-26 22:31:52,167 INFO  com.liveguru.BackEnd_Admin - Actual=0123654789
-2019-06-26 22:31:52,168 INFO  com.liveguru.BackEnd_Admin - Expected=0123654789
-2019-06-26 22:31:52,168 INFO  com.liveguru.BackEnd_Admin - Compare value=true
-2019-06-26 22:31:52,168 INFO  com.liveguru.BackEnd_Admin - ===PASSED===
-2019-06-26 22:31:52,168 INFO  com.liveguru.BackEnd_Admin - Zip
-2019-06-26 22:31:55,799 INFO  com.liveguru.BackEnd_Admin - Actual=550000
-2019-06-26 22:31:55,799 INFO  com.liveguru.BackEnd_Admin - Expected=550000
-2019-06-26 22:31:55,799 INFO  com.liveguru.BackEnd_Admin - Compare value=true
-2019-06-26 22:31:55,800 INFO  com.liveguru.BackEnd_Admin - ===PASSED===
-2019-06-26 22:31:55,800 INFO  com.liveguru.BackEnd_Admin - Country
-2019-06-26 22:31:59,643 INFO  com.liveguru.BackEnd_Admin - Actual=Vietnam
-2019-06-26 22:31:59,643 INFO  com.liveguru.BackEnd_Admin - Expected=Vietnam
-2019-06-26 22:31:59,644 INFO  com.liveguru.BackEnd_Admin - Compare value=true
-2019-06-26 22:31:59,644 INFO  com.liveguru.BackEnd_Admin - ===PASSED===
-2019-06-26 22:31:59,644 INFO  com.liveguru.BackEnd_Admin - State
-2019-06-26 22:32:03,288 INFO  com.liveguru.BackEnd_Admin - Actual=Cam Le
-2019-06-26 22:32:03,289 INFO  com.liveguru.BackEnd_Admin - Expected=Cam Le
-2019-06-26 22:32:03,289 INFO  com.liveguru.BackEnd_Admin - Compare value=true
-2019-06-26 22:32:03,289 INFO  com.liveguru.BackEnd_Admin - ===PASSED===
-2019-06-26 22:32:03,289 INFO  com.liveguru.BackEnd_Admin - ==============END: TC_05_VerifySeachFunctionality ============== 
+2019-06-27 15:01:50,764 INFO  com.liveguru.BackEnd_Admin - ============== START: TC_01_VerifyInvoiceCanBePrinted ============== 
+2019-06-27 15:01:50,768 INFO  com.liveguru.BackEnd_Admin - Step 2: Login
+2019-06-27 15:02:12,228 INFO  com.liveguru.BackEnd_Admin - ============== START: TC_02_VerifyProductReview ============== 
+2019-06-27 15:02:12,228 INFO  com.liveguru.BackEnd_Admin - Step 01:  http://live.guru99.com/
+2019-06-27 15:02:14,477 INFO  com.liveguru.BackEnd_Admin - ============== START: TC_03_VerifySortIsWorkingCorrectly ============== 
+2019-06-27 15:02:14,478 INFO  com.liveguru.BackEnd_Admin - Step 02: Login

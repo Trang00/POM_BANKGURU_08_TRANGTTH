@@ -491,6 +491,10 @@ public class AbstractPage {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		return js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
 	}
+	public Object scrollToTopPage(WebDriver driver) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		return js.executeScript("window.scrollBy(document.body.scrollHeight,0)");
+	}
 
 	public void scrollToElement(WebDriver driver, String locator) {
 		WebElement element = driver.findElement(By.xpath(locator));
@@ -871,4 +875,5 @@ public class AbstractPage {
 		waitForControlVisible(driver, AbstractLivePageUI.VERIFY_ITEMS_SELECTED, dynamicValue);
 		return getTextDynamicInElement(driver, AbstractLivePageUI.VERIFY_ITEMS_SELECTED, dynamicValue);
 	}
+	
 }
