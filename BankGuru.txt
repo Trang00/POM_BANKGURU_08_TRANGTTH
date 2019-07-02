@@ -1,6 +1,6 @@
-2019-06-27 15:01:50,764 INFO  com.liveguru.BackEnd_Admin - ============== START: TC_01_VerifyInvoiceCanBePrinted ============== 
-2019-06-27 15:01:50,768 INFO  com.liveguru.BackEnd_Admin - Step 2: Login
-2019-06-27 15:02:12,228 INFO  com.liveguru.BackEnd_Admin - ============== START: TC_02_VerifyProductReview ============== 
-2019-06-27 15:02:12,228 INFO  com.liveguru.BackEnd_Admin - Step 01:  http://live.guru99.com/
-2019-06-27 15:02:14,477 INFO  com.liveguru.BackEnd_Admin - ============== START: TC_03_VerifySortIsWorkingCorrectly ============== 
-2019-06-27 15:02:14,478 INFO  com.liveguru.BackEnd_Admin - Step 02: Login
+2019-07-02 11:24:48,724 INFO  com.bankguru.account.RegisterLogin_Global - ============== START: TC_01_RegisterToSystem ============== 
+2019-07-02 11:24:48,726 INFO  com.bankguru.account.RegisterLogin_Global - TC_01 - Step 01: Click to hete link
+2019-07-02 11:25:42,303 INFO  com.bankguru.account.RegisterLogin_Global - ============== START: TC_01_RegisterToSystem ============== 
+2019-07-02 11:25:42,304 INFO  com.bankguru.account.RegisterLogin_Global - TC_01 - Step 01: Click to hete link
+2019-07-02 11:26:27,990 INFO  com.bankguru.account.RegisterLogin_Global - ============== START: TC_01_RegisterToSystem ============== 
+2019-07-02 11:26:27,991 INFO  com.bankguru.account.RegisterLogin_Global - TC_01 - Step 01: Click to hete link

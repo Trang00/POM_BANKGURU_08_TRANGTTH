@@ -693,6 +693,10 @@ public class AbstractPage {
 	
 	public void inputDynamicText(WebDriver driver,String values, String dynamicValue) {
 		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_SENKEY, dynamicValue);
+		senkeyToElement(driver, values, AbstractPageUI.DYNAMIC_SENKEY, dynamicValue);
+	}
+	public void inputDynamicText1(WebDriver driver,String values, String dynamicValue) {
+		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_SENKEY, dynamicValue);
 		if(driver.toString().contains("chrome")) {
 			removeAttributeInDOM(driver, AbstractPageUI.DYNAMIC_SENKEY, "type", values);
 		}

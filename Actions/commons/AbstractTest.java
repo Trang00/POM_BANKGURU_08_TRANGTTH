@@ -30,7 +30,7 @@ public class AbstractTest {
 		
 		if (browserName.equals("chrome")) {
 			System.setProperty("webdriver.chrome.driver", ".\\Resources\\chromedriver.exe");
-			//WebDriverManager.chromedriver().setup();
+			//WebDriverManager.chromedriver().arch32().setup();
 			
 			ChromeOptions options= new ChromeOptions();
 			options.addArguments("--disable-extensions--");
@@ -44,8 +44,6 @@ public class AbstractTest {
 			//FirefoxOptions options=new FirefoxOptions();
 			driver = new FirefoxDriver();
 		} else if (browserName.equals("ie")) {
-			//WebDriverManager.chromedriver().arch32().setup();
-			//WebDriverManager.chromedriver().arch64().setup();
 			System.setProperty("webdriver.ie.driver", ".\\Resources\\IEDriverServer.exe");
 			DesiredCapabilities capability= DesiredCapabilities.internetExplorer();
 			capability.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
