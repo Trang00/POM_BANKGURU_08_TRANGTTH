@@ -1,12 +1,9 @@
 package com.liveguru;
 
 import java.lang.reflect.Method;
-import java.text.NumberFormat;
 import java.text.ParseException;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.server.handler.FindElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
@@ -23,7 +20,7 @@ public class BackEnd_Admin extends AbstractTest {
 	private LiveAdminPageObject liveAdminPage;
 	private LiveHomePageObject liveHomePage;
 	private String USER, PASS, review, summaryReview, nickReview, ID, Name, Email, Telephone, Zip, Country, State;
-
+@Test
 	public void TC_01_VerifyInvoiceCanBePrinted(Method testMethod) {
 		log.info("============== START: " + testMethod.getName() + " ============== ");
 
@@ -70,11 +67,10 @@ public class BackEnd_Admin extends AbstractTest {
 
 		log.info("Step 11: Verify invoice is downloaded");
 		liveAdminPage.sleepInSecond(2);
-		// liveAdminPage.acceptAlert(driver);
-
+	
 		log.info("============== AND: " + testMethod.getName() + " ============== ");
 	}
-
+@Test
 	public void TC_02_VerifyProductReview(Method testMethod) {
 		log.info("============== START: " + testMethod.getName() + " ============== ");
 		log.info("Step 01:  http://live.guru99.com/");
@@ -134,7 +130,7 @@ public class BackEnd_Admin extends AbstractTest {
 
 		log.info("==============END: " + testMethod.getName() + " ============== ");
 	}
-
+@Test
 	public void TC_03_VerifySortIsWorkingCorrectly(Method testMethod) {
 		log.info("============== START: " + testMethod.getName() + " ============== ");
 		log.info("Step 02: Login");
@@ -197,16 +193,6 @@ public class BackEnd_Admin extends AbstractTest {
 		liveAdminPage.inputDynamicDropdown(driver, "20", "limit");
 		liveAdminPage.sleepInSecond(2);
 		
-		int CountRowTable = liveAdminPage.countElementNumber(driver,"//table[@id='sales_invoice_grid_table']/tbody/tr");
-		log.info("AB=" + CountRowTable);
-
-		
-		
-		
-		
-		/*
-		
-
 		log.info("- 30");
 		liveAdminPage.inputDynamicDropdown(driver, "30", "limit");
 		liveAdminPage.sleepInSecond(2);
@@ -227,10 +213,10 @@ public class BackEnd_Admin extends AbstractTest {
 		int CountRowTable = liveAdminPage.countElementNumber(driver,
 				"//table[@id='sales_invoice_grid_table']/tbody/tr");
 		log.info("AB=" + CountRowTable);
-		*/
+	
 		log.info("==============END: " + testMethod.getName() + " ============== ");
 	}
-
+@Test
 	public void TC_05_VerifySeachFunctionality(Method testMethod) {
 		log.info("============== START: " + testMethod.getName() + " ============== ");
 		log.info("Step 02: Login");
@@ -289,7 +275,7 @@ public class BackEnd_Admin extends AbstractTest {
 
 		log.info("==============END: " + testMethod.getName() + " ============== ");
 	}
-
+@Test
 	public void TC_06_VerifySelectCheckboxFunctionality(Method testMethod) {
 		log.info("============== START: " + testMethod.getName() + " ============== ");
 		log.info("Step 02: Login");
@@ -313,7 +299,7 @@ public class BackEnd_Admin extends AbstractTest {
 
 		log.info("==============END: " + testMethod.getName() + " ============== ");
 	}
-
+@Test
 	public void TC_07_VerifyDisabledFields(Method testMethod) {
 		log.info("============== START: " + testMethod.getName() + " ============== ");
 		log.info("Step 02: Login");
@@ -361,6 +347,6 @@ public class BackEnd_Admin extends AbstractTest {
 
 	@AfterMethod(alwaysRun = true)
 	public void afterClass() {
-		// closeBrowserAndDriver(driver);
+		closeBrowserAndDriver(driver);
 	}
 }
